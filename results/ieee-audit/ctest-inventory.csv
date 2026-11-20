@@ -1,0 +1,377 @@
+profile,mode,registered_name,ctest_outcome
+BASELINE,Release,sqisign_test_shake256,passed
+BASELINE,Release,sqisign_test_prng,passed
+BASELINE,Release,sqisign_test_ctrdrbg_kat,passed
+BASELINE,Release,sqisign_test_ctrdrbg_threads,not selected
+BASELINE,Release,sqisign_test_prng_kat,passed
+BASELINE,Release,sqisign_test_mp_p324_3,not selected
+BASELINE,Release,sqisign_test_mp_p500_27,not selected
+BASELINE,Release,sqisign_test_mp_p664_17,not selected
+BASELINE,Release,sqisign_test_gf_p324_3_fp,not selected
+BASELINE,Release,sqisign_test_gf_p324_3_fp2,not selected
+BASELINE,Release,sqisign_test_gf_p500_27_fp,not selected
+BASELINE,Release,sqisign_test_gf_p500_27_fp2,not selected
+BASELINE,Release,sqisign_test_gf_p664_17_fp,not selected
+BASELINE,Release,sqisign_test_gf_p664_17_fp2,not selected
+BASELINE,Release,sqisign_test_quaternion_p324_3,not selected
+BASELINE,Release,sqisign_test_quaternion_p500_27,not selected
+BASELINE,Release,sqisign_test_quaternion_p664_17,not selected
+BASELINE,Release,curve_arith.test_p324_3,not selected
+BASELINE,Release,ec_biextension.test_p324_3,not selected
+BASELINE,Release,ec_basis_gen.test_p324_3,not selected
+BASELINE,Release,curve_arith.test_p500_27,not selected
+BASELINE,Release,ec_biextension.test_p500_27,not selected
+BASELINE,Release,ec_basis_gen.test_p500_27,not selected
+BASELINE,Release,curve_arith.test_p664_17,not selected
+BASELINE,Release,ec_biextension.test_p664_17,not selected
+BASELINE,Release,ec_basis_gen.test_p664_17,not selected
+BASELINE,Release,sqisign_test_id2iso_p324_3,not selected
+BASELINE,Release,sqisign_test_id2iso_p500_27,not selected
+BASELINE,Release,sqisign_test_id2iso_p664_17,not selected
+BASELINE,Release,sqisign_test_signature_p324_3,not selected
+BASELINE,Release,sqisign_test_threadsafety_p324_3,passed
+BASELINE,Release,sqisign_test_signature_p500_27,not selected
+BASELINE,Release,sqisign_test_threadsafety_p500_27,passed
+BASELINE,Release,sqisign_test_signature_p664_17,not selected
+BASELINE,Release,sqisign_test_threadsafety_p664_17,passed
+BASELINE,Release,sqisign_test_nistapi_p324_3,passed
+BASELINE,Release,sqisign_test_nistapi_p500_27,passed
+BASELINE,Release,sqisign_test_nistapi_p664_17,passed
+BASELINE,Release,sqisign_p324_3_KAT,passed
+BASELINE,Release,sqisign_p324_3_SELFTEST,passed
+BASELINE,Release,sqisign_p500_27_KAT,passed
+BASELINE,Release,sqisign_p500_27_SELFTEST,passed
+BASELINE,Release,sqisign_p664_17_KAT,passed
+BASELINE,Release,sqisign_p664_17_SELFTEST,passed
+BASELINE,Release,research_system_p324_3,passed
+BASELINE,Release,research_system_p500_27,passed
+BASELINE,Release,research_system_p664_17,passed
+BASELINE,San,sqisign_test_shake256,passed
+BASELINE,San,sqisign_test_prng,passed
+BASELINE,San,sqisign_test_ctrdrbg_kat,passed
+BASELINE,San,sqisign_test_ctrdrbg_threads,not selected
+BASELINE,San,sqisign_test_prng_kat,passed
+BASELINE,San,sqisign_test_mp_p324_3,not selected
+BASELINE,San,sqisign_test_mp_p500_27,not selected
+BASELINE,San,sqisign_test_mp_p664_17,not selected
+BASELINE,San,sqisign_test_gf_p324_3_fp,not selected
+BASELINE,San,sqisign_test_gf_p324_3_fp2,not selected
+BASELINE,San,sqisign_test_gf_p500_27_fp,not selected
+BASELINE,San,sqisign_test_gf_p500_27_fp2,not selected
+BASELINE,San,sqisign_test_gf_p664_17_fp,not selected
+BASELINE,San,sqisign_test_gf_p664_17_fp2,not selected
+BASELINE,San,sqisign_test_quaternion_p324_3,not selected
+BASELINE,San,sqisign_test_quaternion_p500_27,not selected
+BASELINE,San,sqisign_test_quaternion_p664_17,not selected
+BASELINE,San,curve_arith.test_p324_3,not selected
+BASELINE,San,ec_biextension.test_p324_3,not selected
+BASELINE,San,ec_basis_gen.test_p324_3,not selected
+BASELINE,San,curve_arith.test_p500_27,not selected
+BASELINE,San,ec_biextension.test_p500_27,not selected
+BASELINE,San,ec_basis_gen.test_p500_27,not selected
+BASELINE,San,curve_arith.test_p664_17,not selected
+BASELINE,San,ec_biextension.test_p664_17,not selected
+BASELINE,San,ec_basis_gen.test_p664_17,not selected
+BASELINE,San,sqisign_test_id2iso_p324_3,not selected
+BASELINE,San,sqisign_test_id2iso_p500_27,not selected
+BASELINE,San,sqisign_test_id2iso_p664_17,not selected
+BASELINE,San,sqisign_test_signature_p324_3,not selected
+BASELINE,San,sqisign_test_threadsafety_p324_3,passed
+BASELINE,San,sqisign_test_signature_p500_27,not selected
+BASELINE,San,sqisign_test_threadsafety_p500_27,passed
+BASELINE,San,sqisign_test_signature_p664_17,not selected
+BASELINE,San,sqisign_test_threadsafety_p664_17,passed
+BASELINE,San,sqisign_test_nistapi_p324_3,passed
+BASELINE,San,sqisign_test_nistapi_p500_27,passed
+BASELINE,San,sqisign_test_nistapi_p664_17,passed
+BASELINE,San,sqisign_p324_3_KAT,not selected
+BASELINE,San,sqisign_p324_3_SELFTEST,passed
+BASELINE,San,sqisign_p500_27_KAT,not selected
+BASELINE,San,sqisign_p500_27_SELFTEST,passed
+BASELINE,San,sqisign_p664_17_KAT,not selected
+BASELINE,San,sqisign_p664_17_SELFTEST,passed
+BASELINE,San,research_system_p324_3,passed
+BASELINE,San,research_system_p500_27,passed
+BASELINE,San,research_system_p664_17,passed
+COMBINED,Release,sqisign_test_shake256,passed
+COMBINED,Release,sqisign_test_prng,passed
+COMBINED,Release,sqisign_test_ctrdrbg_kat,passed
+COMBINED,Release,sqisign_test_ctrdrbg_threads,not selected
+COMBINED,Release,sqisign_test_prng_kat,passed
+COMBINED,Release,sqisign_test_mp_p324_3,not selected
+COMBINED,Release,sqisign_test_mp_p500_27,not selected
+COMBINED,Release,sqisign_test_mp_p664_17,not selected
+COMBINED,Release,sqisign_test_gf_p324_3_fp,not selected
+COMBINED,Release,sqisign_test_gf_p324_3_fp2,not selected
+COMBINED,Release,sqisign_test_gf_p500_27_fp,not selected
+COMBINED,Release,sqisign_test_gf_p500_27_fp2,not selected
+COMBINED,Release,sqisign_test_gf_p664_17_fp,not selected
+COMBINED,Release,sqisign_test_gf_p664_17_fp2,not selected
+COMBINED,Release,sqisign_test_quaternion_p324_3,not selected
+COMBINED,Release,sqisign_test_quaternion_p500_27,not selected
+COMBINED,Release,sqisign_test_quaternion_p664_17,not selected
+COMBINED,Release,curve_arith.test_p324_3,not selected
+COMBINED,Release,ec_biextension.test_p324_3,not selected
+COMBINED,Release,ec_basis_gen.test_p324_3,not selected
+COMBINED,Release,curve_arith.test_p500_27,not selected
+COMBINED,Release,ec_biextension.test_p500_27,not selected
+COMBINED,Release,ec_basis_gen.test_p500_27,not selected
+COMBINED,Release,curve_arith.test_p664_17,not selected
+COMBINED,Release,ec_biextension.test_p664_17,not selected
+COMBINED,Release,ec_basis_gen.test_p664_17,not selected
+COMBINED,Release,sqisign_test_id2iso_p324_3,not selected
+COMBINED,Release,sqisign_test_id2iso_p500_27,not selected
+COMBINED,Release,sqisign_test_id2iso_p664_17,not selected
+COMBINED,Release,sqisign_test_signature_p324_3,not selected
+COMBINED,Release,sqisign_test_threadsafety_p324_3,passed
+COMBINED,Release,sqisign_test_signature_p500_27,not selected
+COMBINED,Release,sqisign_test_threadsafety_p500_27,passed
+COMBINED,Release,sqisign_test_signature_p664_17,not selected
+COMBINED,Release,sqisign_test_threadsafety_p664_17,passed
+COMBINED,Release,sqisign_test_nistapi_p324_3,passed
+COMBINED,Release,sqisign_test_nistapi_p500_27,passed
+COMBINED,Release,sqisign_test_nistapi_p664_17,passed
+COMBINED,Release,sqisign_p324_3_KAT,passed
+COMBINED,Release,sqisign_p324_3_SELFTEST,passed
+COMBINED,Release,sqisign_p500_27_KAT,passed
+COMBINED,Release,sqisign_p500_27_SELFTEST,passed
+COMBINED,Release,sqisign_p664_17_KAT,passed
+COMBINED,Release,sqisign_p664_17_SELFTEST,passed
+COMBINED,Release,research_system_p324_3,passed
+COMBINED,Release,research_system_p500_27,passed
+COMBINED,Release,research_system_p664_17,passed
+COMBINED,San,sqisign_test_shake256,passed
+COMBINED,San,sqisign_test_prng,passed
+COMBINED,San,sqisign_test_ctrdrbg_kat,passed
+COMBINED,San,sqisign_test_ctrdrbg_threads,not selected
+COMBINED,San,sqisign_test_prng_kat,passed
+COMBINED,San,sqisign_test_mp_p324_3,not selected
+COMBINED,San,sqisign_test_mp_p500_27,not selected
+COMBINED,San,sqisign_test_mp_p664_17,not selected
+COMBINED,San,sqisign_test_gf_p324_3_fp,not selected
+COMBINED,San,sqisign_test_gf_p324_3_fp2,not selected
+COMBINED,San,sqisign_test_gf_p500_27_fp,not selected
+COMBINED,San,sqisign_test_gf_p500_27_fp2,not selected
+COMBINED,San,sqisign_test_gf_p664_17_fp,not selected
+COMBINED,San,sqisign_test_gf_p664_17_fp2,not selected
+COMBINED,San,sqisign_test_quaternion_p324_3,not selected
+COMBINED,San,sqisign_test_quaternion_p500_27,not selected
+COMBINED,San,sqisign_test_quaternion_p664_17,not selected
+COMBINED,San,curve_arith.test_p324_3,not selected
+COMBINED,San,ec_biextension.test_p324_3,not selected
+COMBINED,San,ec_basis_gen.test_p324_3,not selected
+COMBINED,San,curve_arith.test_p500_27,not selected
+COMBINED,San,ec_biextension.test_p500_27,not selected
+COMBINED,San,ec_basis_gen.test_p500_27,not selected
+COMBINED,San,curve_arith.test_p664_17,not selected
+COMBINED,San,ec_biextension.test_p664_17,not selected
+COMBINED,San,ec_basis_gen.test_p664_17,not selected
+COMBINED,San,sqisign_test_id2iso_p324_3,not selected
+COMBINED,San,sqisign_test_id2iso_p500_27,not selected
+COMBINED,San,sqisign_test_id2iso_p664_17,not selected
+COMBINED,San,sqisign_test_signature_p324_3,not selected
+COMBINED,San,sqisign_test_threadsafety_p324_3,passed
+COMBINED,San,sqisign_test_signature_p500_27,not selected
+COMBINED,San,sqisign_test_threadsafety_p500_27,passed
+COMBINED,San,sqisign_test_signature_p664_17,not selected
+COMBINED,San,sqisign_test_threadsafety_p664_17,passed
+COMBINED,San,sqisign_test_nistapi_p324_3,passed
+COMBINED,San,sqisign_test_nistapi_p500_27,passed
+COMBINED,San,sqisign_test_nistapi_p664_17,passed
+COMBINED,San,sqisign_p324_3_KAT,passed
+COMBINED,San,sqisign_p324_3_SELFTEST,passed
+COMBINED,San,sqisign_p500_27_KAT,passed
+COMBINED,San,sqisign_p500_27_SELFTEST,passed
+COMBINED,San,sqisign_p664_17_KAT,passed
+COMBINED,San,sqisign_p664_17_SELFTEST,passed
+COMBINED,San,research_system_p324_3,passed
+COMBINED,San,research_system_p500_27,passed
+COMBINED,San,research_system_p664_17,passed
+RUSSIAN_PRNG,Release,sqisign_test_shake256,passed
+RUSSIAN_PRNG,Release,sqisign_test_prng,passed
+RUSSIAN_PRNG,Release,sqisign_test_ctrdrbg_kat,passed
+RUSSIAN_PRNG,Release,sqisign_test_ctrdrbg_threads,not selected
+RUSSIAN_PRNG,Release,sqisign_test_prng_kat,passed
+RUSSIAN_PRNG,Release,sqisign_test_mp_p324_3,not selected
+RUSSIAN_PRNG,Release,sqisign_test_mp_p500_27,not selected
+RUSSIAN_PRNG,Release,sqisign_test_mp_p664_17,not selected
+RUSSIAN_PRNG,Release,sqisign_test_gf_p324_3_fp,not selected
+RUSSIAN_PRNG,Release,sqisign_test_gf_p324_3_fp2,not selected
+RUSSIAN_PRNG,Release,sqisign_test_gf_p500_27_fp,not selected
+RUSSIAN_PRNG,Release,sqisign_test_gf_p500_27_fp2,not selected
+RUSSIAN_PRNG,Release,sqisign_test_gf_p664_17_fp,not selected
+RUSSIAN_PRNG,Release,sqisign_test_gf_p664_17_fp2,not selected
+RUSSIAN_PRNG,Release,sqisign_test_quaternion_p324_3,not selected
+RUSSIAN_PRNG,Release,sqisign_test_quaternion_p500_27,not selected
+RUSSIAN_PRNG,Release,sqisign_test_quaternion_p664_17,not selected
+RUSSIAN_PRNG,Release,curve_arith.test_p324_3,not selected
+RUSSIAN_PRNG,Release,ec_biextension.test_p324_3,not selected
+RUSSIAN_PRNG,Release,ec_basis_gen.test_p324_3,not selected
+RUSSIAN_PRNG,Release,curve_arith.test_p500_27,not selected
+RUSSIAN_PRNG,Release,ec_biextension.test_p500_27,not selected
+RUSSIAN_PRNG,Release,ec_basis_gen.test_p500_27,not selected
+RUSSIAN_PRNG,Release,curve_arith.test_p664_17,not selected
+RUSSIAN_PRNG,Release,ec_biextension.test_p664_17,not selected
+RUSSIAN_PRNG,Release,ec_basis_gen.test_p664_17,not selected
+RUSSIAN_PRNG,Release,sqisign_test_id2iso_p324_3,not selected
+RUSSIAN_PRNG,Release,sqisign_test_id2iso_p500_27,not selected
+RUSSIAN_PRNG,Release,sqisign_test_id2iso_p664_17,not selected
+RUSSIAN_PRNG,Release,sqisign_test_signature_p324_3,not selected
+RUSSIAN_PRNG,Release,sqisign_test_threadsafety_p324_3,passed
+RUSSIAN_PRNG,Release,sqisign_test_signature_p500_27,not selected
+RUSSIAN_PRNG,Release,sqisign_test_threadsafety_p500_27,passed
+RUSSIAN_PRNG,Release,sqisign_test_signature_p664_17,not selected
+RUSSIAN_PRNG,Release,sqisign_test_threadsafety_p664_17,passed
+RUSSIAN_PRNG,Release,sqisign_test_nistapi_p324_3,passed
+RUSSIAN_PRNG,Release,sqisign_test_nistapi_p500_27,passed
+RUSSIAN_PRNG,Release,sqisign_test_nistapi_p664_17,passed
+RUSSIAN_PRNG,Release,sqisign_p324_3_KAT,passed
+RUSSIAN_PRNG,Release,sqisign_p324_3_SELFTEST,passed
+RUSSIAN_PRNG,Release,sqisign_p500_27_KAT,passed
+RUSSIAN_PRNG,Release,sqisign_p500_27_SELFTEST,passed
+RUSSIAN_PRNG,Release,sqisign_p664_17_KAT,passed
+RUSSIAN_PRNG,Release,sqisign_p664_17_SELFTEST,passed
+RUSSIAN_PRNG,Release,research_system_p324_3,passed
+RUSSIAN_PRNG,Release,research_system_p500_27,passed
+RUSSIAN_PRNG,Release,research_system_p664_17,passed
+RUSSIAN_PRNG,San,sqisign_test_shake256,passed
+RUSSIAN_PRNG,San,sqisign_test_prng,passed
+RUSSIAN_PRNG,San,sqisign_test_ctrdrbg_kat,passed
+RUSSIAN_PRNG,San,sqisign_test_ctrdrbg_threads,not selected
+RUSSIAN_PRNG,San,sqisign_test_prng_kat,passed
+RUSSIAN_PRNG,San,sqisign_test_mp_p324_3,not selected
+RUSSIAN_PRNG,San,sqisign_test_mp_p500_27,not selected
+RUSSIAN_PRNG,San,sqisign_test_mp_p664_17,not selected
+RUSSIAN_PRNG,San,sqisign_test_gf_p324_3_fp,not selected
+RUSSIAN_PRNG,San,sqisign_test_gf_p324_3_fp2,not selected
+RUSSIAN_PRNG,San,sqisign_test_gf_p500_27_fp,not selected
+RUSSIAN_PRNG,San,sqisign_test_gf_p500_27_fp2,not selected
+RUSSIAN_PRNG,San,sqisign_test_gf_p664_17_fp,not selected
+RUSSIAN_PRNG,San,sqisign_test_gf_p664_17_fp2,not selected
+RUSSIAN_PRNG,San,sqisign_test_quaternion_p324_3,not selected
+RUSSIAN_PRNG,San,sqisign_test_quaternion_p500_27,not selected
+RUSSIAN_PRNG,San,sqisign_test_quaternion_p664_17,not selected
+RUSSIAN_PRNG,San,curve_arith.test_p324_3,not selected
+RUSSIAN_PRNG,San,ec_biextension.test_p324_3,not selected
+RUSSIAN_PRNG,San,ec_basis_gen.test_p324_3,not selected
+RUSSIAN_PRNG,San,curve_arith.test_p500_27,not selected
+RUSSIAN_PRNG,San,ec_biextension.test_p500_27,not selected
+RUSSIAN_PRNG,San,ec_basis_gen.test_p500_27,not selected
+RUSSIAN_PRNG,San,curve_arith.test_p664_17,not selected
+RUSSIAN_PRNG,San,ec_biextension.test_p664_17,not selected
+RUSSIAN_PRNG,San,ec_basis_gen.test_p664_17,not selected
+RUSSIAN_PRNG,San,sqisign_test_id2iso_p324_3,not selected
+RUSSIAN_PRNG,San,sqisign_test_id2iso_p500_27,not selected
+RUSSIAN_PRNG,San,sqisign_test_id2iso_p664_17,not selected
+RUSSIAN_PRNG,San,sqisign_test_signature_p324_3,not selected
+RUSSIAN_PRNG,San,sqisign_test_threadsafety_p324_3,passed
+RUSSIAN_PRNG,San,sqisign_test_signature_p500_27,not selected
+RUSSIAN_PRNG,San,sqisign_test_threadsafety_p500_27,passed
+RUSSIAN_PRNG,San,sqisign_test_signature_p664_17,not selected
+RUSSIAN_PRNG,San,sqisign_test_threadsafety_p664_17,passed
+RUSSIAN_PRNG,San,sqisign_test_nistapi_p324_3,passed
+RUSSIAN_PRNG,San,sqisign_test_nistapi_p500_27,passed
+RUSSIAN_PRNG,San,sqisign_test_nistapi_p664_17,passed
+RUSSIAN_PRNG,San,sqisign_p324_3_KAT,passed
+RUSSIAN_PRNG,San,sqisign_p324_3_SELFTEST,passed
+RUSSIAN_PRNG,San,sqisign_p500_27_KAT,passed
+RUSSIAN_PRNG,San,sqisign_p500_27_SELFTEST,passed
+RUSSIAN_PRNG,San,sqisign_p664_17_KAT,passed
+RUSSIAN_PRNG,San,sqisign_p664_17_SELFTEST,passed
+RUSSIAN_PRNG,San,research_system_p324_3,passed
+RUSSIAN_PRNG,San,research_system_p500_27,passed
+RUSSIAN_PRNG,San,research_system_p664_17,passed
+STREEBOG_HASH,Release,sqisign_test_shake256,passed
+STREEBOG_HASH,Release,sqisign_test_prng,passed
+STREEBOG_HASH,Release,sqisign_test_ctrdrbg_kat,passed
+STREEBOG_HASH,Release,sqisign_test_ctrdrbg_threads,not selected
+STREEBOG_HASH,Release,sqisign_test_prng_kat,passed
+STREEBOG_HASH,Release,sqisign_test_mp_p324_3,not selected
+STREEBOG_HASH,Release,sqisign_test_mp_p500_27,not selected
+STREEBOG_HASH,Release,sqisign_test_mp_p664_17,not selected
+STREEBOG_HASH,Release,sqisign_test_gf_p324_3_fp,not selected
+STREEBOG_HASH,Release,sqisign_test_gf_p324_3_fp2,not selected
+STREEBOG_HASH,Release,sqisign_test_gf_p500_27_fp,not selected
+STREEBOG_HASH,Release,sqisign_test_gf_p500_27_fp2,not selected
+STREEBOG_HASH,Release,sqisign_test_gf_p664_17_fp,not selected
+STREEBOG_HASH,Release,sqisign_test_gf_p664_17_fp2,not selected
+STREEBOG_HASH,Release,sqisign_test_quaternion_p324_3,not selected
+STREEBOG_HASH,Release,sqisign_test_quaternion_p500_27,not selected
+STREEBOG_HASH,Release,sqisign_test_quaternion_p664_17,not selected
+STREEBOG_HASH,Release,curve_arith.test_p324_3,not selected
+STREEBOG_HASH,Release,ec_biextension.test_p324_3,not selected
+STREEBOG_HASH,Release,ec_basis_gen.test_p324_3,not selected
+STREEBOG_HASH,Release,curve_arith.test_p500_27,not selected
+STREEBOG_HASH,Release,ec_biextension.test_p500_27,not selected
+STREEBOG_HASH,Release,ec_basis_gen.test_p500_27,not selected
+STREEBOG_HASH,Release,curve_arith.test_p664_17,not selected
+STREEBOG_HASH,Release,ec_biextension.test_p664_17,not selected
+STREEBOG_HASH,Release,ec_basis_gen.test_p664_17,not selected
+STREEBOG_HASH,Release,sqisign_test_id2iso_p324_3,not selected
+STREEBOG_HASH,Release,sqisign_test_id2iso_p500_27,not selected
+STREEBOG_HASH,Release,sqisign_test_id2iso_p664_17,not selected
+STREEBOG_HASH,Release,sqisign_test_signature_p324_3,not selected
+STREEBOG_HASH,Release,sqisign_test_threadsafety_p324_3,passed
+STREEBOG_HASH,Release,sqisign_test_signature_p500_27,not selected
+STREEBOG_HASH,Release,sqisign_test_threadsafety_p500_27,passed
+STREEBOG_HASH,Release,sqisign_test_signature_p664_17,not selected
+STREEBOG_HASH,Release,sqisign_test_threadsafety_p664_17,passed
+STREEBOG_HASH,Release,sqisign_test_nistapi_p324_3,passed
+STREEBOG_HASH,Release,sqisign_test_nistapi_p500_27,passed
+STREEBOG_HASH,Release,sqisign_test_nistapi_p664_17,passed
+STREEBOG_HASH,Release,sqisign_p324_3_KAT,passed
+STREEBOG_HASH,Release,sqisign_p324_3_SELFTEST,passed
+STREEBOG_HASH,Release,sqisign_p500_27_KAT,passed
+STREEBOG_HASH,Release,sqisign_p500_27_SELFTEST,passed
+STREEBOG_HASH,Release,sqisign_p664_17_KAT,passed
+STREEBOG_HASH,Release,sqisign_p664_17_SELFTEST,passed
+STREEBOG_HASH,Release,research_system_p324_3,passed
+STREEBOG_HASH,Release,research_system_p500_27,passed
+STREEBOG_HASH,Release,research_system_p664_17,passed
+STREEBOG_HASH,San,sqisign_test_shake256,passed
+STREEBOG_HASH,San,sqisign_test_prng,passed
+STREEBOG_HASH,San,sqisign_test_ctrdrbg_kat,passed
+STREEBOG_HASH,San,sqisign_test_ctrdrbg_threads,not selected
+STREEBOG_HASH,San,sqisign_test_prng_kat,passed
+STREEBOG_HASH,San,sqisign_test_mp_p324_3,not selected
+STREEBOG_HASH,San,sqisign_test_mp_p500_27,not selected
+STREEBOG_HASH,San,sqisign_test_mp_p664_17,not selected
+STREEBOG_HASH,San,sqisign_test_gf_p324_3_fp,not selected
+STREEBOG_HASH,San,sqisign_test_gf_p324_3_fp2,not selected
+STREEBOG_HASH,San,sqisign_test_gf_p500_27_fp,not selected
+STREEBOG_HASH,San,sqisign_test_gf_p500_27_fp2,not selected
+STREEBOG_HASH,San,sqisign_test_gf_p664_17_fp,not selected
+STREEBOG_HASH,San,sqisign_test_gf_p664_17_fp2,not selected
+STREEBOG_HASH,San,sqisign_test_quaternion_p324_3,not selected
+STREEBOG_HASH,San,sqisign_test_quaternion_p500_27,not selected
+STREEBOG_HASH,San,sqisign_test_quaternion_p664_17,not selected
+STREEBOG_HASH,San,curve_arith.test_p324_3,not selected
+STREEBOG_HASH,San,ec_biextension.test_p324_3,not selected
+STREEBOG_HASH,San,ec_basis_gen.test_p324_3,not selected
+STREEBOG_HASH,San,curve_arith.test_p500_27,not selected
+STREEBOG_HASH,San,ec_biextension.test_p500_27,not selected
+STREEBOG_HASH,San,ec_basis_gen.test_p500_27,not selected
+STREEBOG_HASH,San,curve_arith.test_p664_17,not selected
+STREEBOG_HASH,San,ec_biextension.test_p664_17,not selected
+STREEBOG_HASH,San,ec_basis_gen.test_p664_17,not selected
+STREEBOG_HASH,San,sqisign_test_id2iso_p324_3,not selected
+STREEBOG_HASH,San,sqisign_test_id2iso_p500_27,not selected
+STREEBOG_HASH,San,sqisign_test_id2iso_p664_17,not selected
+STREEBOG_HASH,San,sqisign_test_signature_p324_3,not selected
+STREEBOG_HASH,San,sqisign_test_threadsafety_p324_3,passed
+STREEBOG_HASH,San,sqisign_test_signature_p500_27,not selected
+STREEBOG_HASH,San,sqisign_test_threadsafety_p500_27,passed
+STREEBOG_HASH,San,sqisign_test_signature_p664_17,not selected
+STREEBOG_HASH,San,sqisign_test_threadsafety_p664_17,passed
+STREEBOG_HASH,San,sqisign_test_nistapi_p324_3,passed
+STREEBOG_HASH,San,sqisign_test_nistapi_p500_27,passed
+STREEBOG_HASH,San,sqisign_test_nistapi_p664_17,passed
+STREEBOG_HASH,San,sqisign_p324_3_KAT,passed
+STREEBOG_HASH,San,sqisign_p324_3_SELFTEST,passed
+STREEBOG_HASH,San,sqisign_p500_27_KAT,passed
+STREEBOG_HASH,San,sqisign_p500_27_SELFTEST,passed
+STREEBOG_HASH,San,sqisign_p664_17_KAT,passed
+STREEBOG_HASH,San,sqisign_p664_17_SELFTEST,passed
+STREEBOG_HASH,San,research_system_p324_3,passed
+STREEBOG_HASH,San,research_system_p500_27,passed
+STREEBOG_HASH,San,research_system_p664_17,passed

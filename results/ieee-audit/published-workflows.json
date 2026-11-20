@@ -1,0 +1,26 @@
+[
+  {
+    "id": 44710158464,
+    "name": "Formatting (clang-format)",
+    "path": ".github/workflows/format.yml",
+    "status": "queued",
+    "conclusion": null,
+    "html_url": "https://github.com/handofgod666/SQIsign_ElCon-CP-2027/actions/runs/44710158464"
+  },
+  {
+    "id": 44710158338,
+    "name": "CMake",
+    "path": ".github/workflows/cmake.yml",
+    "status": "queued",
+    "conclusion": null,
+    "html_url": "https://github.com/handofgod666/SQIsign_ElCon-CP-2027/actions/runs/44710158338"
+  },
+  {
+    "id": 44710158504,
+    "name": "SQIsign v3 symmetric profiles",
+    "path": ".github/workflows/research-profiles.yml",
+    "status": "completed",
+    "conclusion": "success",
+    "html_url": "https://github.com/handofgod666/SQIsign_ElCon-CP-2027/actions/runs/44710158504"
+  }
+]
