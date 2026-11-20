@@ -1,0 +1,120 @@
+4.0
+5cfa2daa591d62161d2f26aa4b8347e3704da1b830e9aba0a312ed1b5f0c7a38  /usr/lib/libnettle.so.9
+75332ffcb0e1e69e93ea38e224b3eb41c4f61d32be5908bfd383baa0c52f3657  build-RUSSIAN_PRNG-Release/research/trial_p324_3
+ 0x0000000000000001 (NEEDED)             Shared library: [libm.so.6]
+ 0x0000000000000001 (NEEDED)             Shared library: [libnettle.so.9]
+ 0x0000000000000001 (NEEDED)             Shared library: [libc.so.6]
+ 0x000000006ffffffb (FLAGS_1)            Flags: PIE
+binding file build-RUSSIAN_PRNG-Release/research/trial_p324_3 [0] to /usr/lib/libnettle.so.9 [0]: normal symbol `nettle_hmac_streebog512_set_key' [NETTLE_9]
+binding file build-RUSSIAN_PRNG-Release/research/trial_p324_3 [0] to /usr/lib/libnettle.so.9 [0]: normal symbol `nettle_hmac_streebog512_update' [NETTLE_9]
+binding file build-RUSSIAN_PRNG-Release/research/trial_p324_3 [0] to /usr/lib/libnettle.so.9 [0]: normal symbol `nettle_hmac_streebog512_digest' [NETTLE_9]
+binding file build-RUSSIAN_PRNG-Release/research/trial_p324_3 [0] to /usr/lib/libnettle.so.9 [0]: normal symbol `nettle_streebog512_init' [NETTLE_9]
+binding file build-RUSSIAN_PRNG-Release/research/trial_p324_3 [0] to /usr/lib/libnettle.so.9 [0]: normal symbol `nettle_streebog512_update' [NETTLE_9]
+binding file build-RUSSIAN_PRNG-Release/research/trial_p324_3 [0] to /usr/lib/libnettle.so.9 [0]: normal symbol `nettle_streebog512_digest' [NETTLE_9]
+
+/usr/lib/libnettle.so.9:     file format elf64-x86-64
+
+
+Disassembly of section .init:
+
+Disassembly of section .text:
+
+000000000002e780 <nettle_streebog512_digest@@NETTLE_9>:
+   2e780:	f3 0f 1e fa          	endbr64
+   2e784:	55                   	push   %rbp
+   2e785:	48 89 e5             	mov    %rsp,%rbp
+   2e788:	53                   	push   %rbx
+   2e789:	48 89 fb             	mov    %rdi,%rbx
+   2e78c:	48 83 ec 18          	sub    $0x18,%rsp
+   2e790:	48 89 75 e8          	mov    %rsi,-0x18(%rbp)
+   2e794:	e8 47 a0 ff ff       	call   287e0 <nettle_ocb_aes128_set_decrypt_key@@NETTLE_9+0x2fc0>
+   2e799:	48 8b 75 e8          	mov    -0x18(%rbp),%rsi
+   2e79d:	48 89 da             	mov    %rbx,%rdx
+   2e7a0:	bf 40 00 00 00       	mov    $0x40,%edi
+   2e7a5:	ff 15 1d bf 02 00    	call   *0x2bf1d(%rip)        # 5a6c8 <_nettle_write_le64@@NETTLE_INTERNAL_9_0+0x2c338>
+   2e7ab:	48 89 df             	mov    %rbx,%rdi
+   2e7ae:	48 8b 5d f8          	mov    -0x8(%rbp),%rbx
+   2e7b2:	c9                   	leave
+   2e7b3:	ff 25 d7 c2 02 00    	jmp    *0x2c2d7(%rip)        # 5aa90 <nettle_streebog512_init@@NETTLE_9+0x310c0>
+
+Disassembly of section .fini:
+
+/usr/lib/libnettle.so.9:     file format elf64-x86-64
+
+
+Disassembly of section .init:
+
+Disassembly of section .text:
+
+000000000001a090 <nettle_hmac_streebog512_update@@NETTLE_9>:
+   1a090:	f3 0f 1e fa          	endbr64
+   1a094:	48 81 c7 80 01 00 00 	add    $0x180,%rdi
+   1a09b:	ff 25 d7 07 04 00    	jmp    *0x407d7(%rip)        # 5a878 <nettle_streebog512_update@@NETTLE_9+0x31478>
+
+Disassembly of section .fini:
+
+/usr/lib/libnettle.so.9:     file format elf64-x86-64
+
+
+Disassembly of section .init:
+
+Disassembly of section .text:
+
+0000000000022e10 <nettle_hmac_streebog512_set_key@@NETTLE_9>:
+   22e10:	f3 0f 1e fa          	endbr64
+   22e14:	55                   	push   %rbp
+   22e15:	48 89 f8             	mov    %rdi,%rax
+   22e18:	48 89 d7             	mov    %rdx,%rdi
+   22e1b:	4c 8b 0d 16 7b 03 00 	mov    0x37b16(%rip),%r9        # 5a938 <nettle_streebog512@@NETTLE_9+0x898>
+   22e22:	48 8d 90 c0 00 00 00 	lea    0xc0(%rax),%rdx
+   22e29:	48 8d 88 80 01 00 00 	lea    0x180(%rax),%rcx
+   22e30:	4c 8d 80 44 02 00 00 	lea    0x244(%rax),%r8
+   22e37:	48 89 e5             	mov    %rsp,%rbp
+   22e3a:	57                   	push   %rdi
+   22e3b:	bf c0 00 00 00       	mov    $0xc0,%edi
+   22e40:	56                   	push   %rsi
+   22e41:	48 89 c6             	mov    %rax,%rsi
+   22e44:	ff 15 c6 77 03 00    	call   *0x377c6(%rip)        # 5a610 <_nettle_hmac_set_key@@NETTLE_INTERNAL_9_0+0x37de0>
+   22e4a:	58                   	pop    %rax
+   22e4b:	5a                   	pop    %rdx
+   22e4c:	c9                   	leave
+   22e4d:	c3                   	ret
+
+Disassembly of section .fini:
+
+/usr/lib/libnettle.so.9:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+0000000000027f90 <nettle_ocb_aes128_set_decrypt_key@@NETTLE_9+0x2770>:
+   27f90:	55                   	push   %rbp
+   27f91:	48 89 f0             	mov    %rsi,%rax
+   27f94:	48 89 e5             	mov    %rsp,%rbp
+   27f97:	41 56                	push   %r14
+   27f99:	41 55                	push   %r13
+   27f9b:	41 54                	push   %r12
+   27f9d:	53                   	push   %rbx
+   27f9e:	4c 8b 26             	mov    (%rsi),%r12
+   27fa1:	48 8b 5e 08          	mov    0x8(%rsi),%rbx
+   27fa5:	4c 33 22             	xor    (%rdx),%r12
+   27fa8:	48 33 5a 08          	xor    0x8(%rdx),%rbx
+   27fac:	4c 8b 5e 10          	mov    0x10(%rsi),%r11
+   27fb0:	4c 8b 56 18          	mov    0x18(%rsi),%r10
+   27fb4:	4c 33 5a 10          	xor    0x10(%rdx),%r11
+   27fb8:	44 0f b6 eb          	movzbl %bl,%r13d
+   27fbc:	4c 33 52 18          	xor    0x18(%rdx),%r10
+   27fc0:	4c 8b 4e 20          	mov    0x20(%rsi),%r9
+   27fc4:	4c 8b 46 28          	mov    0x28(%rsi),%r8
+   27fc8:	4c 33 4a 20          	xor    0x20(%rdx),%r9
+   27fcc:	4c 33 42 28          	xor    0x28(%rdx),%r8
+   27fd0:	48 8b 48 38          	mov    0x38(%rax),%rcx
+   27fd4:	48 8d 05 05 42 02 00 	lea    0x24205(%rip),%rax        # 4c1e0 <_nettle_gost28147_param_test_3411@@NETTLE_INTERNAL_9_0+0x27a0>
+   27fdb:	48 33 4a 38          	xor    0x38(%rdx),%rcx
+   27fdf:	48 8b 76 30          	mov    0x30(%rsi),%rsi
+   27fe3:	48 33 72 30          	xor    0x30(%rdx),%rsi
+   27fe7:	41 0f b6 d4          	movzbl %r12b,%edx
+   27feb:	49 89 ce             	mov    %rcx,%r14
+   27fee:	48 8b 14 d0          	mov    (%rax,%rdx,8),%rdx
+   27ff2:	4a 33 94 e8 00 08 00 	xor    0x800(%rax,%r13,8),%rdx
+   27ff9:	00 
