@@ -58,3 +58,20 @@ Validation integration revision 028187e12fda9a984e6ad0a66d491cab2bb04b1d
     JOBS=2 bash research/build.sh COMBINED Release
     cmake --build build-COMBINED-Release -j 2
     ctest --test-dir build-COMBINED-Release --output-on-failure -j 2
+
+Timing and independent checks
+  In the clean validation clone above, after the other jobs ended, monitored one-minute load
+  and cpu2/cpu6 busy ticks in 10-second windows before starting. The admitted window had
+  load1 <= 3 and both CPU busy fractions <= 15%. See results/replication-028187e/preflight.txt.
+  For i = 4, 5, 6:
+    python3 research/session.py "$d/new-series/session-$i" --session "$i" --blocks 16 --cpu 2
+  python3 research/analyze_sessions.py "$d/new-series" "$d/new-series/analysis"
+  python3 research/check_exhibits.py "$d/new-series" (checker from the validation delivery)
+  Copied the new series into results/replication-028187e, then independently regenerated:
+    python3 research/analyze_sessions.py results/replication-028187e "$d/recompute-repeat"
+    diff -rq results/replication-028187e/analysis "$d/recompute-repeat"
+    python3 research/check_exhibits.py results/replication-028187e
+  Matched SHA-256 for all 12 timed drivers and all 8 decompressed CMake recipes in each session.
+  For each parameter set and index 0,1,2, compared the first pk_bytes+sk_bytes of the
+  Release trial vector for BASELINE vs STREEBOG_HASH and RUSSIAN_PRNG vs COMBINED.
+  All 18 pairs matched. These inputs are public regression seeds.

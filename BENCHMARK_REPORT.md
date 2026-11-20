@@ -1,5 +1,40 @@
 # Benchmark results
 
+## Independent replication on the corrected API
+
+The third series used revision `028187e12fda9a984e6ad0a66d491cab2bb04b1d` in a separate clean clone on the same i7-4770HQ. The replication design was committed at `99c8611` and its source pin was updated for the API correction before timing. The three sessions each contain 16 complete paired blocks with four-position rotations. They use new deterministic indices, one discarded warm-up for every profile/set in each session, 576 timed trials and 144 untimed memory snapshots in total. Compilation and verification finished before the first warm-up. The confidence intervals condition on these consecutive sessions on this host. [Prospective plan](results/reviewer-validation/STUDY_PLAN.md) · [Raw observations and telemetry](results/replication-028187e/) · [Build evidence](results/reviewer-validation/)
+
+For p500_27 COMBINED versus BASELINE, mean signing time changed by **-1.48% (pointwise paired 95% interval -8.02% to +5.29%, -3.167 ms)**. The session estimates were +1.58%, +3.54%, -9.15%. Resampling contiguous four-block groups gives -7.54% to +4.52%. The earlier estimates were +15.84% in the historical series and +2.55% in the first controlled series. Each estimate uses its own paired indices. The three series have separate source pins, seeds and operating conditions.
+
+Replication timings below are means of 48 trials per row. RSS is median process VmRSS and HWM is maximum VmHWM in KiB at the post-Verify boundary. FS excludes encoding, stream excludes initialization, and init includes key-domain clear. All 132 metric cells, including sample SDs, medians and paired effects, are archived. [Summary](results/replication-028187e/analysis/summary.csv) · [Memory by phase](results/replication-028187e/analysis/memory_summary.csv) · [Generated table](results/replication-028187e/analysis/results_tables.tex) · [Signing figure](results/replication-028187e/analysis/signing.pdf)
+
+| Set | Profile | KeyGen ms | Sign ms | Verify ms | RSS / HWM KiB | FS µs | Stream ns/B | Init µs |
+|---|---|---:|---:|---:|---:|---:|---:|---:|
+| p324_3 | BASELINE | 20.602 | 58.836 | 8.123 | 2762 / 2808 | 1.319 | 4.562 | 0.097 |
+| p324_3 | STREEBOG_HASH | 20.809 | 60.766 | 8.069 | 3128 / 3164 | 4.291 | 4.352 | 0.088 |
+| p324_3 | RUSSIAN_PRNG | 21.834 | 61.558 | 8.346 | 3134 / 3160 | 1.338 | 29.051 | 5.590 |
+| p324_3 | COMBINED | 21.690 | 61.047 | 8.175 | 3138 / 3156 | 4.323 | 28.766 | 5.532 |
+| p500_27 | BASELINE | 80.135 | 214.269 | 24.571 | 2810 / 2856 | 1.935 | 4.401 | 0.101 |
+| p500_27 | STREEBOG_HASH | 79.988 | 220.927 | 24.624 | 3184 / 3212 | 4.907 | 4.453 | 0.087 |
+| p500_27 | RUSSIAN_PRNG | 81.136 | 208.573 | 24.325 | 3184 / 3220 | 1.943 | 28.443 | 5.404 |
+| p500_27 | COMBINED | 80.403 | 211.101 | 24.448 | 3192 / 3212 | 4.857 | 28.843 | 5.547 |
+| p664_17 | BASELINE | 134.904 | 411.505 | 46.830 | 2880 / 2924 | 2.084 | 4.484 | 0.097 |
+| p664_17 | STREEBOG_HASH | 135.079 | 420.912 | 48.534 | 3248 / 3276 | 5.471 | 4.428 | 0.092 |
+| p664_17 | RUSSIAN_PRNG | 132.806 | 416.419 | 48.721 | 3260 / 3288 | 2.168 | 29.789 | 5.644 |
+| p664_17 | COMBINED | 131.594 | 406.469 | 46.737 | 3260 / 3280 | 5.497 | 28.421 | 5.611 |
+
+| Session | One-minute load | Sampled logical CPU 2 GHz | SMT sibling 6 busy time |
+|---|---:|---:|---:|
+| 4 | 2.02–2.83 | 3.283–3.392 | 2.01% |
+| 5 | 1.83–1.95 | 3.193–3.392 | 3.22% |
+| 6 | 1.59–2.01 | 3.197–3.392 | 5.55% |
+
+Frequency and load samples include the end of warm-up and every completed block. SMT occupancy uses Linux CPU ticks over the timed window. Turbo and shared-host scheduling limit portability of the estimates. Replacing a generator changes the arithmetic sampling workload. The component timings and process memory snapshots therefore support different inferences from whole-signature measurements.
+
+On p500_27 the repeat measured 28.843 ns/B for the COMBINED stream and 4.401 ns/B for BASELINE. Key-domain initialization plus clearing cost 5.547 and 0.101 µs, respectively. The interval for whole-signature latency admits both a reduction and an increase. The reference KeyGen never calls the Fiat–Shamir hash. As a control, toggling only the public hash reproduced the same encoded key pair in all 18 deterministic comparisons at indices 0, 1 and 2. Thus timing differences between these KeyGen conditions can occur even with the same sampled key. The signing comparisons include differences in commitments, challenges and arithmetic work. [Key control](results/reviewer-validation/paired-keys.txt) · [Session estimates](results/replication-028187e/analysis/by_session.csv)
+
+Separate post-Verify snapshots showed 0 KiB of Nettle mappings in BASELINE and 340–368 KiB in the adapted profiles. These pages contribute to the process RSS. End-of-phase snapshots can miss transient peaks. A same-host repetition does not establish portability to other processors or a performance ranking against Hypericum.
+
 ## Historical series, 24 blocks
 
 Measured at 7392c66e3e77acd36ee9531e8f965ef0d7bd0c0e on Intel Core i7-4770HQ, Linux x86-64, logical CPU 2. GCC 16.2.1, ref, radix 64, Release with upstream optimization and LTO, Nettle 4.0. A randomized complete block contains all 12 profile/parameter combinations. Each of 24 blocks uses the same trial index for its 12 combinations. Each invocation is a new process; one discarded warm-up per combination preceded the run. Order seed 240319. Total 288 timed KeyGen/Sign/Verify triples. The timed calls use the test AES CTR-DRBG and the normal detached NIST signature API. Tests and compilation finished before timing began. [Raw data](results/run-7392c66/raw.csv) · [Metadata and executable hashes](results/run-7392c66/metadata.json) · [Host](results/host.txt)
