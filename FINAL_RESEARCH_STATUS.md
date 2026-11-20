@@ -4,6 +4,25 @@
 
 Review date 2026-11-20. First review branch `ieee/v3`. The delivery containing the independent replication is `ieee/reviewer-validation`. The research implementation and experimental exhibits are available for independent review. Concrete security of the keyed construction and side-channel safety remain open.
 
+## Independent validation delivery
+
+**Ready for external technical review.** This pass started with the local reviewer branch `baee298b8c83e7709056354b24f92e340110c6d6`. It already contained the 288 historical trials, the 576-trial follow-up, the Nettle audit, CI evidence and Hypericum comparison. The published `v3` and official upstream tag resolved independently through GitHub to the commits below. The offline bundle carries the validation branch and upstream tag with their complete history. The original public branch, recorded results, KAT files and previous review branch retain their original objects. [Changes relative to published v3](results/reviewer-validation/changed-since-v3.tsv) · [Acquisition and reproduction](REPRODUCIBILITY.md)
+
+| This pass | Outcome |
+|---|---|
+| Corrected public API, tested and timed revision | `028187e12fda9a984e6ad0a66d491cab2bb04b1d`. A failed KeyGen now returns before encoding either key. A test-only provider checks failure propagation, recovery on fresh entropy and Sign output length in every profile/set. The arithmetic and original KATs match nist-v3. |
+| Independent checks | Fixed an optimized-Python false pass on missing or corrupt primitive records. Added 288 typed transcript/scalar comparisons and tested both hash families at block boundaries. The four parameter selections in the official Hypericum headers reproduced every reported PK/SK/signature length. |
+| Validation archive | `da50e10`. All eight build configurations passed their selected suites (173/173 from 400 registrations). The separate unfiltered COMBINED Release run passed 50/50, overlapping the selected group. BASELINE Release checked 300 official KAT records, BASELINE/San checked 3 directly, and each changed build checked 6 committed scheme records. The Release compatibility matrix and negative cases matched all 252 expectations. |
+| New timed evidence | `4f0c543ba66e8d92395b7d60d117057fc7c81698` archives 576 new trials and 144 separate process-memory snapshots. All 12 binary digests and eight build-file digests in each session matched the measured checkout or archived recipes. The regenerated analysis directory matched byte-for-byte. An independent calculation checked 132 metric cells, 12 table rows and the primary confidence interval. |
+| Transfer and sources | The fork lacked the named nist-v3 tag required by the historical benchmark. It is supplied in the validation bundle, with a documented official upstream fetch for online clones. The source HTTPS clone failed DNS in this environment. A fresh local clone of the verified objects and a separate upgrade from a clone containing only the published v3 history exercised the offline route. |
+| Author materials | The registered title and author-supplied abstract are retained. The author requested that manuscript drafting stop. The evidence map, tables, figure and bibliography remain available. No IEEEtran manuscript build was performed. |
+
+**Interpretation.** The p500_27 COMBINED signing estimate was +15.84% in the 24-block historical series, +2.55% in the first 48-block series, and −1.48% in this independent 48-block repeat. The last interval was −8.02% to +5.29%. It allows effects of either sign. The isolated stream cost in the repeat was 28.843 vs 4.401 ns/B, and key-domain init plus clear cost 5.547 vs 0.101 µs. Size and compatibility evidence is suitable for citation at the specified source revisions. Whole-operation effects and RSS are conditional on this shared machine, these inputs, the reference arithmetic and this Nettle backend. Each series has its own raw data. [Benchmark report](BENCHMARK_REPORT.md) · [Raw replication](results/replication-028187e/)
+
+**Open evidence.** The local LeakSanitizer positive control failed at runtime. Local ASan/UBSan checks excluded leaks. The published v3 workflow passed nine jobs; the validation branch and its LSan control have no hosted run in this delivery. The binary/source audit confirms secret-dependent table addresses in GNU Nettle 4.0. Leakage magnitude, exploitable recovery and an alternative qualified backend remain open. Independent experts should review root entropy, derived fillings versus the TK26 conditions, joint security with the public challenge, and sampler behavior at exhaustion. Another host and a separately assessed backend are needed to generalize performance or confidentiality claims. Hypericum latency values have literature provenance. The conference page limit remains unconfirmed. [Verification logs and exclusions](TEST_REPORT.md) · [Security argument](SECURITY_ARGUMENT.md) · [Comparison](HYPERICUM_COMPARISON.md)
+
+The [command record](results/reviewer-validation/commands.txt), [test inventory](results/reviewer-validation/ctest-inventory.csv), [environment](results/reviewer-validation/environment.txt) and [study plan](results/reviewer-validation/STUDY_PLAN.md) document this pass. The dated work described below records the earlier review.
+
 ## Source chain
 
 | Item | Commit |
@@ -61,7 +80,7 @@ The new experiment contains 576 timings from 48 complete blocks, 144 untimed ope
 | II | Audited architecture, fixed-width encodings, integration boundaries and parameter table |
 | III | Exact algorithms, implementation, four builds and byte-level evidence |
 | IV | Conditional security argument, confirmed binary limitation and measured interoperability; expert review open |
-| V | Two distinct timing series, independent recalculation, phase memory, selected Hypericum literature; cross-scheme latency ranking unavailable |
+| V | Three separately archived timing series, independent recalculation, phase memory, verified Hypericum key/signature sizes and literature timing. A matched cross-scheme latency ranking remains unavailable. |
 | VI | Evidence permits a limited conclusion on functionality, sizes and measured costs; production and equivalence claims unsupported |
 
 [Claim-to-source map](paper/EVIDENCE_MAP.md) · [Generated TeX table](paper/results_tables.tex) · [Figure](paper/figures/signing.pdf) · [Bibliography](paper/references.bib)
