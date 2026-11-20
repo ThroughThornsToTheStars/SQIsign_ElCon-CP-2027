@@ -1,0 +1,5 @@
+# Independent same-host repeat
+
+The pilot for this series is the existing three-session archive at 3b0795c. The endpoint chosen before collecting new observations is the ratio of COMBINED and BASELINE mean signing times on p500_27. From its 48 paired indices, the sample SD of (combined − r × baseline) / mean(baseline), with r the ratio of means, is 0.26388. For an approximate pointwise 95% half-width of eight percentage points, (1.96 × 0.26388 / 0.08)² = 41.8. Use 48 blocks in three sessions of 16 to complete the four-position rotations within each session. Stop after this design regardless of effect direction.
+
+Build from a clean clone at baee298b8c83e7709056354b24f92e340110c6d6. Run the existing session driver with session IDs 4, 5 and 6 (fresh deterministic seeds) on logical CPU 2 after the build/test jobs finish. Retain startup load, frequency, sibling ticks, build recipe and all timed observations. Use the existing stratified paired bootstrap and separate output files. Report every profile and set. The repeat estimates variation on the same desktop and cannot estimate between-machine variance.
