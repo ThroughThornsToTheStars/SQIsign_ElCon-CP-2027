@@ -19,7 +19,16 @@ FOREACH(SVARIANT ${SVARIANT_S})
     target_link_libraries(sqisign_test_prof_${SVARIANT} sqisign_${SVARIANT_LOWER})
     target_include_directories(sqisign_test_prof_${SVARIANT} PUBLIC ${PROJECT_SOURCE_DIR}/src/common ${INC_PUBLIC} ${PROJECT_SOURCE_DIR}/src/nistapi/${SVARIANT_LOWER})
 
-    add_test(sqisign_${SVARIANT}_KAT sqisign_test_kat_${SVARIANT})
+    if(NOT USE_STREEBOG)
+        add_test(sqisign_${SVARIANT}_KAT sqisign_test_kat_${SVARIANT})
+    endif()
     add_test(sqisign_${SVARIANT}_SELFTEST sqisign_test_scheme_${SVARIANT})
 ENDFOREACH()
 
+
+if(USE_STREEBOG)
+    add_executable(streebog_selftest test_streebog.c)
+    target_include_directories(streebog_selftest PRIVATE ${INC_COMMON})
+    target_link_libraries(streebog_selftest sqisign_common_test)
+    add_test(NAME streebog_xof COMMAND streebog_selftest)
+endif()

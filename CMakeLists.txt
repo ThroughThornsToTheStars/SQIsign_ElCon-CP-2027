@@ -8,6 +8,15 @@ set(CMAKE_C_STANDARD 99)
 
 include(CTest)
 
+option(USE_STREEBOG "Use the experimental Streebog-512 counter XOF" OFF)
+if(USE_STREEBOG)
+    find_package(PkgConfig REQUIRED)
+    pkg_check_modules(NETTLE REQUIRED nettle)
+    include_directories(${NETTLE_INCLUDE_DIRS})
+    link_directories(${NETTLE_LIBRARY_DIRS})
+    add_definitions(-DUSE_STREEBOG)
+endif()
+
 option(ENABLE_STRICT "Build with strict compile options." OFF)
 option(ENABLE_TESTS  "Enable compilation of tests." ON)
 option(ENABLE_CT_TESTING  "Enable compilation for constant time testing." OFF)
