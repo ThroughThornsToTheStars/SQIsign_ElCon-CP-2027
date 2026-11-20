@@ -1,0 +1,366 @@
+{
+  "branch": "v3",
+  "commit": "d190b204b3650355c029f2bf2ac6e6191f8526cc",
+  "run": {
+    "id": 44710158504,
+    "name": "SQIsign v3 symmetric profiles",
+    "conclusion": "success",
+    "head": "d190b204b3650355c029f2bf2ac6e6191f8526cc",
+    "url": "https://github.com/handofgod666/SQIsign_ElCon-CP-2027/actions/runs/44710158504",
+    "event": "push"
+  },
+  "jobs": [
+    {
+      "id": 136199516558,
+      "name": "check (RUSSIAN_PRNG, Release)",
+      "status": "completed",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run sudo apt-get update && sudo apt-get install -y nettle-dev libgcrypt20 ninja-build",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run bash research/build.sh \"RUSSIAN_PRNG\" \"Release\"",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run bash research/verify.sh \"RUSSIAN_PRNG\" \"Release\"",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "id": 136199516797,
+      "name": "check (STREEBOG_HASH, Release)",
+      "status": "completed",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run sudo apt-get update && sudo apt-get install -y nettle-dev libgcrypt20 ninja-build",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run bash research/build.sh \"STREEBOG_HASH\" \"Release\"",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run bash research/verify.sh \"STREEBOG_HASH\" \"Release\"",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "id": 136199516827,
+      "name": "check (STREEBOG_HASH, San)",
+      "status": "completed",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run sudo apt-get update && sudo apt-get install -y nettle-dev libgcrypt20 ninja-build",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run bash research/build.sh \"STREEBOG_HASH\" \"San\"",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run bash research/verify.sh \"STREEBOG_HASH\" \"San\"",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "conclusion": "skipped"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "id": 136199516845,
+      "name": "check (BASELINE, San)",
+      "status": "completed",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run sudo apt-get update && sudo apt-get install -y nettle-dev libgcrypt20 ninja-build",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run bash research/build.sh \"BASELINE\" \"San\"",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run bash research/verify.sh \"BASELINE\" \"San\"",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "conclusion": "skipped"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "id": 136199516899,
+      "name": "check (BASELINE, Release)",
+      "status": "completed",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run sudo apt-get update && sudo apt-get install -y nettle-dev libgcrypt20 ninja-build",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run bash research/build.sh \"BASELINE\" \"Release\"",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run bash research/verify.sh \"BASELINE\" \"Release\"",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "id": 136199516947,
+      "name": "check (COMBINED, Release)",
+      "status": "completed",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run sudo apt-get update && sudo apt-get install -y nettle-dev libgcrypt20 ninja-build",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run bash research/build.sh \"COMBINED\" \"Release\"",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run bash research/verify.sh \"COMBINED\" \"Release\"",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "id": 136199517005,
+      "name": "check (RUSSIAN_PRNG, San)",
+      "status": "completed",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run sudo apt-get update && sudo apt-get install -y nettle-dev libgcrypt20 ninja-build",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run bash research/build.sh \"RUSSIAN_PRNG\" \"San\"",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run bash research/verify.sh \"RUSSIAN_PRNG\" \"San\"",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "conclusion": "skipped"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "id": 136199517117,
+      "name": "check (COMBINED, San)",
+      "status": "completed",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run sudo apt-get update && sudo apt-get install -y nettle-dev libgcrypt20 ninja-build",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run bash research/build.sh \"COMBINED\" \"San\"",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run bash research/verify.sh \"COMBINED\" \"San\"",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "conclusion": "skipped"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "id": 136200501664,
+      "name": "compatibility",
+      "status": "completed",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/download-artifact@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run for profile in BASELINE STREEBOG_HASH RUSSIAN_PRNG COMBINED; do",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success"
+        }
+      ]
+    }
+  ]
+}
