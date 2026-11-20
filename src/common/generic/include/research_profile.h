@@ -15,7 +15,7 @@ typedef struct {
 void sqi_stream_init(sqi_stream *stream, const uint8_t seed[48], const char domain[3]);
 int sqi_stream_read(sqi_stream *stream, uint8_t *out, size_t len);
 /* Caller supplies one of the three protocol challenge sizes. */
-void sqi_fs_digest(uint8_t *out, uint8_t n, const uint8_t *fields, size_t fields_len,
+int sqi_fs_digest(uint8_t *out, uint8_t n, const uint8_t *fields, size_t fields_len,
                    const uint8_t *message, size_t message_len);
 
 #endif

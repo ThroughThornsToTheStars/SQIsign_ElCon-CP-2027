@@ -58,18 +58,25 @@ if __name__ == "__main__":
     assert mac(bytes(range(32)), bytes.fromhex("0126bdb87800af214341456563780100")).hex() == (
         "a59bab22ecae19c65fbde6e5f4e9f5d8549d31f037f9df9b905500e171923a77"
         "3d5f1530f2ed7e964cb2eedc29e9ad2f3afe93b2814f79f5000ffc0366c251e6")
+    m2 = bytes.fromhex(
+        "fbe2e5f0eee3c820fbeafaebef20fffbf0e1e0f0f520e0ed20e8ece0ebe5f0f2"
+        "f120fff0eeec20f120faf2fee5e2202ce8f6f3ede220e8e6eee1e8f0f2d1202ce8f0f2e5e220e5d1")[::-1]
+    assert digest(m2)[::-1].hex() == (
+        "28fbc9bada033b1460642bdcddb90c3fb3e56c497ccd0f62b8a2ad4935e85f03"
+        "7613966de4ee00531ae60f3b5a47f8dae06915d5f2f194996fcabf2622e6881e")
     print("RFC 6986 and RFC 7836 anchors passed")
     if len(sys.argv) > 1:
         from pathlib import Path
         records = dict(line.split() for line in Path(sys.argv[1]).read_text().splitlines())
         expected = {"rfc6986": digest((b"0123456789"*7)[:63]),
                     "rfc7836": mac(bytes(range(32)), bytes.fromhex("0126bdb87800af214341456563780100"))}
+        expected["rfc6986_m2"] = digest(m2)
         for n in (16, 24, 32):
             expected[f"fs{n}"] = challenge(n, bytes(range(80)), b"hello")
         for domain in (b"key", b"com", b"res", b"def"):
             expected[domain.decode()] = b"".join(stream(bytes(range(48)), domain, i) for i in (1, 2, 3))
         expected["final"] = stream(bytes(range(48)), b"key", 2**32-1)
-        required = {"rfc6986", "rfc7836"}
+        required = {"rfc6986", "rfc6986_m2", "rfc7836"}
         if sys.argv[2] in ("STREEBOG_HASH", "COMBINED"):
             required.update(("fs16", "fs24", "fs32"))
         if sys.argv[2] in ("RUSSIAN_PRNG", "COMBINED"):

@@ -13,13 +13,15 @@
 #endif
 
 #ifdef SQI_STREEBOG_HASH
-void
+int
 sqi_fs_digest(uint8_t *out, uint8_t n, const uint8_t *fields, size_t fields_len,
               const uint8_t *message, size_t message_len)
 {
     static const uint8_t label[] = "SQIsign3-FS-Streebog512-v1";
     struct streebog512_ctx ctx;
     uint8_t digest[64];
+    if (n != 16 && n != 24 && n != 32)
+        return -1;
     streebog512_init(&ctx);
     streebog512_update(&ctx, sizeof(label) - 1, label);
     streebog512_update(&ctx, 1, &n);
@@ -29,6 +31,7 @@ sqi_fs_digest(uint8_t *out, uint8_t n, const uint8_t *fields, size_t fields_len,
         streebog512_update(&ctx, message_len, message);
     FULL_DIGEST(streebog512_digest, &ctx, digest);
     memcpy(out, digest, n);
+    return 0;
 }
 #endif
 
