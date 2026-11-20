@@ -77,3 +77,23 @@ git log --reverse --format='%H %s' 6d017708db403bf83977fa70770fc4f7f9e9ff21..HEA
 git diff --name-status d190b204b3650355c029f2bf2ac6e6191f8526cc HEAD
 git diff --exit-code d190b204b3650355c029f2bf2ac6e6191f8526cc HEAD -- results/run-7392c66 results/tests KAT
 ```
+
+## Independent exhibit check and replication
+
+From a checkout containing the archived follow-up, run `python3 research/check_exhibits.py results/controlled` (Python 3.10+ and NumPy). It verifies the input digests, recalculates each central estimate, paired difference and ratio, checks every rounded TeX row, and independently resamples the primary p500_27 signing contrast. To compare the figure and every derived file bitwise, regenerate with the NumPy and Matplotlib versions recorded in `analysis/inputs.json` and use `diff -r`. Font or renderer changes can affect PDF bytes.
+
+The same-host repeat uses the tested code at `028187e12fda9a984e6ad0a66d491cab2bb04b1d`. With the validation bundle cloned as above, run from its checkout using a fresh destination. The session driver requires logical CPU affinity support and Linux procfs. Substitute an allowed logical CPU for 2 and record that change when comparing machines.
+
+```sh
+git worktree add --detach ../sqi-validation-src 028187e12fda9a984e6ad0a66d491cab2bb04b1d
+(
+  set -e
+  cd ../sqi-validation-src
+  for p in BASELINE STREEBOG_HASH RUSSIAN_PRNG COMBINED; do bash research/build.sh "$p" Release; done
+  for i in 4 5 6; do
+    python3 research/session.py "../sqi-validation-data/session-$i" --session "$i" --blocks 16 --cpu 2
+  done
+)
+python3 research/analyze_sessions.py ../sqi-validation-data ../sqi-validation-data/analysis
+python3 research/check_exhibits.py ../sqi-validation-data
+```

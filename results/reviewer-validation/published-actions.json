@@ -1,0 +1,65 @@
+{
+  "branch": "v3",
+  "sha": "d190b204b3650355c029f2bf2ac6e6191f8526cc",
+  "upstream_tag": "nist-v3",
+  "upstream_sha": "6d017708db403bf83977fa70770fc4f7f9e9ff21",
+  "workflow_run": 44710158504,
+  "url": "https://github.com/handofgod666/SQIsign_ElCon-CP-2027/actions/runs/44710158504",
+  "checked_on": "2026-11-20",
+  "jobs": [
+    {
+      "id": 136199516558,
+      "name": "check (RUSSIAN_PRNG, Release)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 136199516797,
+      "name": "check (STREEBOG_HASH, Release)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 136199516827,
+      "name": "check (STREEBOG_HASH, San)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 136199516845,
+      "name": "check (BASELINE, San)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 136199516899,
+      "name": "check (BASELINE, Release)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 136199516947,
+      "name": "check (COMBINED, Release)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 136199517005,
+      "name": "check (RUSSIAN_PRNG, San)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 136199517117,
+      "name": "check (COMBINED, San)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 136200501664,
+      "name": "compatibility",
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ]
+}
