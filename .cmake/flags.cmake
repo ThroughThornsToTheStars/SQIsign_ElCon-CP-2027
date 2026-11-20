@@ -49,7 +49,7 @@ endif()
 
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${STRICT_OPTIONS_C}")
 
-if (NOT CMAKE_BUILD_TYPE STREQUAL "Debug" AND NOT CMAKE_BUILD_TYPE STREQUAL "COVERAGE" AND NOT ENABLE_CT_TESTING)
+if (NOT CMAKE_BUILD_TYPE STREQUAL "Debug" AND NOT CMAKE_BUILD_TYPE STREQUAL "COVERAGE" AND NOT CMAKE_BUILD_TYPE STREQUAL "San" AND NOT ENABLE_CT_TESTING)
 	# enable link-time optimization (LTO)
 	# Not for CT-testing builds: the valgrind suppressions in test/ct-quaternion.supp are anchored on function names,
 	# and LTO breaks that twice over - it inlines across module boundaries (quaternion code ends up attributed to

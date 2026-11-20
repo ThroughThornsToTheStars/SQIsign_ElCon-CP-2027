@@ -69,6 +69,12 @@ if __name__ == "__main__":
         for domain in (b"key", b"com", b"res", b"def"):
             expected[domain.decode()] = b"".join(stream(bytes(range(48)), domain, i) for i in (1, 2, 3))
         expected["final"] = stream(bytes(range(48)), b"key", 2**32-1)
+        required = {"rfc6986", "rfc7836"}
+        if sys.argv[2] in ("STREEBOG_HASH", "COMBINED"):
+            required.update(("fs16", "fs24", "fs32"))
+        if sys.argv[2] in ("RUSSIAN_PRNG", "COMBINED"):
+            required.update(("key", "com", "res", "def", "final"))
+        assert set(records) == required
         for name, value in records.items():
             assert bytes.fromhex(value) == expected[name], name
         print(f"matched {len(records)} emitted records")
