@@ -183,7 +183,7 @@ test_prng_golden_value(void)
     };
     // Cross-checked against an independent computation of SHAKE256(root || DS_DEFAULT_DOMAIN) over the 48 bytes the
     // test DRBG produces from the seed above.
-    
+
 #ifdef SQI_RUSSIAN_PRNG
     /* Experimental vector, derived with research/oracle.py. */
     static const uint8_t expected[32] = {

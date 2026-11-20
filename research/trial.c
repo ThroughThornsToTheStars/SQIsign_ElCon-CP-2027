@@ -96,6 +96,7 @@ int main(int argc, char **argv)
     uint64_t after_sign = now();
     if (crypto_sign_verify(sig, siglen, msg, mlen, pk)) return 2;
     uint64_t after_verify = now();
+    if (!strcmp(argv[1], "smoke")) return 0;
     if (!strcmp(argv[1], "vector")) {
         if (fwrite(pk, 1, sizeof(pk), stdout) != sizeof(pk) ||
             fwrite(sk, 1, sizeof(sk), stdout) != sizeof(sk) ||
