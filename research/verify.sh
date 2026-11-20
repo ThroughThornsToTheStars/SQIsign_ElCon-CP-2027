@@ -20,6 +20,7 @@ if [[ "$profile" != BASELINE ]]; then
     "$dir/research/primitive_test" > "$tmp"
     python3 research/oracle.py "$tmp" "$profile"
 fi
+python3 research/check_transcript.py "$profile" "$mode"
 python3 research/check.py --profile "$profile" --mode "$mode"
 
 # This fixed DRBG seed selects an empty message in the upstream NIST API demo.
