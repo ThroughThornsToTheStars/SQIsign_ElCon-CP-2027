@@ -52,7 +52,7 @@ jobs:
       run: doxygen Doxyfile && cd latex && xelatex refman
 
     - name: Upload latex documentation
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
       with:
         name: docs
         path: latex/refman.pdf
