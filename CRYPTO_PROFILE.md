@@ -20,3 +20,5 @@ The standard specifies a secret random initial filling. Here the per-domain fill
 | STREEBOG_HASH | truncated H | SHAKE256 |
 | RUSSIAN_PRNG | SHAKE256 | HMAC initialization, H counter blocks |
 | COMBINED | truncated H | HMAC initialization, H counter blocks |
+
+Р 50.1.113-2016 §4.1.2 permits HMAC key lengths from 256 to 512 bits and recommends 512. Here the existing seed supplies 384. Р 1323565.1.022-2018 describes, among other steps, deriving a 256-bit intermediate key and expanding it with context. The HMAC initialization above has a different transcript and key schedule. [HMAC specification](https://meganorm.ru/Data2/1/4293748/4293748842.pdf) · [KDF specification](https://meganorm.ru/Data2/1/4293732/4293732319.pdf)

@@ -1,0 +1,39 @@
+name: SQIsign v3 symmetric profiles
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        profile: [BASELINE, STREEBOG_HASH, RUSSIAN_PRNG, COMBINED]
+        mode: [Release, San]
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo apt-get update && sudo apt-get install -y nettle-dev libgcrypt20 ninja-build
+      - run: bash research/build.sh "${{ matrix.profile }}" "${{ matrix.mode }}"
+      - run: bash research/verify.sh "${{ matrix.profile }}" "${{ matrix.mode }}"
+      - if: matrix.mode == 'Release'
+        uses: actions/upload-artifact@v4
+        with:
+          name: drivers-${{ matrix.profile }}
+          path: build-${{ matrix.profile }}-Release/research/trial_*
+  compatibility:
+    needs: check
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: drivers-*
+          path: drivers
+      - run: |
+          for profile in BASELINE STREEBOG_HASH RUSSIAN_PRNG COMBINED; do
+            dir="build-$profile-Release/research"
+            mkdir -p "$dir"
+            cp "drivers/drivers-$profile"/trial_* "$dir"/
+            chmod +x "$dir"/trial_*
+          done
+          python3 research/check.py
