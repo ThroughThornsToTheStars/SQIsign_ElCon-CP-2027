@@ -21,7 +21,7 @@ Alternatively fetch the named review branch into the published clone and switch 
 
 ## Toolchain and tests
 
-On Debian/Ubuntu the packages include build-essential, cmake, ninja-build, pkg-config, libgmp-dev, nettle-dev, libgcrypt20, openssl and python3. The reference build on the measurement host uses GCC 16.2.1, Nettle 4.0 and Linux x86-64. Python/ctypes calls libgcrypt for the oracle. The benchmark analysis additionally uses python3-numpy and python3-matplotlib. The optional binary inspection script uses GNU binutils, ldd and ripgrep.
+On Debian/Ubuntu the packages include build-essential, cmake, ninja-build, pkg-config, nettle-dev, libgcrypt20, openssl and python3. The reference build on the measurement host uses GCC 16.2.1, Nettle 4.0 and Linux x86-64. Python/ctypes calls libgcrypt for the oracle. The benchmark analysis additionally uses python3-numpy and python3-matplotlib. The optional binary inspection script uses GNU binutils, ldd and ripgrep.
 
 ```bash
 set -e

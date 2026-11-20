@@ -21,3 +21,8 @@ if [[ "$profile" != BASELINE ]]; then
     python3 research/oracle.py "$tmp" "$profile"
 fi
 python3 research/check.py --profile "$profile" --mode "$mode"
+
+# This fixed DRBG seed selects an empty message in the upstream NIST API demo.
+if [[ "$profile" = COMBINED && "$mode" = San ]]; then
+    "$dir/apps/example_nistapi_p324_3" --seed=88
+fi

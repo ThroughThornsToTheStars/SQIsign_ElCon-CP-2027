@@ -21,9 +21,9 @@ jobs:
           { cc --version; cmake --version; pkg-config --modversion nettle; uname -srmo; } > evidence/environment.txt
           ctest --test-dir build-${{ matrix.profile }}-${{ matrix.mode }} --show-only=json-v1 > evidence/registered.json
       - if: matrix.mode == 'San'
-        run: bash research/lsan-probe.sh | tee evidence/lsan.txt
+        run: bash research/lsan-probe.sh 2>&1 | tee evidence/lsan.txt
         shell: bash
-      - run: bash research/verify.sh "${{ matrix.profile }}" "${{ matrix.mode }}" | tee evidence/tests.txt
+      - run: bash research/verify.sh "${{ matrix.profile }}" "${{ matrix.mode }}" 2>&1 | tee evidence/tests.txt
         shell: bash
         env:
           ASAN_OPTIONS: detect_leaks=1
@@ -31,7 +31,10 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: evidence-${{ matrix.profile }}-${{ matrix.mode }}
-          path: evidence/
+          path: |
+            evidence/
+            build-*/Testing/Temporary/LastTestsFailed.log
+            build-*/Testing/Temporary/LastTest.log
       - if: matrix.mode == 'Release'
         uses: actions/upload-artifact@v4
         with:

@@ -17,7 +17,7 @@ Streebog and HMAC have independent specifications. The counter step follows the 
 
 ## Build and check
 
-Run from the repository root on Linux x86-64 with GCC, CMake, Ninja, pkg-config, Bash and Python 3. Install GMP development files, Nettle development files and the libgcrypt runtime for the oracle. Measurements use reference arithmetic and radix 64. The optional study analysis needs NumPy and Matplotlib. Each trial binary deliberately uses a public deterministic seed. System smoke tests use OS entropy.
+Run from the repository root on Linux x86-64 with GCC, CMake, Ninja, pkg-config, Bash and Python 3. Install Nettle development files and the libgcrypt runtime for the oracle. Measurements use reference arithmetic and radix 64. The optional study analysis needs NumPy and Matplotlib. Each trial binary deliberately uses a public deterministic seed. System smoke tests use OS entropy.
 
 ```sh
 for p in BASELINE STREEBOG_HASH RUSSIAN_PRNG COMBINED; do
