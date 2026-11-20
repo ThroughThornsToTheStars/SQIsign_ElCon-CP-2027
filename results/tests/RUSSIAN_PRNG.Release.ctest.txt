@@ -1,0 +1,350 @@
+Start testing: Nov 20 11:38 MSK
+----------------------------------------------------------
+1/47 Testing: sqisign_test_shake256
+1/47 Test: sqisign_test_shake256
+Command: "/home/z666/sqisign-v3-research/build-RUSSIAN_PRNG-Release/src/common/generic/test/sqisign_test_shake256"
+Directory: /home/z666/sqisign-v3-research/build-RUSSIAN_PRNG-Release/src/common/generic/test
+"sqisign_test_shake256" start time: Nov 20 11:38 MSK
+Output:
+----------------------------------------------------------
+Running SHAKE-256 known-answer tests
+SHAKE-256 known-answer tests passed
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"sqisign_test_shake256" end time: Nov 20 11:38 MSK
+"sqisign_test_shake256" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/47 Testing: sqisign_test_prng
+2/47 Test: sqisign_test_prng
+Command: "/home/z666/sqisign-v3-research/build-RUSSIAN_PRNG-Release/src/common/generic/test/sqisign_test_prng"
+Directory: /home/z666/sqisign-v3-research/build-RUSSIAN_PRNG-Release/src/common/generic/test
+"sqisign_test_prng" start time: Nov 20 11:38 MSK
+Output:
+----------------------------------------------------------
+Running PRNG unit tests
+PRNG unit tests passed
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"sqisign_test_prng" end time: Nov 20 11:38 MSK
+"sqisign_test_prng" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/47 Testing: sqisign_test_ctrdrbg_kat
+3/47 Test: sqisign_test_ctrdrbg_kat
+Command: "/home/z666/sqisign-v3-research/build-RUSSIAN_PRNG-Release/src/common/generic/test/sqisign_test_ctrdrbg_kat"
+Directory: /home/z666/sqisign-v3-research/build-RUSSIAN_PRNG-Release/src/common/generic/test
+"sqisign_test_ctrdrbg_kat" start time: Nov 20 11:38 MSK
+Output:
+----------------------------------------------------------
+Running CTR-DRBG known-answer tests
+CTR-DRBG known-answer tests passed
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"sqisign_test_ctrdrbg_kat" end time: Nov 20 11:38 MSK
+"sqisign_test_ctrdrbg_kat" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/47 Testing: sqisign_test_prng_kat
+5/47 Test: sqisign_test_prng_kat
+Command: "/home/z666/sqisign-v3-research/build-RUSSIAN_PRNG-Release/src/common/generic/test/sqisign_test_prng_kat"
+Directory: /home/z666/sqisign-v3-research/build-RUSSIAN_PRNG-Release/src/common/generic/test
+"sqisign_test_prng_kat" start time: Nov 20 11:38 MSK
+Output:
+----------------------------------------------------------
+Running PRNG known-answer test
+PRNG known-answer test passed
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"sqisign_test_prng_kat" end time: Nov 20 11:38 MSK
+"sqisign_test_prng_kat" time elapsed: 00:00:00
+----------------------------------------------------------
+
+31/47 Testing: sqisign_test_threadsafety_p324_3
+31/47 Test: sqisign_test_threadsafety_p324_3
+Command: "/home/z666/sqisign-v3-research/build-RUSSIAN_PRNG-Release/src/signature/ref/p324_3/test/sqisign_test_threadsafety_p324_3" "--threads=4" "--iterations=2"
+Directory: /home/z666/sqisign-v3-research/build-RUSSIAN_PRNG-Release/src/signature/ref/p324_3/test
+"sqisign_test_threadsafety_p324_3" start time: Nov 20 11:38 MSK
+Output:
+----------------------------------------------------------
+Random seed: "--seed={ 0x0d581124, 0x816baf88, 0x0dfdb180, 0x985053a0, 0xfd558700, 0x93ee31e1, 0x4306f83f, 0x2dbbfb42, 0x54a66ec0, 0xdb09b366, 0xb527d731, 0x15a07bb3 }"
+Result digest: 033ceb81a00b0b8b89d6bec8021586bd
+All tests passed!
+<end of output>
+Test time =   2.90 sec
+----------------------------------------------------------
+Test Passed.
+"sqisign_test_threadsafety_p324_3" end time: Nov 20 11:38 MSK
+"sqisign_test_threadsafety_p324_3" time elapsed: 00:00:02
+----------------------------------------------------------
+
+33/47 Testing: sqisign_test_threadsafety_p500_27
+33/47 Test: sqisign_test_threadsafety_p500_27
+Command: "/home/z666/sqisign-v3-research/build-RUSSIAN_PRNG-Release/src/signature/ref/p500_27/test/sqisign_test_threadsafety_p500_27" "--threads=4" "--iterations=2"
+Directory: /home/z666/sqisign-v3-research/build-RUSSIAN_PRNG-Release/src/signature/ref/p500_27/test
+"sqisign_test_threadsafety_p500_27" start time: Nov 20 11:38 MSK
+Output:
+----------------------------------------------------------
+Random seed: "--seed={ 0xbf615446, 0xd1f80b8b, 0xe7b6e25c, 0x61df62ca, 0xefb23671, 0x3272b023, 0xd4c1f50e, 0xc721eec9, 0xb567c1ef, 0x90472542, 0x22723484, 0xca26c831 }"
+Result digest: 9fb1b0cee4c344a8dfd19d9256b69e1b
+All tests passed!
+<end of output>
+Test time =   5.05 sec
+----------------------------------------------------------
+Test Passed.
+"sqisign_test_threadsafety_p500_27" end time: Nov 20 11:38 MSK
+"sqisign_test_threadsafety_p500_27" time elapsed: 00:00:05
+----------------------------------------------------------
+
+35/47 Testing: sqisign_test_threadsafety_p664_17
+35/47 Test: sqisign_test_threadsafety_p664_17
+Command: "/home/z666/sqisign-v3-research/build-RUSSIAN_PRNG-Release/src/signature/ref/p664_17/test/sqisign_test_threadsafety_p664_17" "--threads=4" "--iterations=2"
+Directory: /home/z666/sqisign-v3-research/build-RUSSIAN_PRNG-Release/src/signature/ref/p664_17/test
+"sqisign_test_threadsafety_p664_17" start time: Nov 20 11:38 MSK
+Output:
+----------------------------------------------------------
+Random seed: "--seed={ 0x4652640c, 0x2da6a4b4, 0x00c2c34c, 0x2d11fd5e, 0x4c780b10, 0x3d751952, 0xd5578436, 0x3d0d24f8, 0xcdd3aca5, 0x8bcb1a1c, 0x8a36b751, 0x1125dd18 }"
+Result digest: b8b53485a9ef640e0b401f81898acdc4
+All tests passed!
+<end of output>
+Test time =  15.33 sec
+----------------------------------------------------------
+Test Passed.
+"sqisign_test_threadsafety_p664_17" end time: Nov 20 11:38 MSK
+"sqisign_test_threadsafety_p664_17" time elapsed: 00:00:15
+----------------------------------------------------------
+
+36/47 Testing: sqisign_test_nistapi_p324_3
+36/47 Test: sqisign_test_nistapi_p324_3
+Command: "/home/z666/sqisign-v3-research/build-RUSSIAN_PRNG-Release/apps/example_nistapi_p324_3"
+Directory: /home/z666/sqisign-v3-research/build-RUSSIAN_PRNG-Release/apps
+"sqisign_test_nistapi_p324_3" start time: Nov 20 11:38 MSK
+Output:
+----------------------------------------------------------
+Random seed: "--seed={ 0x3d98e43e, 0x7ba3f740, 0x9d6c2ab3, 0xe5e3cf67, 0xb9062d84, 0x89d7fe93, 0x1e4f2be5, 0x3daddfdd, 0x3675acf7, 0xc2c4122e, 0x133b27fc, 0x8475d761 }"
+Example with SQIsign_p324_3
+crypto_sign_keypair -> OK
+crypto_sign -> OK
+crypto_sign_open (with correct signature) -> OK
+crypto_sign_open (with altered signature) -> OK
+<end of output>
+Test time =   0.17 sec
+----------------------------------------------------------
+Test Passed.
+"sqisign_test_nistapi_p324_3" end time: Nov 20 11:38 MSK
+"sqisign_test_nistapi_p324_3" time elapsed: 00:00:00
+----------------------------------------------------------
+
+37/47 Testing: sqisign_test_nistapi_p500_27
+37/47 Test: sqisign_test_nistapi_p500_27
+Command: "/home/z666/sqisign-v3-research/build-RUSSIAN_PRNG-Release/apps/example_nistapi_p500_27"
+Directory: /home/z666/sqisign-v3-research/build-RUSSIAN_PRNG-Release/apps
+"sqisign_test_nistapi_p500_27" start time: Nov 20 11:38 MSK
+Output:
+----------------------------------------------------------
+Random seed: "--seed={ 0xf5c1738a, 0x3825863e, 0x85f9581e, 0x7e93b562, 0x1de3d9f7, 0xa704004b, 0x090480a1, 0xc29a5a7f, 0xb2cb9fa0, 0xbea6ad27, 0xba5f8df9, 0x0507e1a4 }"
+Example with SQIsign_p500_27
+crypto_sign_keypair -> OK
+crypto_sign -> OK
+crypto_sign_open (with correct signature) -> OK
+crypto_sign_open (with altered signature) -> OK
+<end of output>
+Test time =   0.83 sec
+----------------------------------------------------------
+Test Passed.
+"sqisign_test_nistapi_p500_27" end time: Nov 20 11:38 MSK
+"sqisign_test_nistapi_p500_27" time elapsed: 00:00:00
+----------------------------------------------------------
+
+38/47 Testing: sqisign_test_nistapi_p664_17
+38/47 Test: sqisign_test_nistapi_p664_17
+Command: "/home/z666/sqisign-v3-research/build-RUSSIAN_PRNG-Release/apps/example_nistapi_p664_17"
+Directory: /home/z666/sqisign-v3-research/build-RUSSIAN_PRNG-Release/apps
+"sqisign_test_nistapi_p664_17" start time: Nov 20 11:38 MSK
+Output:
+----------------------------------------------------------
+Random seed: "--seed={ 0xfc55c03c, 0x9c8c301c, 0x23e8b416, 0xf5d04e61, 0xece7074b, 0x54e783b2, 0x3b95f7c2, 0xf7e6c163, 0xe32711b2, 0x47115be4, 0x1e731f23, 0xf2a504c9 }"
+Example with SQIsign_p664_17
+crypto_sign_keypair -> OK
+crypto_sign -> OK
+crypto_sign_open (with correct signature) -> OK
+crypto_sign_open (with altered signature) -> OK
+<end of output>
+Test time =   1.32 sec
+----------------------------------------------------------
+Test Passed.
+"sqisign_test_nistapi_p664_17" end time: Nov 20 11:38 MSK
+"sqisign_test_nistapi_p664_17" time elapsed: 00:00:01
+----------------------------------------------------------
+
+39/47 Testing: sqisign_p324_3_KAT
+39/47 Test: sqisign_p324_3_KAT
+Command: "/home/z666/sqisign-v3-research/build-RUSSIAN_PRNG-Release/test/sqisign_test_kat_p324_3"
+Directory: /home/z666/sqisign-v3-research/build-RUSSIAN_PRNG-Release/test
+"sqisign_p324_3_KAT" start time: Nov 20 11:38 MSK
+Output:
+----------------------------------------------------------
+Known Answer Tests PASSED. 
+
+
+<end of output>
+Test time =   0.27 sec
+----------------------------------------------------------
+Test Passed.
+"sqisign_p324_3_KAT" end time: Nov 20 11:38 MSK
+"sqisign_p324_3_KAT" time elapsed: 00:00:00
+----------------------------------------------------------
+
+40/47 Testing: sqisign_p324_3_SELFTEST
+40/47 Test: sqisign_p324_3_SELFTEST
+Command: "/home/z666/sqisign-v3-research/build-RUSSIAN_PRNG-Release/test/sqisign_test_scheme_p324_3"
+Directory: /home/z666/sqisign-v3-research/build-RUSSIAN_PRNG-Release/test
+"sqisign_p324_3_SELFTEST" start time: Nov 20 11:38 MSK
+Output:
+----------------------------------------------------------
+Random seed: "--seed={ 0x1ba2bd2d, 0x470f31f7, 0x4b0043c1, 0xd81c6817, 0xafc1fb4c, 0xd917a5f0, 0xd524ad07, 0x65cab6fc, 0x4a90c5d0, 0x8d6071e6, 0xa8a9b0aa, 0x57e387e3 }"
+Testing Keygen, Sign, Open: SQIsign_p324_3
+pk: 72be141d34e25e281aeb1840c906f74a00dd84a91c8085d4dc6e623cb02ac4597335966b9ce9be951f36d968eebf3786fe2630d93234efffdff30d7c41c5ca7f49732fa3c93fa14c4d9f7a9602726ebc1f2e05
+sk: 72be141d34e25e281aeb1840c906f74a00dd84a91c8085d4dc6e623cb02ac4597335966b9ce9be951f36d968eebf3786fe2630d93234efffdff30d7c41c5ca7f49732fa3c93fa14c4d9f7a9602726ebc1f2e058f86ac85ef3006ced24ebc521f6bbc74cb0a3ef8d507000000000000000000000000000000000000002677fd4d54783a97da955d81276da7731b0d68c65d0600000000000000000000000000000000000000cf01ea7a3a554891e11ff30be8273a354536244d210700000000000000000000000000000000000000114bf8e242291033bb9a682ad2d9835363bbf664cdcfd809897b336a081ff7e0de594e6bf2549a043343d64345f8791bd73a4fc566fa2460275ae510f981bff0
+sm: d54594a116ba34c0af02feb26eb008a2b96199a1bfdc28b798d5b57ddd6b2e3615e09632a810dbaa0b6efcc636d5f50ee9868119bfdec0d946bc3f762b7d5534b151865eab5cfc27d7cdb823dd0e797ec426410fc5311d2143c54a107d4becd0a244287868295e6fc29e0e9c8e6e768343841b822ac789ef93abbcc71816b2177b5017307bfb7080f6884b31df479566aff3047ecc3dafa7f248e0a43b11b2af4d9c7353bb8e77fbe5c138f8e05614c303b207c5a31da7ba74a837db6801226fe3cf40db51290705bc6daba53fa74b4917bdeda87ff026d4192e3fe2b0e6d17400689e489c8f2691
+Testing length validation of Open, Verify: SQIsign_p324_3
+<end of output>
+Test time =   0.31 sec
+----------------------------------------------------------
+Test Passed.
+"sqisign_p324_3_SELFTEST" end time: Nov 20 11:38 MSK
+"sqisign_p324_3_SELFTEST" time elapsed: 00:00:00
+----------------------------------------------------------
+
+41/47 Testing: sqisign_p500_27_KAT
+41/47 Test: sqisign_p500_27_KAT
+Command: "/home/z666/sqisign-v3-research/build-RUSSIAN_PRNG-Release/test/sqisign_test_kat_p500_27"
+Directory: /home/z666/sqisign-v3-research/build-RUSSIAN_PRNG-Release/test
+"sqisign_p500_27_KAT" start time: Nov 20 11:38 MSK
+Output:
+----------------------------------------------------------
+Known Answer Tests PASSED. 
+
+
+<end of output>
+Test time =   1.24 sec
+----------------------------------------------------------
+Test Passed.
+"sqisign_p500_27_KAT" end time: Nov 20 11:38 MSK
+"sqisign_p500_27_KAT" time elapsed: 00:00:01
+----------------------------------------------------------
+
+42/47 Testing: sqisign_p500_27_SELFTEST
+42/47 Test: sqisign_p500_27_SELFTEST
+Command: "/home/z666/sqisign-v3-research/build-RUSSIAN_PRNG-Release/test/sqisign_test_scheme_p500_27"
+Directory: /home/z666/sqisign-v3-research/build-RUSSIAN_PRNG-Release/test
+"sqisign_p500_27_SELFTEST" start time: Nov 20 11:38 MSK
+Output:
+----------------------------------------------------------
+Random seed: "--seed={ 0x2d2d8767, 0xa965c728, 0x962a0fc9, 0xf68196a5, 0x084c92db, 0x55694569, 0x769afcc3, 0xc1e71d37, 0x79ce1f7c, 0x30d39b55, 0x7899741a, 0xe4800358 }"
+Testing Keygen, Sign, Open: SQIsign_p500_27
+pk: 53db52aa64eedb2758814f795f8483ac5fcc00ea2afb3047347ae8d630635870614f9205505fc711da82aaa0e6ea4e4ef24287e6e6ac1369445ccc0f38a5a20027de4e43dbbe59a2a8898bcfce312907c327cebadff61a3f9bc86aec4948ef82782ffe0373c0f1ce15882abbff0eee526ea519c9a7519d8f1c7bcd963b03a30104
+sk: 53db52aa64eedb2758814f795f8483ac5fcc00ea2afb3047347ae8d630635870614f9205505fc711da82aaa0e6ea4e4ef24287e6e6ac1369445ccc0f38a5a20027de4e43dbbe59a2a8898bcfce312907c327cebadff61a3f9bc86aec4948ef82782ffe0373c0f1ce15882abbff0eee526ea519c9a7519d8f1c7bcd963b03a30104dbacf55d44c1abaa800588795f2e7d6bf43dd13e1e4b623b0c1d02fdac28b5d33400000000000000000000000000000000000000000000000000000000000000e8719eb8c22cc4e4c99840b893bc851703c17137c66de7f672c7bca4292a6a9e2800000000000000000000000000000000000000000000000000000000000000f5fc60fe0d94c874b9354fc26c432d0673944ac51c8d41c1d42d70399a5f7b142a00000000000000000000000000000000000000000000000000000000000000a44f9bb8caff5bcdc762423ec972bfe37ca812b4493ee0448f6a2c0f4a480baa5948f2462b6cdcac96716737bdf4ed8ee509e090135f2a350c64cc6e9512893058dd703c27ce78c7487e39a4158746ce510e620f4f4e556a2884783f5f7aec48
+sm: 7f3d04573e681cbd2287dc2e0aadc782fc91c7099e065a7ca42b7b83fd7da4cd9177583cde6ff64643b55c4085d5422b24991e65cbf5e1a77baeda0b23e91101fe31e941e2dafcf9cd6e5d49fe1b0730398020759611754dff187ef9846ecd3b711fb817dc8159b0926973d3552614fd9077c04f6c0c8cb6c16a99bf923d6901e2617e36cb712e0d6057387035fc6c249169a31874b69d9a37ef17d150860a0d56b1f6506b18bd41ed875b54918b3105febb5bea030b99e56c8b4b88ad0d8ebeea337fd9352a9e2890250eb235c9b986e86cd25e77bc453ff262913f8462ba856999d99a10cbb02e517802c6e9704330559e7fb497dd120c8ca84721ac6b45dff85fa7386100277ef4ba45810a2408c63e25b0413914a88e0cb7b0e92c3bdb555250d746f4594eba8159d82b4866910e090b6ec7199931c4c9e5b222cc7793e6d8bd2482bdce83d50f26733cb9af31db37f1
+Testing length validation of Open, Verify: SQIsign_p500_27
+<end of output>
+Test time =   1.21 sec
+----------------------------------------------------------
+Test Passed.
+"sqisign_p500_27_SELFTEST" end time: Nov 20 11:38 MSK
+"sqisign_p500_27_SELFTEST" time elapsed: 00:00:01
+----------------------------------------------------------
+
+43/47 Testing: sqisign_p664_17_KAT
+43/47 Test: sqisign_p664_17_KAT
+Command: "/home/z666/sqisign-v3-research/build-RUSSIAN_PRNG-Release/test/sqisign_test_kat_p664_17"
+Directory: /home/z666/sqisign-v3-research/build-RUSSIAN_PRNG-Release/test
+"sqisign_p664_17_KAT" start time: Nov 20 11:38 MSK
+Output:
+----------------------------------------------------------
+Known Answer Tests PASSED. 
+
+
+<end of output>
+Test time =   1.86 sec
+----------------------------------------------------------
+Test Passed.
+"sqisign_p664_17_KAT" end time: Nov 20 11:38 MSK
+"sqisign_p664_17_KAT" time elapsed: 00:00:01
+----------------------------------------------------------
+
+44/47 Testing: sqisign_p664_17_SELFTEST
+44/47 Test: sqisign_p664_17_SELFTEST
+Command: "/home/z666/sqisign-v3-research/build-RUSSIAN_PRNG-Release/test/sqisign_test_scheme_p664_17"
+Directory: /home/z666/sqisign-v3-research/build-RUSSIAN_PRNG-Release/test
+"sqisign_p664_17_SELFTEST" start time: Nov 20 11:38 MSK
+Output:
+----------------------------------------------------------
+Random seed: "--seed={ 0x62fad16d, 0x6d57754f, 0x28ad5d35, 0x86698810, 0x6ee7679f, 0x9fd38d77, 0xfa337d3f, 0x8b2e6fea, 0x085d6327, 0x2ab4586c, 0xd702ba2d, 0xa71568b0 }"
+Testing Keygen, Sign, Open: SQIsign_p664_17
+pk: fa158cf5829e9ea5441df5dd290386bbbbfa4475d4b12ededf9a8ffd2de45aa22c584dc9447dd918e31aaa5e568a1232fc82c38ddd098c82e8032b7590888195c576c3d3b9461a52e85fc0f13471ba7eb1085d0c854f0fe072b9dda320ebb30f3c5c14a4c454d06a0917ecd6baef45057fb6604ae54511f3f1ab25c639f420b505a73f8333dc794f9b35b837422050e65c6ca1ed82d2af2bb364e47ac3c56fddfbaadc7e2e333e0c08
+sk: fa158cf5829e9ea5441df5dd290386bbbbfa4475d4b12ededf9a8ffd2de45aa22c584dc9447dd918e31aaa5e568a1232fc82c38ddd098c82e8032b7590888195c576c3d3b9461a52e85fc0f13471ba7eb1085d0c854f0fe072b9dda320ebb30f3c5c14a4c454d06a0917ecd6baef45057fb6604ae54511f3f1ab25c639f420b505a73f8333dc794f9b35b837422050e65c6ca1ed82d2af2bb364e47ac3c56fddfbaadc7e2e333e0c08fd8e9e8ba67873e5ade7e9690cb6f5e03cabc903b38326697654c2f9d3753e234ae2cb3ada6b6e59088a3a0000000000000000000000000000000000000000000000000000000000000000000000000000000000de49adb4e808595909ea4679bc58982bb08be944f7c28ca87627d91e4cae76383053aed8a398370490e80800000000000000000000000000000000000000000000000000000000000000000000000000000000004f3469d1bdbbc2983142d64f9ad0f48252ea514bf4385572ea717923e58cbee8f34bac8e62b268b135b9180000000000000000000000000000000000000000000000000000000000000000000000000000000000c7919980237f2be8228d6d09d54d5606d6fd3a06dc79b8af47733ce95bfa2655af28835392b0a15ec1e7046762dfe1bfb017d0e1574404ee758f61eb5e85efbd6ff06603cfc21dc093a0ea98d97b6edc2d4a675548b6025adb74b9fd9cc92e05dea7a0cf4336bcf5317b934c3f4115867b3c07043df614434dce28f51c50eafe
+sm: 17713b898648b0b303f329f4f5c703003659f456f89a2968177fd9ca123302d4b945266c147795068beb5843d5e5194a78317abc3cef17a47c6afebfe0da2a93c0b5cf8cb7da1be514b7dce1f9cc77fde8047608619cac4846bc0be2ac11d7eddafbbe35e63b18af30383dc710832c1f264c5dd52e2af708a8749704ea1987e78d70de953f8c1775bb438bedbcc8e3bb0eeeeb6aeade04c8b9bac72c8a860376b21fc4584eb7e30d8c7084b8c7658725cc3d7aaf446eeb596056ef1a6fe08f84da20f784644b2133655b3cb355bf8ba4e19829af7f3c297473e4013b34e5ba73d524dcb99f230c221c5428c63ad61ec1ccfccfa7ecdd38905f8d435a4490ef5d59bed2fc9baa3a3200d692f25800f9973f9544f719b5e2566da3e5460916b3c313b267369df5ee8e9e31c2ac75ff3bfa9823917206c06fbc084ed8c93764215d03be79489bbd7395bd1bc767ce0e168e09dc5004fe28407ad3800758731950bc76df00cbd4088e1c977faec01f1427d45a9a7e022867fccb9b34d07f9118631485322e68867a6269ff6d8f2906a892621cffc3a20b0e35cd67bf82514596625b97d68a36ee996895a77181c671e539c66ef43b6e3dbb
+Testing length validation of Open, Verify: SQIsign_p664_17
+<end of output>
+Test time =   2.57 sec
+----------------------------------------------------------
+Test Passed.
+"sqisign_p664_17_SELFTEST" end time: Nov 20 11:38 MSK
+"sqisign_p664_17_SELFTEST" time elapsed: 00:00:02
+----------------------------------------------------------
+
+45/47 Testing: research_system_p324_3
+45/47 Test: research_system_p324_3
+Command: "/home/z666/sqisign-v3-research/build-RUSSIAN_PRNG-Release/research/system_smoke_p324_3" "smoke" "1"
+Directory: /home/z666/sqisign-v3-research/build-RUSSIAN_PRNG-Release/research
+"research_system_p324_3" start time: Nov 20 11:38 MSK
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.12 sec
+----------------------------------------------------------
+Test Passed.
+"research_system_p324_3" end time: Nov 20 11:38 MSK
+"research_system_p324_3" time elapsed: 00:00:00
+----------------------------------------------------------
+
+46/47 Testing: research_system_p500_27
+46/47 Test: research_system_p500_27
+Command: "/home/z666/sqisign-v3-research/build-RUSSIAN_PRNG-Release/research/system_smoke_p500_27" "smoke" "1"
+Directory: /home/z666/sqisign-v3-research/build-RUSSIAN_PRNG-Release/research
+"research_system_p500_27" start time: Nov 20 11:38 MSK
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.32 sec
+----------------------------------------------------------
+Test Passed.
+"research_system_p500_27" end time: Nov 20 11:38 MSK
+"research_system_p500_27" time elapsed: 00:00:00
+----------------------------------------------------------
+
+47/47 Testing: research_system_p664_17
+47/47 Test: research_system_p664_17
+Command: "/home/z666/sqisign-v3-research/build-RUSSIAN_PRNG-Release/research/system_smoke_p664_17" "smoke" "1"
+Directory: /home/z666/sqisign-v3-research/build-RUSSIAN_PRNG-Release/research
+"research_system_p664_17" start time: Nov 20 11:38 MSK
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   1.69 sec
+----------------------------------------------------------
+Test Passed.
+"research_system_p664_17" end time: Nov 20 11:39 MSK
+"research_system_p664_17" time elapsed: 00:00:01
+----------------------------------------------------------
+
+End testing: Nov 20 11:39 MSK

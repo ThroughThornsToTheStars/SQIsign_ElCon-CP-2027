@@ -1,0 +1,350 @@
+Start testing: Nov 20 11:38 MSK
+----------------------------------------------------------
+1/47 Testing: sqisign_test_shake256
+1/47 Test: sqisign_test_shake256
+Command: "/home/z666/sqisign-v3-research/build-STREEBOG_HASH-San/src/common/generic/test/sqisign_test_shake256"
+Directory: /home/z666/sqisign-v3-research/build-STREEBOG_HASH-San/src/common/generic/test
+"sqisign_test_shake256" start time: Nov 20 11:38 MSK
+Output:
+----------------------------------------------------------
+Running SHAKE-256 known-answer tests
+SHAKE-256 known-answer tests passed
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"sqisign_test_shake256" end time: Nov 20 11:38 MSK
+"sqisign_test_shake256" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/47 Testing: sqisign_test_prng
+2/47 Test: sqisign_test_prng
+Command: "/home/z666/sqisign-v3-research/build-STREEBOG_HASH-San/src/common/generic/test/sqisign_test_prng"
+Directory: /home/z666/sqisign-v3-research/build-STREEBOG_HASH-San/src/common/generic/test
+"sqisign_test_prng" start time: Nov 20 11:38 MSK
+Output:
+----------------------------------------------------------
+Running PRNG unit tests
+PRNG unit tests passed
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"sqisign_test_prng" end time: Nov 20 11:38 MSK
+"sqisign_test_prng" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/47 Testing: sqisign_test_ctrdrbg_kat
+3/47 Test: sqisign_test_ctrdrbg_kat
+Command: "/home/z666/sqisign-v3-research/build-STREEBOG_HASH-San/src/common/generic/test/sqisign_test_ctrdrbg_kat"
+Directory: /home/z666/sqisign-v3-research/build-STREEBOG_HASH-San/src/common/generic/test
+"sqisign_test_ctrdrbg_kat" start time: Nov 20 11:38 MSK
+Output:
+----------------------------------------------------------
+Running CTR-DRBG known-answer tests
+CTR-DRBG known-answer tests passed
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"sqisign_test_ctrdrbg_kat" end time: Nov 20 11:38 MSK
+"sqisign_test_ctrdrbg_kat" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/47 Testing: sqisign_test_prng_kat
+5/47 Test: sqisign_test_prng_kat
+Command: "/home/z666/sqisign-v3-research/build-STREEBOG_HASH-San/src/common/generic/test/sqisign_test_prng_kat"
+Directory: /home/z666/sqisign-v3-research/build-STREEBOG_HASH-San/src/common/generic/test
+"sqisign_test_prng_kat" start time: Nov 20 11:38 MSK
+Output:
+----------------------------------------------------------
+Running PRNG known-answer test
+PRNG known-answer test passed
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"sqisign_test_prng_kat" end time: Nov 20 11:38 MSK
+"sqisign_test_prng_kat" time elapsed: 00:00:00
+----------------------------------------------------------
+
+31/47 Testing: sqisign_test_threadsafety_p324_3
+31/47 Test: sqisign_test_threadsafety_p324_3
+Command: "/home/z666/sqisign-v3-research/build-STREEBOG_HASH-San/src/signature/ref/p324_3/test/sqisign_test_threadsafety_p324_3" "--threads=4" "--iterations=2"
+Directory: /home/z666/sqisign-v3-research/build-STREEBOG_HASH-San/src/signature/ref/p324_3/test
+"sqisign_test_threadsafety_p324_3" start time: Nov 20 11:38 MSK
+Output:
+----------------------------------------------------------
+Random seed: "--seed={ 0xfa39608f, 0x48046f4f, 0x12511eb1, 0x1a300a37, 0x2bf0538d, 0xe4868c96, 0x245edae9, 0x89ff928f, 0xd0473dbf, 0x345f5ac6, 0xa91ae881, 0x5f37ce20 }"
+Result digest: c5b5f3cdd023440a483cd00d4ed83d26
+All tests passed!
+<end of output>
+Test time =   4.95 sec
+----------------------------------------------------------
+Test Passed.
+"sqisign_test_threadsafety_p324_3" end time: Nov 20 11:39 MSK
+"sqisign_test_threadsafety_p324_3" time elapsed: 00:00:04
+----------------------------------------------------------
+
+33/47 Testing: sqisign_test_threadsafety_p500_27
+33/47 Test: sqisign_test_threadsafety_p500_27
+Command: "/home/z666/sqisign-v3-research/build-STREEBOG_HASH-San/src/signature/ref/p500_27/test/sqisign_test_threadsafety_p500_27" "--threads=4" "--iterations=2"
+Directory: /home/z666/sqisign-v3-research/build-STREEBOG_HASH-San/src/signature/ref/p500_27/test
+"sqisign_test_threadsafety_p500_27" start time: Nov 20 11:39 MSK
+Output:
+----------------------------------------------------------
+Random seed: "--seed={ 0xd4b84f52, 0x61ce45ec, 0x02ecb254, 0x8afba6e5, 0x37e4508d, 0x6c6dab90, 0x80967a81, 0xbf89aa76, 0x932d146c, 0x4929b122, 0xe90716af, 0xb7b7928a }"
+Result digest: 2683fac00fff9904fa8dd00712b374c9
+All tests passed!
+<end of output>
+Test time =  14.05 sec
+----------------------------------------------------------
+Test Passed.
+"sqisign_test_threadsafety_p500_27" end time: Nov 20 11:39 MSK
+"sqisign_test_threadsafety_p500_27" time elapsed: 00:00:14
+----------------------------------------------------------
+
+35/47 Testing: sqisign_test_threadsafety_p664_17
+35/47 Test: sqisign_test_threadsafety_p664_17
+Command: "/home/z666/sqisign-v3-research/build-STREEBOG_HASH-San/src/signature/ref/p664_17/test/sqisign_test_threadsafety_p664_17" "--threads=4" "--iterations=2"
+Directory: /home/z666/sqisign-v3-research/build-STREEBOG_HASH-San/src/signature/ref/p664_17/test
+"sqisign_test_threadsafety_p664_17" start time: Nov 20 11:39 MSK
+Output:
+----------------------------------------------------------
+Random seed: "--seed={ 0xc245902c, 0x1a866990, 0xbadaacd0, 0xa3ec34ca, 0x7a8bb721, 0xcb0cff5d, 0x43f8e2de, 0xbff5171e, 0xd28e178c, 0xcd203f07, 0x737915c3, 0x1278db60 }"
+Result digest: dece70eb7211f3160efcbb5c2b3ef3d1
+All tests passed!
+<end of output>
+Test time =  18.09 sec
+----------------------------------------------------------
+Test Passed.
+"sqisign_test_threadsafety_p664_17" end time: Nov 20 11:39 MSK
+"sqisign_test_threadsafety_p664_17" time elapsed: 00:00:18
+----------------------------------------------------------
+
+36/47 Testing: sqisign_test_nistapi_p324_3
+36/47 Test: sqisign_test_nistapi_p324_3
+Command: "/home/z666/sqisign-v3-research/build-STREEBOG_HASH-San/apps/example_nistapi_p324_3"
+Directory: /home/z666/sqisign-v3-research/build-STREEBOG_HASH-San/apps
+"sqisign_test_nistapi_p324_3" start time: Nov 20 11:39 MSK
+Output:
+----------------------------------------------------------
+Random seed: "--seed={ 0x63000bfb, 0x09395dcd, 0xce130ff6, 0x55dacc2f, 0x8d5c3363, 0x4add48ea, 0xc2f84bf4, 0x745b263b, 0x315edcf9, 0x6b11ad01, 0x809d3b9b, 0x43de8669 }"
+Example with SQIsign_p324_3
+crypto_sign_keypair -> OK
+crypto_sign -> OK
+crypto_sign_open (with correct signature) -> OK
+crypto_sign_open (with altered signature) -> OK
+<end of output>
+Test time =   0.32 sec
+----------------------------------------------------------
+Test Passed.
+"sqisign_test_nistapi_p324_3" end time: Nov 20 11:39 MSK
+"sqisign_test_nistapi_p324_3" time elapsed: 00:00:00
+----------------------------------------------------------
+
+37/47 Testing: sqisign_test_nistapi_p500_27
+37/47 Test: sqisign_test_nistapi_p500_27
+Command: "/home/z666/sqisign-v3-research/build-STREEBOG_HASH-San/apps/example_nistapi_p500_27"
+Directory: /home/z666/sqisign-v3-research/build-STREEBOG_HASH-San/apps
+"sqisign_test_nistapi_p500_27" start time: Nov 20 11:39 MSK
+Output:
+----------------------------------------------------------
+Random seed: "--seed={ 0xf9c4cde4, 0xae46d8c6, 0x8b397e06, 0x3bb1e928, 0x8bebc866, 0xd3bfb0f8, 0x8da4d0ae, 0x08505539, 0xd454274e, 0x39dcd0c2, 0xdbd1bc9c, 0x1255b760 }"
+Example with SQIsign_p500_27
+crypto_sign_keypair -> OK
+crypto_sign -> OK
+crypto_sign_open (with correct signature) -> OK
+crypto_sign_open (with altered signature) -> OK
+<end of output>
+Test time =   0.87 sec
+----------------------------------------------------------
+Test Passed.
+"sqisign_test_nistapi_p500_27" end time: Nov 20 11:39 MSK
+"sqisign_test_nistapi_p500_27" time elapsed: 00:00:00
+----------------------------------------------------------
+
+38/47 Testing: sqisign_test_nistapi_p664_17
+38/47 Test: sqisign_test_nistapi_p664_17
+Command: "/home/z666/sqisign-v3-research/build-STREEBOG_HASH-San/apps/example_nistapi_p664_17"
+Directory: /home/z666/sqisign-v3-research/build-STREEBOG_HASH-San/apps
+"sqisign_test_nistapi_p664_17" start time: Nov 20 11:39 MSK
+Output:
+----------------------------------------------------------
+Random seed: "--seed={ 0xd82689a9, 0x123dc33f, 0x2ba1d143, 0x6fb18429, 0x12bb9a35, 0xc84ff4f0, 0xf3bef444, 0x1e162bb0, 0x75f57503, 0x4ed703ae, 0xae03f759, 0x582ccee5 }"
+Example with SQIsign_p664_17
+crypto_sign_keypair -> OK
+crypto_sign -> OK
+crypto_sign_open (with correct signature) -> OK
+crypto_sign_open (with altered signature) -> OK
+<end of output>
+Test time =   1.38 sec
+----------------------------------------------------------
+Test Passed.
+"sqisign_test_nistapi_p664_17" end time: Nov 20 11:39 MSK
+"sqisign_test_nistapi_p664_17" time elapsed: 00:00:01
+----------------------------------------------------------
+
+39/47 Testing: sqisign_p324_3_KAT
+39/47 Test: sqisign_p324_3_KAT
+Command: "/home/z666/sqisign-v3-research/build-STREEBOG_HASH-San/test/sqisign_test_kat_p324_3"
+Directory: /home/z666/sqisign-v3-research/build-STREEBOG_HASH-San/test
+"sqisign_p324_3_KAT" start time: Nov 20 11:39 MSK
+Output:
+----------------------------------------------------------
+Known Answer Tests PASSED. 
+
+
+<end of output>
+Test time =   0.56 sec
+----------------------------------------------------------
+Test Passed.
+"sqisign_p324_3_KAT" end time: Nov 20 11:39 MSK
+"sqisign_p324_3_KAT" time elapsed: 00:00:00
+----------------------------------------------------------
+
+40/47 Testing: sqisign_p324_3_SELFTEST
+40/47 Test: sqisign_p324_3_SELFTEST
+Command: "/home/z666/sqisign-v3-research/build-STREEBOG_HASH-San/test/sqisign_test_scheme_p324_3"
+Directory: /home/z666/sqisign-v3-research/build-STREEBOG_HASH-San/test
+"sqisign_p324_3_SELFTEST" start time: Nov 20 11:39 MSK
+Output:
+----------------------------------------------------------
+Random seed: "--seed={ 0x3b920a6a, 0x6bd9a886, 0x4667a08f, 0xb18ef9e7, 0x3efbd04a, 0x209e91bf, 0xfdd90e7c, 0x3d5165ff, 0x633bcf26, 0x394ea478, 0x20a6e1a2, 0x49e5c711 }"
+Testing Keygen, Sign, Open: SQIsign_p324_3
+pk: 9ba472bb2d14f60877f6a542689dd6fb52295834eacca49ccdf89a702f1ef0fc9471b9a0e42234711bddbf3d816e316764902abf66dbd4dfd4e15d7779939165e557ec36b134ae681ab2be5cec330a4caf2604
+sk: 9ba472bb2d14f60877f6a542689dd6fb52295834eacca49ccdf89a702f1ef0fc9471b9a0e42234711bddbf3d816e316764902abf66dbd4dfd4e15d7779939165e557ec36b134ae681ab2be5cec330a4caf2604f5628ea8b1ea4c4a3da9651aebb8cec418211e8b6408000000000000000000000000000000000000001645c04cd062b7750897922460cd6b9373ec3a7ceb0100000000000000000000000000000000000000456b636f94e65e4ab8c147335513bcbb3eef1b608d040000000000000000000000000000000000000007cd80f7baa4ba0b12e8bd337f90ab31ef891d18e34fcd5e4895dfafe7b51d37b5b019bee33a2b291a5189996880f307887c317848a8d47f1dfdb8517747d92b
+sm: 7fed0091cf3b34b3fcd87b4d6862e25ad0507bce5f1be1885bd5deb08d4ecc60c453ac7a54e6b675082333da0089efeea6130e212e7ad14dabbcf11a86ea64b44b67ff2c7adc275e9e6fb97c62c9a0fef82e7d07d2bc0838a35fff34fe1037a23521b9515b812d6cf68e0c1bfcc4c40caa413895b4031ad6e94f94d7bacf2627683fa02b0efb9bd0857f52015d2fcb3cb9ae15f9ae192ca7c47470162c470cd9a6923146b8e284fa5c52eefe41f6d5868538b50fe0384438fb0ffca28a635250aa974cd160ae050df7dc2604aa9549bc1f4c4c7ed4b67a0e9d438f4ae7ba6ca1f1934f38a300e7ef
+Testing length validation of Open, Verify: SQIsign_p324_3
+<end of output>
+Test time =   0.82 sec
+----------------------------------------------------------
+Test Passed.
+"sqisign_p324_3_SELFTEST" end time: Nov 20 11:39 MSK
+"sqisign_p324_3_SELFTEST" time elapsed: 00:00:00
+----------------------------------------------------------
+
+41/47 Testing: sqisign_p500_27_KAT
+41/47 Test: sqisign_p500_27_KAT
+Command: "/home/z666/sqisign-v3-research/build-STREEBOG_HASH-San/test/sqisign_test_kat_p500_27"
+Directory: /home/z666/sqisign-v3-research/build-STREEBOG_HASH-San/test
+"sqisign_p500_27_KAT" start time: Nov 20 11:39 MSK
+Output:
+----------------------------------------------------------
+Known Answer Tests PASSED. 
+
+
+<end of output>
+Test time =   1.63 sec
+----------------------------------------------------------
+Test Passed.
+"sqisign_p500_27_KAT" end time: Nov 20 11:39 MSK
+"sqisign_p500_27_KAT" time elapsed: 00:00:01
+----------------------------------------------------------
+
+42/47 Testing: sqisign_p500_27_SELFTEST
+42/47 Test: sqisign_p500_27_SELFTEST
+Command: "/home/z666/sqisign-v3-research/build-STREEBOG_HASH-San/test/sqisign_test_scheme_p500_27"
+Directory: /home/z666/sqisign-v3-research/build-STREEBOG_HASH-San/test
+"sqisign_p500_27_SELFTEST" start time: Nov 20 11:39 MSK
+Output:
+----------------------------------------------------------
+Random seed: "--seed={ 0xcf4fb7b3, 0x0b545bb0, 0x8adb3d15, 0xc527014a, 0x2435a608, 0x8d9c7be4, 0xa13b1f19, 0x0091ca9e, 0x3394d87c, 0x08047862, 0xa7a83333, 0x9d96c6d6 }"
+Testing Keygen, Sign, Open: SQIsign_p500_27
+pk: 8b719a5545678776a41d522cb3a9efeb25f8ac42d23b43444a536e2c03d38220a708326057b6dd48ad42bcbfab7a216a3535f9f85d27796b6feef40bcd3f5a00abf67a76059e91e8cb37de259933a522702d376fa87851cd38359f7e3b85fd4d46b68bd2059b8c38cdc719800be68453a2e01e202ab5e99df0abd7a2d2676d0102
+sk: 8b719a5545678776a41d522cb3a9efeb25f8ac42d23b43444a536e2c03d38220a708326057b6dd48ad42bcbfab7a216a3535f9f85d27796b6feef40bcd3f5a00abf67a76059e91e8cb37de259933a522702d376fa87851cd38359f7e3b85fd4d46b68bd2059b8c38cdc719800be68453a2e01e202ab5e99df0abd7a2d2676d0102114232ba9a4fd575c89b7c051d502147086bc1a73f05fc23ca16c117fd2a147b2f00000000000000000000000000000000000000000000000000000000000000d4f9704c8dcc62f58607fdf58416095fcacd129f329ba38d121261ad6f11ba812e00000000000000000000000000000000000000000000000000000000000000983a2ab442bb435776c693ddb95c0dbccbdb178959db7da72b44537d986a468b20000000000000000000000000000000000000000000000000000000000000002fb9e1ec814a27b3ca9f2b3a89505b33ecefc0864b6e3a7b044107c095d480b6983e68b38aedecd58425a823b6bc906f6824321545b2cb9d8d32eed3cc3999ee8dd493139f3b8205752a1c27e4d9d8bdb08ed24b832cdd4fbb4eee439225fa3b
+sm: 7e36c5be3b5099307aab20d49fdf0758b3c5a519a5cf796be88f10278a838d234fec9d43440494af5bae0e8d58f1c91ad8ec64abd6c1bf6e9c285d2257f74f00a2eea6da47d5469fe8ff2eac5c6413a6f2ac28acc23a9bdba1cca53b13834a1b384871e68e90cfe62772cc4897dabe2652b1fad700cea6db834516aa6a709f0122f2b51a12e7701f36b3ca4c3126779fca56576cf455cc385e03c2e119b998f8427edbbfeb46afae937870984b3d2c0141d3eeccea03707a043a54dda7b39d643cf9da71c5e7c1898b469d581f6793a4841250719d425874e804e379fa0e53387a74af5f25091b3541f5ce5dd7e44ed7b484456e65c39595117a5e6222a578ef9b6e25151c1802a384fea517e875526e5917de8c0a32c6afcb8f87907931815564428f26c4b7eb649bfee97a6df5a6cc0209e2c7b013732864ade07f3faa6fc8a47b9adc94d06e4d4c82dfb817e498f6b78e
+Testing length validation of Open, Verify: SQIsign_p500_27
+<end of output>
+Test time =   3.23 sec
+----------------------------------------------------------
+Test Passed.
+"sqisign_p500_27_SELFTEST" end time: Nov 20 11:39 MSK
+"sqisign_p500_27_SELFTEST" time elapsed: 00:00:03
+----------------------------------------------------------
+
+43/47 Testing: sqisign_p664_17_KAT
+43/47 Test: sqisign_p664_17_KAT
+Command: "/home/z666/sqisign-v3-research/build-STREEBOG_HASH-San/test/sqisign_test_kat_p664_17"
+Directory: /home/z666/sqisign-v3-research/build-STREEBOG_HASH-San/test
+"sqisign_p664_17_KAT" start time: Nov 20 11:39 MSK
+Output:
+----------------------------------------------------------
+Known Answer Tests PASSED. 
+
+
+<end of output>
+Test time =   3.26 sec
+----------------------------------------------------------
+Test Passed.
+"sqisign_p664_17_KAT" end time: Nov 20 11:39 MSK
+"sqisign_p664_17_KAT" time elapsed: 00:00:03
+----------------------------------------------------------
+
+44/47 Testing: sqisign_p664_17_SELFTEST
+44/47 Test: sqisign_p664_17_SELFTEST
+Command: "/home/z666/sqisign-v3-research/build-STREEBOG_HASH-San/test/sqisign_test_scheme_p664_17"
+Directory: /home/z666/sqisign-v3-research/build-STREEBOG_HASH-San/test
+"sqisign_p664_17_SELFTEST" start time: Nov 20 11:39 MSK
+Output:
+----------------------------------------------------------
+Random seed: "--seed={ 0xedf0a9cc, 0x2b8b4a4a, 0x6f701d26, 0x0c9075db, 0x07c7372a, 0x5c1a54df, 0x3c3767bb, 0x96821f67, 0xea1565dc, 0xdd5e0bdd, 0x826141c7, 0xbfd46ce7 }"
+Testing Keygen, Sign, Open: SQIsign_p664_17
+pk: 5ac67893bff3999a921b5c4318715916b6e19919ba143e91ea9b01213eb1f6cc6b829c82145e6a6ec89b59342cf86f133f8784fbd8ffbd68760f56aa33c5195cfc8183de873ab26d21f9a78487a58026d0ffac03ae9d63a8c4f42d8e8aa93aca4ed7b746daed272c7baf4d5f120c2d229eb6cf26eba5dcf0f22173faafbd6a510cbd20bfe3db8b4064550eca1e3e2ac891216da799a223b53d643b8d03eb976b2163434cf5fbc00e0e
+sk: 5ac67893bff3999a921b5c4318715916b6e19919ba143e91ea9b01213eb1f6cc6b829c82145e6a6ec89b59342cf86f133f8784fbd8ffbd68760f56aa33c5195cfc8183de873ab26d21f9a78487a58026d0ffac03ae9d63a8c4f42d8e8aa93aca4ed7b746daed272c7baf4d5f120c2d229eb6cf26eba5dcf0f22173faafbd6a510cbd20bfe3db8b4064550eca1e3e2ac891216da799a223b53d643b8d03eb976b2163434cf5fbc00e0e29589b2830da2e8a084d3c9675c39e0c709e13001cc7276ac1e46d17566bc37ce75958d630f398e6a3ee4e0000000000000000000000000000000000000000000000000000000000000000000000000000000000a9e1fd1502f40f891274cd4026dae2062f13f57b1d2a2235e92fd936d62942b38a44ad45b6fd6e225c52300000000000000000000000000000000000000000000000000000000000000000000000000000000000499c8853dbc56864c72cdd077bea47dd7c8f64620649a80165fc2d976e9eddfbfbc1e709eaacd005c502380000000000000000000000000000000000000000000000000000000000000000000000000000000000624a7d39dee068f8981754dca6ab03a6ff23d41b38ba53efe618676c9f2f2028713db127d46705031cbcbd4270bc493d3bf398406785de32f43e63489fe0d0e88530163c59fe7ba04e7b0ae2a382d3a9f4c2b167d79c3a633af3ba7c72673fe638cb0f39bde91e9a47e49565e60e712445059cb05d0c5645d109cb21d4adde07
+sm: dc4b9598582c6232c04609d09edb19e061bf4a3400123758811fed074b78570065b0b974d7aa8914ecfe16b4f2df80d8a31cc4f1539b7ee14a96486d6620cb41a135d9bb2a4d8e0bb16dbb986be3d65c609bc400cdf918702e9a5813815ee422e0d65bd68e9f75ddc143452c8dfbb361b458ca2c5ea5108fc7733bb1bc2064f05965959230a034a3ae33997de569a669dc04eb322fbfecaab57096a724f19b036b9d66616d0aae0f7a927b176c8670298ce352464b09f35052edf5163e6f0a15aab99c19a0c823ab3922a457520853861a2519f7a5f600857099008d626cfad12d4701b6a16534b139fc87a72d99f9048585cb4c80e811e31abf66861b2a1a6a1d27a5dcae6469a3d0f39244ac02a3d48ac56385e2b51ce24180607c819e8eeb312f247c4da715bc1999c2483005b820450e126240c045c581de8d0f2c9995eb03dea3e8b0708a39bf00a07f9a58712759a3b3c26d96b024f9218d015718e390acae9437f658b339a79f648d4a5da060cf19af03075821e08350d95c466b6196c1f2acee3d5764481d0f1fa35ba5dff784dd096f1115f2dfa50e1d72359b6cd5ce27d41ab1eb31d858bd1e378586532bfe2f25f33c68
+Testing length validation of Open, Verify: SQIsign_p664_17
+<end of output>
+Test time =   4.57 sec
+----------------------------------------------------------
+Test Passed.
+"sqisign_p664_17_SELFTEST" end time: Nov 20 11:39 MSK
+"sqisign_p664_17_SELFTEST" time elapsed: 00:00:04
+----------------------------------------------------------
+
+45/47 Testing: research_system_p324_3
+45/47 Test: research_system_p324_3
+Command: "/home/z666/sqisign-v3-research/build-STREEBOG_HASH-San/research/system_smoke_p324_3" "smoke" "1"
+Directory: /home/z666/sqisign-v3-research/build-STREEBOG_HASH-San/research
+"research_system_p324_3" start time: Nov 20 11:39 MSK
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.27 sec
+----------------------------------------------------------
+Test Passed.
+"research_system_p324_3" end time: Nov 20 11:39 MSK
+"research_system_p324_3" time elapsed: 00:00:00
+----------------------------------------------------------
+
+46/47 Testing: research_system_p500_27
+46/47 Test: research_system_p500_27
+Command: "/home/z666/sqisign-v3-research/build-STREEBOG_HASH-San/research/system_smoke_p500_27" "smoke" "1"
+Directory: /home/z666/sqisign-v3-research/build-STREEBOG_HASH-San/research
+"research_system_p500_27" start time: Nov 20 11:39 MSK
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   1.45 sec
+----------------------------------------------------------
+Test Passed.
+"research_system_p500_27" end time: Nov 20 11:39 MSK
+"research_system_p500_27" time elapsed: 00:00:01
+----------------------------------------------------------
+
+47/47 Testing: research_system_p664_17
+47/47 Test: research_system_p664_17
+Command: "/home/z666/sqisign-v3-research/build-STREEBOG_HASH-San/research/system_smoke_p664_17" "smoke" "1"
+Directory: /home/z666/sqisign-v3-research/build-STREEBOG_HASH-San/research
+"research_system_p664_17" start time: Nov 20 11:39 MSK
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   1.53 sec
+----------------------------------------------------------
+Test Passed.
+"research_system_p664_17" end time: Nov 20 11:39 MSK
+"research_system_p664_17" time elapsed: 00:00:01
+----------------------------------------------------------
+
+End testing: Nov 20 11:39 MSK

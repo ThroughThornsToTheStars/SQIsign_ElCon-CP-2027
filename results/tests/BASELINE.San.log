@@ -1,0 +1,49 @@
+Known Answer Tests PASSED. 
+
+
+Known Answer Tests PASSED. 
+
+
+Known Answer Tests PASSED. 
+
+
+Test project /home/z666/sqisign-v3-research/build-BASELINE-San
+      Start  1: sqisign_test_shake256
+ 1/16 Test  #1: sqisign_test_shake256 ...............   Passed    0.08 sec
+      Start  2: sqisign_test_prng
+ 2/16 Test  #2: sqisign_test_prng ...................   Passed    0.07 sec
+      Start  3: sqisign_test_ctrdrbg_kat
+ 3/16 Test  #3: sqisign_test_ctrdrbg_kat ............   Passed    0.10 sec
+      Start  5: sqisign_test_prng_kat
+ 4/16 Test  #5: sqisign_test_prng_kat ...............   Passed    0.02 sec
+      Start 31: sqisign_test_threadsafety_p324_3
+ 5/16 Test #31: sqisign_test_threadsafety_p324_3 ....   Passed   14.22 sec
+      Start 33: sqisign_test_threadsafety_p500_27
+ 6/16 Test #33: sqisign_test_threadsafety_p500_27 ...   Passed   52.04 sec
+      Start 35: sqisign_test_threadsafety_p664_17
+ 7/16 Test #35: sqisign_test_threadsafety_p664_17 ...   Passed   91.35 sec
+      Start 36: sqisign_test_nistapi_p324_3
+ 8/16 Test #36: sqisign_test_nistapi_p324_3 .........   Passed    1.62 sec
+      Start 37: sqisign_test_nistapi_p500_27
+ 9/16 Test #37: sqisign_test_nistapi_p500_27 ........   Passed    5.28 sec
+      Start 38: sqisign_test_nistapi_p664_17
+10/16 Test #38: sqisign_test_nistapi_p664_17 ........   Passed    6.46 sec
+      Start 40: sqisign_p324_3_SELFTEST
+11/16 Test #40: sqisign_p324_3_SELFTEST .............   Passed    1.36 sec
+      Start 42: sqisign_p500_27_SELFTEST
+12/16 Test #42: sqisign_p500_27_SELFTEST ............   Passed    4.93 sec
+      Start 44: sqisign_p664_17_SELFTEST
+13/16 Test #44: sqisign_p664_17_SELFTEST ............   Passed   11.41 sec
+      Start 45: research_system_p324_3
+14/16 Test #45: research_system_p324_3 ..............   Passed    0.66 sec
+      Start 46: research_system_p500_27
+15/16 Test #46: research_system_p500_27 .............   Passed    1.94 sec
+      Start 47: research_system_p664_17
+16/16 Test #47: research_system_p664_17 .............   Passed    2.29 sec
+
+100% tests passed out of 16
+
+Total Test time (real) = 193.87 sec
+San BASELINE p324_3: 3 round trips, 3 verifier decisions, 9 negatives
+San BASELINE p500_27: 3 round trips, 3 verifier decisions, 9 negatives
+San BASELINE p664_17: 3 round trips, 3 verifier decisions, 9 negatives

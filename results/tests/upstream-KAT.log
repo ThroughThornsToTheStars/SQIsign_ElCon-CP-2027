@@ -1,0 +1,11 @@
+Test project /home/z666/sqisign-v3-research/build-original
+    Start 39: sqisign_p324_3_KAT
+    Start 41: sqisign_p500_27_KAT
+    Start 43: sqisign_p664_17_KAT
+1/3 Test #39: sqisign_p324_3_KAT ...............   Passed   10.92 sec
+2/3 Test #41: sqisign_p500_27_KAT ..............   Passed   36.88 sec
+3/3 Test #43: sqisign_p664_17_KAT ..............   Passed   62.47 sec
+
+100% tests passed out of 3
+
+Total Test time (real) =  62.47 sec

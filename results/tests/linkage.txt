@@ -1,0 +1,62 @@
+BASELINE Release
+	linux-vdso.so.1
+	libm.so.6 => /usr/lib/libm.so.6
+	libc.so.6 => /usr/lib/libc.so.6
+	/lib64/ld-linux-x86-64.so.2 => /usr/lib64/ld-linux-x86-64.so.2
+BASELINE San
+	linux-vdso.so.1
+	libasan.so.8 => /usr/lib/libasan.so.8
+	libm.so.6 => /usr/lib/libm.so.6
+	libubsan.so.1 => /usr/lib/libubsan.so.1
+	libc.so.6 => /usr/lib/libc.so.6
+	libstdc++.so.6 => /usr/lib/../lib/libstdc++.so.6
+	libgcc_s.so.1 => /usr/lib/../lib/libgcc_s.so.1
+	/lib64/ld-linux-x86-64.so.2 => /usr/lib64/ld-linux-x86-64.so.2
+STREEBOG_HASH Release
+	linux-vdso.so.1
+	libm.so.6 => /usr/lib/libm.so.6
+	libnettle.so.9 => /usr/lib/libnettle.so.9
+	libc.so.6 => /usr/lib/libc.so.6
+	/lib64/ld-linux-x86-64.so.2 => /usr/lib64/ld-linux-x86-64.so.2
+STREEBOG_HASH San
+	linux-vdso.so.1
+	libasan.so.8 => /usr/lib/libasan.so.8
+	libm.so.6 => /usr/lib/libm.so.6
+	libnettle.so.9 => /usr/lib/libnettle.so.9
+	libubsan.so.1 => /usr/lib/libubsan.so.1
+	libc.so.6 => /usr/lib/libc.so.6
+	libstdc++.so.6 => /usr/lib/../lib/libstdc++.so.6
+	libgcc_s.so.1 => /usr/lib/../lib/libgcc_s.so.1
+	/lib64/ld-linux-x86-64.so.2 => /usr/lib64/ld-linux-x86-64.so.2
+RUSSIAN_PRNG Release
+	linux-vdso.so.1
+	libm.so.6 => /usr/lib/libm.so.6
+	libnettle.so.9 => /usr/lib/libnettle.so.9
+	libc.so.6 => /usr/lib/libc.so.6
+	/lib64/ld-linux-x86-64.so.2 => /usr/lib64/ld-linux-x86-64.so.2
+RUSSIAN_PRNG San
+	linux-vdso.so.1
+	libasan.so.8 => /usr/lib/libasan.so.8
+	libm.so.6 => /usr/lib/libm.so.6
+	libnettle.so.9 => /usr/lib/libnettle.so.9
+	libubsan.so.1 => /usr/lib/libubsan.so.1
+	libc.so.6 => /usr/lib/libc.so.6
+	libstdc++.so.6 => /usr/lib/../lib/libstdc++.so.6
+	libgcc_s.so.1 => /usr/lib/../lib/libgcc_s.so.1
+	/lib64/ld-linux-x86-64.so.2 => /usr/lib64/ld-linux-x86-64.so.2
+COMBINED Release
+	linux-vdso.so.1
+	libm.so.6 => /usr/lib/libm.so.6
+	libnettle.so.9 => /usr/lib/libnettle.so.9
+	libc.so.6 => /usr/lib/libc.so.6
+	/lib64/ld-linux-x86-64.so.2 => /usr/lib64/ld-linux-x86-64.so.2
+COMBINED San
+	linux-vdso.so.1
+	libasan.so.8 => /usr/lib/libasan.so.8
+	libm.so.6 => /usr/lib/libm.so.6
+	libnettle.so.9 => /usr/lib/libnettle.so.9
+	libubsan.so.1 => /usr/lib/libubsan.so.1
+	libc.so.6 => /usr/lib/libc.so.6
+	libstdc++.so.6 => /usr/lib/../lib/libstdc++.so.6
+	libgcc_s.so.1 => /usr/lib/../lib/libgcc_s.so.1
+	/lib64/ld-linux-x86-64.so.2 => /usr/lib64/ld-linux-x86-64.so.2

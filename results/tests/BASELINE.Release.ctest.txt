@@ -1,0 +1,350 @@
+Start testing: Nov 20 11:32 MSK
+----------------------------------------------------------
+1/47 Testing: sqisign_test_shake256
+1/47 Test: sqisign_test_shake256
+Command: "/home/z666/sqisign-v3-research/build-BASELINE-Release/src/common/generic/test/sqisign_test_shake256"
+Directory: /home/z666/sqisign-v3-research/build-BASELINE-Release/src/common/generic/test
+"sqisign_test_shake256" start time: Nov 20 11:32 MSK
+Output:
+----------------------------------------------------------
+Running SHAKE-256 known-answer tests
+SHAKE-256 known-answer tests passed
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"sqisign_test_shake256" end time: Nov 20 11:32 MSK
+"sqisign_test_shake256" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/47 Testing: sqisign_test_prng
+2/47 Test: sqisign_test_prng
+Command: "/home/z666/sqisign-v3-research/build-BASELINE-Release/src/common/generic/test/sqisign_test_prng"
+Directory: /home/z666/sqisign-v3-research/build-BASELINE-Release/src/common/generic/test
+"sqisign_test_prng" start time: Nov 20 11:32 MSK
+Output:
+----------------------------------------------------------
+Running PRNG unit tests
+PRNG unit tests passed
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"sqisign_test_prng" end time: Nov 20 11:32 MSK
+"sqisign_test_prng" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/47 Testing: sqisign_test_prng_kat
+5/47 Test: sqisign_test_prng_kat
+Command: "/home/z666/sqisign-v3-research/build-BASELINE-Release/src/common/generic/test/sqisign_test_prng_kat"
+Directory: /home/z666/sqisign-v3-research/build-BASELINE-Release/src/common/generic/test
+"sqisign_test_prng_kat" start time: Nov 20 11:32 MSK
+Output:
+----------------------------------------------------------
+Running PRNG known-answer test
+PRNG known-answer test passed
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"sqisign_test_prng_kat" end time: Nov 20 11:32 MSK
+"sqisign_test_prng_kat" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/47 Testing: sqisign_test_ctrdrbg_kat
+3/47 Test: sqisign_test_ctrdrbg_kat
+Command: "/home/z666/sqisign-v3-research/build-BASELINE-Release/src/common/generic/test/sqisign_test_ctrdrbg_kat"
+Directory: /home/z666/sqisign-v3-research/build-BASELINE-Release/src/common/generic/test
+"sqisign_test_ctrdrbg_kat" start time: Nov 20 11:32 MSK
+Output:
+----------------------------------------------------------
+Running CTR-DRBG known-answer tests
+CTR-DRBG known-answer tests passed
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"sqisign_test_ctrdrbg_kat" end time: Nov 20 11:32 MSK
+"sqisign_test_ctrdrbg_kat" time elapsed: 00:00:00
+----------------------------------------------------------
+
+31/47 Testing: sqisign_test_threadsafety_p324_3
+31/47 Test: sqisign_test_threadsafety_p324_3
+Command: "/home/z666/sqisign-v3-research/build-BASELINE-Release/src/signature/ref/p324_3/test/sqisign_test_threadsafety_p324_3" "--threads=4" "--iterations=2"
+Directory: /home/z666/sqisign-v3-research/build-BASELINE-Release/src/signature/ref/p324_3/test
+"sqisign_test_threadsafety_p324_3" start time: Nov 20 11:32 MSK
+Output:
+----------------------------------------------------------
+Random seed: "--seed={ 0x4023db36, 0x9c5ed490, 0xa90b8cc4, 0xe3f9eabe, 0xd80625e4, 0x6a052d06, 0xdca9a746, 0x26e24f0a, 0x945a2cae, 0xd82fbeaf, 0x61d4c25f, 0x8da7992d }"
+Result digest: f024e4726693d681d24c05ea01629f60
+All tests passed!
+<end of output>
+Test time =   7.59 sec
+----------------------------------------------------------
+Test Passed.
+"sqisign_test_threadsafety_p324_3" end time: Nov 20 11:32 MSK
+"sqisign_test_threadsafety_p324_3" time elapsed: 00:00:07
+----------------------------------------------------------
+
+33/47 Testing: sqisign_test_threadsafety_p500_27
+33/47 Test: sqisign_test_threadsafety_p500_27
+Command: "/home/z666/sqisign-v3-research/build-BASELINE-Release/src/signature/ref/p500_27/test/sqisign_test_threadsafety_p500_27" "--threads=4" "--iterations=2"
+Directory: /home/z666/sqisign-v3-research/build-BASELINE-Release/src/signature/ref/p500_27/test
+"sqisign_test_threadsafety_p500_27" start time: Nov 20 11:32 MSK
+Output:
+----------------------------------------------------------
+Random seed: "--seed={ 0xf1a61b54, 0xafab0108, 0x74abf65d, 0x545bce2f, 0xa1b8bee3, 0x7f8ef5bd, 0xab8a975c, 0x9dd9a254, 0xd2025e8b, 0xaea0bd2a, 0x98d02d36, 0xe2026bc4 }"
+Result digest: 4a6c5450d4929246d5a50218e23be6b2
+All tests passed!
+<end of output>
+Test time =  31.64 sec
+----------------------------------------------------------
+Test Passed.
+"sqisign_test_threadsafety_p500_27" end time: Nov 20 11:33 MSK
+"sqisign_test_threadsafety_p500_27" time elapsed: 00:00:31
+----------------------------------------------------------
+
+36/47 Testing: sqisign_test_nistapi_p324_3
+36/47 Test: sqisign_test_nistapi_p324_3
+Command: "/home/z666/sqisign-v3-research/build-BASELINE-Release/apps/example_nistapi_p324_3"
+Directory: /home/z666/sqisign-v3-research/build-BASELINE-Release/apps
+"sqisign_test_nistapi_p324_3" start time: Nov 20 11:33 MSK
+Output:
+----------------------------------------------------------
+Random seed: "--seed={ 0xffab4018, 0xb524adfd, 0xf505a428, 0x3144231d, 0xfad3e8ff, 0xa80210b0, 0xc0e9e07e, 0x268156fe, 0x2094787e, 0x778c4e55, 0xdf2231b8, 0xc99a766e }"
+Example with SQIsign_p324_3
+crypto_sign_keypair -> OK
+crypto_sign -> OK
+crypto_sign_open (with correct signature) -> OK
+crypto_sign_open (with altered signature) -> OK
+<end of output>
+Test time =   0.96 sec
+----------------------------------------------------------
+Test Passed.
+"sqisign_test_nistapi_p324_3" end time: Nov 20 11:33 MSK
+"sqisign_test_nistapi_p324_3" time elapsed: 00:00:00
+----------------------------------------------------------
+
+37/47 Testing: sqisign_test_nistapi_p500_27
+37/47 Test: sqisign_test_nistapi_p500_27
+Command: "/home/z666/sqisign-v3-research/build-BASELINE-Release/apps/example_nistapi_p500_27"
+Directory: /home/z666/sqisign-v3-research/build-BASELINE-Release/apps
+"sqisign_test_nistapi_p500_27" start time: Nov 20 11:33 MSK
+Output:
+----------------------------------------------------------
+Random seed: "--seed={ 0x55c61962, 0x5ab961f0, 0x68f69ac0, 0xb8051fbd, 0xabc9f975, 0x0017c099, 0x3a1d0228, 0xf10e8007, 0x186a532a, 0xaad36b53, 0xe5198720, 0x13c42f3d }"
+Example with SQIsign_p500_27
+crypto_sign_keypair -> OK
+crypto_sign -> OK
+crypto_sign_open (with correct signature) -> OK
+crypto_sign_open (with altered signature) -> OK
+<end of output>
+Test time =   2.67 sec
+----------------------------------------------------------
+Test Passed.
+"sqisign_test_nistapi_p500_27" end time: Nov 20 11:33 MSK
+"sqisign_test_nistapi_p500_27" time elapsed: 00:00:02
+----------------------------------------------------------
+
+38/47 Testing: sqisign_test_nistapi_p664_17
+38/47 Test: sqisign_test_nistapi_p664_17
+Command: "/home/z666/sqisign-v3-research/build-BASELINE-Release/apps/example_nistapi_p664_17"
+Directory: /home/z666/sqisign-v3-research/build-BASELINE-Release/apps
+"sqisign_test_nistapi_p664_17" start time: Nov 20 11:33 MSK
+Output:
+----------------------------------------------------------
+Random seed: "--seed={ 0x44126aa7, 0xc3f056a7, 0x9409155f, 0xf679402b, 0x01119e6e, 0x4925f91c, 0x828adbf6, 0xb6d6f9bb, 0x8d208428, 0xe5493881, 0x3bd397bd, 0xbb83d078 }"
+Example with SQIsign_p664_17
+crypto_sign_keypair -> OK
+crypto_sign -> OK
+crypto_sign_open (with correct signature) -> OK
+crypto_sign_open (with altered signature) -> OK
+<end of output>
+Test time =   3.60 sec
+----------------------------------------------------------
+Test Passed.
+"sqisign_test_nistapi_p664_17" end time: Nov 20 11:33 MSK
+"sqisign_test_nistapi_p664_17" time elapsed: 00:00:03
+----------------------------------------------------------
+
+35/47 Testing: sqisign_test_threadsafety_p664_17
+35/47 Test: sqisign_test_threadsafety_p664_17
+Command: "/home/z666/sqisign-v3-research/build-BASELINE-Release/src/signature/ref/p664_17/test/sqisign_test_threadsafety_p664_17" "--threads=4" "--iterations=2"
+Directory: /home/z666/sqisign-v3-research/build-BASELINE-Release/src/signature/ref/p664_17/test
+"sqisign_test_threadsafety_p664_17" start time: Nov 20 11:32 MSK
+Output:
+----------------------------------------------------------
+Random seed: "--seed={ 0x0731944e, 0xbe70271a, 0x1abd560b, 0xe53153d5, 0x8207de15, 0xeca168b6, 0x09b26be6, 0xe49ed213, 0x4ef7333d, 0xc4b1f5c7, 0x36fff701, 0x1ac4117b }"
+Result digest: 1d190752306ef81860865b9a9a6928f4
+All tests passed!
+<end of output>
+Test time =  58.08 sec
+----------------------------------------------------------
+Test Passed.
+"sqisign_test_threadsafety_p664_17" end time: Nov 20 11:33 MSK
+"sqisign_test_threadsafety_p664_17" time elapsed: 00:00:58
+----------------------------------------------------------
+
+40/47 Testing: sqisign_p324_3_SELFTEST
+40/47 Test: sqisign_p324_3_SELFTEST
+Command: "/home/z666/sqisign-v3-research/build-BASELINE-Release/test/sqisign_test_scheme_p324_3"
+Directory: /home/z666/sqisign-v3-research/build-BASELINE-Release/test
+"sqisign_p324_3_SELFTEST" start time: Nov 20 11:33 MSK
+Output:
+----------------------------------------------------------
+Random seed: "--seed={ 0x754f0c76, 0x992b6bb5, 0x1b42f056, 0xbfeb1a93, 0xd0c5ca08, 0x8d4184c9, 0x93ec539f, 0x9d207fe8, 0xe3527fb5, 0x0547df64, 0x16f32990, 0xea03e0ac }"
+Testing Keygen, Sign, Open: SQIsign_p324_3
+pk: 24f9265886dddff2831a5579469ea6b1519f0d84c0d315ceae6078cdc011ba6a28396a1244c04d1e01ba73857bd9de16a5b61fc182cfa89f758ebbee7627dc6c2f6ff5976bb7e37fb7fea6bf905a56a04e2b0b
+sk: 24f9265886dddff2831a5579469ea6b1519f0d84c0d315ceae6078cdc011ba6a28396a1244c04d1e01ba73857bd9de16a5b61fc182cfa89f758ebbee7627dc6c2f6ff5976bb7e37fb7fea6bf905a56a04e2b0b294417f5d7e930e73838f4e8fc1162e64669ccb1880500000000000000000000000000000000000000af4f7909be899f98a61e1ec7ea6881d527b061f21f0300000000000000000000000000000000000000235935fa2e5a2fd9b59c84a1b5c7b14ac59e8ad6990300000000000000000000000000000000000000667cec5041ed847f64165688f20d5812bd1a2ae43eca2d479aeca776865c2f04c345de8e7d31859c30e75b7192304b2846d2361f6822c258a8c36289d9a27d81
+sm: 99a750c91a719e3b6580ae001253101b568f33050853442ef8f78b9b76d8848596b85e96f30555c90d5aa8c64a8faa3b206b19a005e5c36b910b608485090dd5015ef53c547cefd5d5164b51cad999911f2ad5665c947160a06c5e8fef448d5289e48ce707be3d09797f0728ebe9ecee9d4516039749981cad6205e063bc679d3734423a3194b0219aa8f938a97c476651cf59162aa4a0a3ffed8988206786396d80ba75c4ef340c5f1404a130ec8888e7a2812da601862a16d72c542040cca51acbee1f34361005b319b237be88c92694429bc81bdf52beda7b7322e92d1be044e490d5aed7dadf
+Testing length validation of Open, Verify: SQIsign_p324_3
+<end of output>
+Test time =   1.92 sec
+----------------------------------------------------------
+Test Passed.
+"sqisign_p324_3_SELFTEST" end time: Nov 20 11:33 MSK
+"sqisign_p324_3_SELFTEST" time elapsed: 00:00:01
+----------------------------------------------------------
+
+39/47 Testing: sqisign_p324_3_KAT
+39/47 Test: sqisign_p324_3_KAT
+Command: "/home/z666/sqisign-v3-research/build-BASELINE-Release/test/sqisign_test_kat_p324_3"
+Directory: /home/z666/sqisign-v3-research/build-BASELINE-Release/test
+"sqisign_p324_3_KAT" start time: Nov 20 11:33 MSK
+Output:
+----------------------------------------------------------
+Known Answer Tests PASSED. 
+
+
+<end of output>
+Test time =  55.06 sec
+----------------------------------------------------------
+Test Passed.
+"sqisign_p324_3_KAT" end time: Nov 20 11:34 MSK
+"sqisign_p324_3_KAT" time elapsed: 00:00:55
+----------------------------------------------------------
+
+42/47 Testing: sqisign_p500_27_SELFTEST
+42/47 Test: sqisign_p500_27_SELFTEST
+Command: "/home/z666/sqisign-v3-research/build-BASELINE-Release/test/sqisign_test_scheme_p500_27"
+Directory: /home/z666/sqisign-v3-research/build-BASELINE-Release/test
+"sqisign_p500_27_SELFTEST" start time: Nov 20 11:34 MSK
+Output:
+----------------------------------------------------------
+Random seed: "--seed={ 0x4545e3dd, 0x0f93dea6, 0x0cc0f231, 0x594b7ab2, 0x58cbd064, 0xf70564e3, 0x61ab079b, 0xd17c92ed, 0xd44e50c1, 0x818df384, 0x8b742497, 0x9545a4c0 }"
+Testing Keygen, Sign, Open: SQIsign_p500_27
+pk: f83396418e91469c5b16ad246312b26dea0819cb719b9c0596bc603787e053885d197f474bb4605149c2c28b1eaaf3422ccf4c8b333cf4f2753cb7c0663d62002f73941f69d88ed526f894b344a0f071f5d6ddb6f699f6e362f07facd8db09432409bc4145e98965f3a02560d10759cae0e1d8b205912b2fc84465f2aedf670113
+sk: f83396418e91469c5b16ad246312b26dea0819cb719b9c0596bc603787e053885d197f474bb4605149c2c28b1eaaf3422ccf4c8b333cf4f2753cb7c0663d62002f73941f69d88ed526f894b344a0f071f5d6ddb6f699f6e362f07facd8db09432409bc4145e98965f3a02560d10759cae0e1d8b205912b2fc84465f2aedf670113cfb3d80de6c501b610a445187a5f76a13ad9b9bd15b0669e2bf5126cd60a03e21800000000000000000000000000000000000000000000000000000000000000a7030ce7a77fea40b57b8af6d71064ccd1b1c39517de180eab3eab6ca43e99790e00000000000000000000000000000000000000000000000000000000000000f67074036204a6ee878bec29215fef3e9fcfdbe98c73a1e826dfff992f87a2e411000000000000000000000000000000000000000000000000000000000000009b2ae7838a42cce93b9288514b02e6bb2dac2c824ee3f63b7f6661b0a7f613963311e7ad5ed7d8d908bd1450906913c20c2f9378d5b3b00c2de5e6a20814632cc069017171616af4757d33509922cab1bd728e9815734b30477949674f6a5877
+sm: 87c162c6585898882c44282b022352b42634ab899c76eeee9134b5be2f04f9cacbeae16c585333c31fdd83e241744e099c1a4376498bca0072acfb3ba7b674013f50bb11012380b76079b798efd2aed2e32ef1ee3f4c6ab385ddc3ae99942300a57709f43f3c4beb67fc83db903c49fd49a223a485342dde1a2ba3382109250139fd51f7af6e6ce25019799f46d53f479972feb5a9dc033578d230af9628f57c5474dc8f9006867e3122183b4ce9993ecc093e077d1f8c6da1ae1263a6f73e177bfe2788d0a3072332fc49e6a92b40bfde896e2a560833c2a686168e8ae29c9eabfd865c6a3490a39641006c4230162609d8171a1df6ce33d3def0d50e2c68bc97525fcd6dec8bc2e3ca80b8ab510cf5a56159ba6c77db65932561f6682b3ee3621fad50a310de90d40de48005c913dd120907b587ff708706ddc009947f7f537c4f3f930979b1eb5f40a1d64dbcc6cc4dcd
+Testing length validation of Open, Verify: SQIsign_p500_27
+<end of output>
+Test time =   4.40 sec
+----------------------------------------------------------
+Test Passed.
+"sqisign_p500_27_SELFTEST" end time: Nov 20 11:34 MSK
+"sqisign_p500_27_SELFTEST" time elapsed: 00:00:04
+----------------------------------------------------------
+
+41/47 Testing: sqisign_p500_27_KAT
+41/47 Test: sqisign_p500_27_KAT
+Command: "/home/z666/sqisign-v3-research/build-BASELINE-Release/test/sqisign_test_kat_p500_27"
+Directory: /home/z666/sqisign-v3-research/build-BASELINE-Release/test
+"sqisign_p500_27_KAT" start time: Nov 20 11:33 MSK
+Output:
+----------------------------------------------------------
+Known Answer Tests PASSED. 
+
+
+<end of output>
+Test time = 170.78 sec
+----------------------------------------------------------
+Test Passed.
+"sqisign_p500_27_KAT" end time: Nov 20 11:36 MSK
+"sqisign_p500_27_KAT" time elapsed: 00:02:50
+----------------------------------------------------------
+
+44/47 Testing: sqisign_p664_17_SELFTEST
+44/47 Test: sqisign_p664_17_SELFTEST
+Command: "/home/z666/sqisign-v3-research/build-BASELINE-Release/test/sqisign_test_scheme_p664_17"
+Directory: /home/z666/sqisign-v3-research/build-BASELINE-Release/test
+"sqisign_p664_17_SELFTEST" start time: Nov 20 11:36 MSK
+Output:
+----------------------------------------------------------
+Random seed: "--seed={ 0xb8318ca3, 0x119ff698, 0xa3a3692e, 0x8a93ec57, 0xee616789, 0x717a43d7, 0x28b7505c, 0x2ff04471, 0x8f911f6a, 0xbb2e4c88, 0x03cc0260, 0xb10afa1f }"
+Testing Keygen, Sign, Open: SQIsign_p664_17
+pk: fb87a847d719e070b8e8f482b68fed8b1f73084057937b7aed0e2adaabb3109eca21f1e48ffd76af559747131b5592dfe0de3a84e3fdf52cba15943670dc83361ba706bcbf449771e66b3d83d64a9ce2ed7662084fbad6f009fc4e25d89a6720ccb02b6e3081892618e520e03f21d936e123feb2f21ae1e1832bdceeb652ebc625d307163fcc3f59cbb7e032b90a902fb461648c5bc236e56766503970eb477bdc23ddd01b011f1002
+sk: fb87a847d719e070b8e8f482b68fed8b1f73084057937b7aed0e2adaabb3109eca21f1e48ffd76af559747131b5592dfe0de3a84e3fdf52cba15943670dc83361ba706bcbf449771e66b3d83d64a9ce2ed7662084fbad6f009fc4e25d89a6720ccb02b6e3081892618e520e03f21d936e123feb2f21ae1e1832bdceeb652ebc625d307163fcc3f59cbb7e032b90a902fb461648c5bc236e56766503970eb477bdc23ddd01b011f1002552ed03dd4eef3ff82495eb780a0713bd97aee9c118b40aed0ef136f496410b68862513624def95760a20d0000000000000000000000000000000000000000000000000000000000000000000000000000000000ebf33fa572290cf56f0344cb658aca15a0197fac3469a5e526be7b8c7dbf8a724b5a5c03934b75d88fe7060000000000000000000000000000000000000000000000000000000000000000000000000000000000018c8ad959d555d86092e076cc265996c66b3184edcc6b5da71cebf015e1db24b2c73317762e863b5db8020000000000000000000000000000000000000000000000000000000000000000000000000000000000b7d3c97186eb2fe51c2dc5044e828fbe3ce7269dc420b1ba9d258ee52ed66f3ee1d76757dc6eb756aad9fe64c0aae5b85e71b45056da2567fa7fbd2dc99c973c63531a6420711c062809522197d747f9a9d99dfd5494c39af9960fa15ac03fba50c81f1a0231e2d1dd99f5cae5de03d03682ca3e9e6ae3a1750922db54d45a2e
+sm: 272ba079ac0adfd5062b71917cb8b335562a527de57ee7bd6c6361447601636cf8c0c5b49d00a7d39e30380b6b672ad1de904d5b84b2cb9361cf98c7f56c15da22a4570a832034563e0ad9ba42e5824c5dd1290f394081a13a605218e53b95de3cc0251053273396dbf3135549c5c005746f0cf74140eece186a057c8a926cfe5fa2eabbd838a921ad1c30dd1a48629c303e310f291ea39b7a9009beaf19b20c014c54826c26b210a7406fa0fd732c95d7c608b3fd0b5cdbb22d5ec3b7de96578b5f7e661b003e2becd757438e23b4beaa58001720dc4223dced01e257c0d7a936d97f35d9c5ec9667305c0913f17ed00d559bdf45e034c67e7bd1cd3002cd9be5e32d5e0ad1a4ad10131c3617005a59576b32cb898701aaec0c076a8698dad4c304fd6faba35f7563f8789663ad59a5771097c35a1a41c970a50cfca5259f62011d34082165c00faec0d474591654d07161edd2271573d86e75993687d00305c612afd9c82c78b589de5b7345f4d584570181013a89772c0865dd591dfe71983ea415a4aa1bc3956f0ffa7aa1e34ca3f9e6b0280b0b33810a7d37d85c5342afb9983ef1287df6276414fbd2140f7e2a03239ea14ed3
+Testing length validation of Open, Verify: SQIsign_p664_17
+<end of output>
+Test time =   7.42 sec
+----------------------------------------------------------
+Test Passed.
+"sqisign_p664_17_SELFTEST" end time: Nov 20 11:36 MSK
+"sqisign_p664_17_SELFTEST" time elapsed: 00:00:07
+----------------------------------------------------------
+
+45/47 Testing: research_system_p324_3
+45/47 Test: research_system_p324_3
+Command: "/home/z666/sqisign-v3-research/build-BASELINE-Release/research/system_smoke_p324_3" "smoke" "1"
+Directory: /home/z666/sqisign-v3-research/build-BASELINE-Release/research
+"research_system_p324_3" start time: Nov 20 11:36 MSK
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.32 sec
+----------------------------------------------------------
+Test Passed.
+"research_system_p324_3" end time: Nov 20 11:36 MSK
+"research_system_p324_3" time elapsed: 00:00:00
+----------------------------------------------------------
+
+46/47 Testing: research_system_p500_27
+46/47 Test: research_system_p500_27
+Command: "/home/z666/sqisign-v3-research/build-BASELINE-Release/research/system_smoke_p500_27" "smoke" "1"
+Directory: /home/z666/sqisign-v3-research/build-BASELINE-Release/research
+"research_system_p500_27" start time: Nov 20 11:36 MSK
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   3.81 sec
+----------------------------------------------------------
+Test Passed.
+"research_system_p500_27" end time: Nov 20 11:36 MSK
+"research_system_p500_27" time elapsed: 00:00:03
+----------------------------------------------------------
+
+47/47 Testing: research_system_p664_17
+47/47 Test: research_system_p664_17
+Command: "/home/z666/sqisign-v3-research/build-BASELINE-Release/research/system_smoke_p664_17" "smoke" "1"
+Directory: /home/z666/sqisign-v3-research/build-BASELINE-Release/research
+"research_system_p664_17" start time: Nov 20 11:36 MSK
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   3.20 sec
+----------------------------------------------------------
+Test Passed.
+"research_system_p664_17" end time: Nov 20 11:36 MSK
+"research_system_p664_17" time elapsed: 00:00:03
+----------------------------------------------------------
+
+43/47 Testing: sqisign_p664_17_KAT
+43/47 Test: sqisign_p664_17_KAT
+Command: "/home/z666/sqisign-v3-research/build-BASELINE-Release/test/sqisign_test_kat_p664_17"
+Directory: /home/z666/sqisign-v3-research/build-BASELINE-Release/test
+"sqisign_p664_17_KAT" start time: Nov 20 11:34 MSK
+Output:
+----------------------------------------------------------
+Known Answer Tests PASSED. 
+
+
+<end of output>
+Test time = 269.68 sec
+----------------------------------------------------------
+Test Passed.
+"sqisign_p664_17_KAT" end time: Nov 20 11:38 MSK
+"sqisign_p664_17_KAT" time elapsed: 00:04:29
+----------------------------------------------------------
+
+End testing: Nov 20 11:38 MSK

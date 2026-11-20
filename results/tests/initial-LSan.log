@@ -1,0 +1,153 @@
+Test project /home/z666/sqisign-v3-research/build-COMBINED-San
+      Start  1: sqisign_test_shake256
+      Start  2: sqisign_test_prng
+ 1/19 Test  #1: sqisign_test_shake256 ...............***Failed    0.04 sec
+==62==LeakSanitizer has encountered a fatal error.
+==62==HINT: For debugging, try setting environment variable LSAN_OPTIONS=verbosity=1:log_threads=1
+==62==HINT: LeakSanitizer does not work under ptrace (strace, gdb, etc)
+
+      Start  3: sqisign_test_ctrdrbg_kat
+ 2/19 Test  #2: sqisign_test_prng ...................***Failed    0.04 sec
+==63==LeakSanitizer has encountered a fatal error.
+==63==HINT: For debugging, try setting environment variable LSAN_OPTIONS=verbosity=1:log_threads=1
+==63==HINT: LeakSanitizer does not work under ptrace (strace, gdb, etc)
+
+      Start  5: sqisign_test_prng_kat
+ 3/19 Test  #3: sqisign_test_ctrdrbg_kat ............***Failed    0.04 sec
+==68==LeakSanitizer has encountered a fatal error.
+==68==HINT: For debugging, try setting environment variable LSAN_OPTIONS=verbosity=1:log_threads=1
+==68==HINT: LeakSanitizer does not work under ptrace (strace, gdb, etc)
+
+      Start 31: sqisign_test_threadsafety_p324_3
+ 4/19 Test  #5: sqisign_test_prng_kat ...............***Failed    0.04 sec
+==69==LeakSanitizer has encountered a fatal error.
+==69==HINT: For debugging, try setting environment variable LSAN_OPTIONS=verbosity=1:log_threads=1
+==69==HINT: LeakSanitizer does not work under ptrace (strace, gdb, etc)
+
+      Start 33: sqisign_test_threadsafety_p500_27
+ 5/19 Test #31: sqisign_test_threadsafety_p324_3 ....***Failed   18.43 sec
+Random seed: "--seed={ 0x017388f6, 0xb6b65585, 0x7e11146e, 0xe415d324, 0x14ad88e6, 0xd0f0b627, 0x7decfada, 0xf228ecc1, 0x3d32a64c, 0x30b3f799, 0x9bdc3509, 0xeee36430 }"
+==74==LeakSanitizer has encountered a fatal error.
+==74==HINT: For debugging, try setting environment variable LSAN_OPTIONS=verbosity=1:log_threads=1
+==74==HINT: LeakSanitizer does not work under ptrace (strace, gdb, etc)
+
+      Start 35: sqisign_test_threadsafety_p664_17
+ 6/19 Test #33: sqisign_test_threadsafety_p500_27 ...***Failed   68.63 sec
+Random seed: "--seed={ 0xf41d2596, 0x36489a75, 0x79e0520c, 0x2d67f41b, 0xd3940525, 0xf4c36421, 0xcfeab9d6, 0x2349da29, 0xf7da4d6a, 0x041d2d06, 0x557f8b06, 0x018dc45a }"
+==75==LeakSanitizer has encountered a fatal error.
+==75==HINT: For debugging, try setting environment variable LSAN_OPTIONS=verbosity=1:log_threads=1
+==75==HINT: LeakSanitizer does not work under ptrace (strace, gdb, etc)
+
+      Start 36: sqisign_test_nistapi_p324_3
+ 7/19 Test #36: sqisign_test_nistapi_p324_3 .........***Failed    2.27 sec
+Random seed: "--seed={ 0xf7be48ce, 0x022a0e82, 0x1efbe99a, 0x88d3544d, 0x3320ebbf, 0x7db631c5, 0x7231d206, 0x1bb272e4, 0x18177e68, 0xf6ec85f7, 0x171dcb0c, 0x75d5c339 }"
+==93==LeakSanitizer has encountered a fatal error.
+==93==HINT: For debugging, try setting environment variable LSAN_OPTIONS=verbosity=1:log_threads=1
+==93==HINT: LeakSanitizer does not work under ptrace (strace, gdb, etc)
+
+      Start 37: sqisign_test_nistapi_p500_27
+ 8/19 Test #37: sqisign_test_nistapi_p500_27 ........***Failed    7.12 sec
+Random seed: "--seed={ 0xefc614ff, 0xe4f22096, 0xb0e1971f, 0xf6e75e35, 0xd65aad1e, 0xf78e7e5e, 0x469aaf81, 0x303596aa, 0x57522c0b, 0xc28fb5c3, 0x2ca10283, 0xdd56b8cf }"
+==96==LeakSanitizer has encountered a fatal error.
+==96==HINT: For debugging, try setting environment variable LSAN_OPTIONS=verbosity=1:log_threads=1
+==96==HINT: LeakSanitizer does not work under ptrace (strace, gdb, etc)
+
+      Start 38: sqisign_test_nistapi_p664_17
+ 9/19 Test #38: sqisign_test_nistapi_p664_17 ........***Failed    6.96 sec
+Random seed: "--seed={ 0x110c3495, 0x8d59ca02, 0x6aaefdd8, 0x4982b9cf, 0xfa5f0ada, 0x94454cdf, 0x35976690, 0xdb12a2bd, 0xb08eb911, 0xca7cf592, 0x7f43180f, 0x8e4dc970 }"
+==99==LeakSanitizer has encountered a fatal error.
+==99==HINT: For debugging, try setting environment variable LSAN_OPTIONS=verbosity=1:log_threads=1
+==99==HINT: LeakSanitizer does not work under ptrace (strace, gdb, etc)
+
+      Start 39: sqisign_p324_3_KAT
+10/19 Test #39: sqisign_p324_3_KAT ..................***Failed    1.68 sec
+==102==LeakSanitizer has encountered a fatal error.
+==102==HINT: For debugging, try setting environment variable LSAN_OPTIONS=verbosity=1:log_threads=1
+==102==HINT: LeakSanitizer does not work under ptrace (strace, gdb, etc)
+
+      Start 40: sqisign_p324_3_SELFTEST
+11/19 Test #40: sqisign_p324_3_SELFTEST .............***Failed    2.56 sec
+Random seed: "--seed={ 0xc8da4a84, 0x568f0178, 0xce5d39c2, 0x315089b2, 0x29b2efee, 0xfa3e83d9, 0x898d1995, 0x93ddc5cb, 0x73655836, 0xb12d96fa, 0xc591949c, 0xa5692a95 }"
+==105==LeakSanitizer has encountered a fatal error.
+==105==HINT: For debugging, try setting environment variable LSAN_OPTIONS=verbosity=1:log_threads=1
+==105==HINT: LeakSanitizer does not work under ptrace (strace, gdb, etc)
+
+      Start 41: sqisign_p500_27_KAT
+12/19 Test #41: sqisign_p500_27_KAT .................***Failed    6.13 sec
+==108==LeakSanitizer has encountered a fatal error.
+==108==HINT: For debugging, try setting environment variable LSAN_OPTIONS=verbosity=1:log_threads=1
+==108==HINT: LeakSanitizer does not work under ptrace (strace, gdb, etc)
+
+      Start 42: sqisign_p500_27_SELFTEST
+13/19 Test #35: sqisign_test_threadsafety_p664_17 ...***Failed   78.56 sec
+Random seed: "--seed={ 0x0d9c0588, 0x71072c50, 0xab35c431, 0x5993c300, 0xea24e2f0, 0x57ea833d, 0xc09d438b, 0x30d67f53, 0xaf99c11b, 0x6e1a0460, 0x022b10e7, 0x4fb5dbc6 }"
+==86==LeakSanitizer has encountered a fatal error.
+==86==HINT: For debugging, try setting environment variable LSAN_OPTIONS=verbosity=1:log_threads=1
+==86==HINT: LeakSanitizer does not work under ptrace (strace, gdb, etc)
+
+      Start 43: sqisign_p664_17_KAT
+14/19 Test #42: sqisign_p500_27_SELFTEST ............***Failed    7.29 sec
+Random seed: "--seed={ 0xefb56c02, 0x3f1f8881, 0xc7a58a14, 0x0d4b1e94, 0xafb093e5, 0xaad425e7, 0xdc90d154, 0x9af3d975, 0x8ddfa71f, 0x1cda6aaa, 0x971a99ca, 0x0efe9227 }"
+==111==LeakSanitizer has encountered a fatal error.
+==111==HINT: For debugging, try setting environment variable LSAN_OPTIONS=verbosity=1:log_threads=1
+==111==HINT: LeakSanitizer does not work under ptrace (strace, gdb, etc)
+
+      Start 44: sqisign_p664_17_SELFTEST
+15/19 Test #43: sqisign_p664_17_KAT .................***Failed    7.88 sec
+==114==LeakSanitizer has encountered a fatal error.
+==114==HINT: For debugging, try setting environment variable LSAN_OPTIONS=verbosity=1:log_threads=1
+==114==HINT: LeakSanitizer does not work under ptrace (strace, gdb, etc)
+
+      Start 45: research_system_p324_3
+16/19 Test #45: research_system_p324_3 ..............***Failed    0.74 sec
+Random seed: "--seed={ 0x64b166f0, 0x96314183, 0xb8afc7ee, 0xf101dd49, 0x01cd16fc, 0x714cdc42, 0x292a36a7, 0x1a288b39, 0xa1336a3f, 0x6e0cca61, 0x97afb4c8, 0xdef7deef }"
+==120==LeakSanitizer has encountered a fatal error.
+==120==HINT: For debugging, try setting environment variable LSAN_OPTIONS=verbosity=1:log_threads=1
+==120==HINT: LeakSanitizer does not work under ptrace (strace, gdb, etc)
+
+      Start 46: research_system_p500_27
+17/19 Test #46: research_system_p500_27 .............***Failed    2.61 sec
+Random seed: "--seed={ 0x467e07e9, 0xe955f299, 0xc7da9285, 0xbc3b900b, 0xeadb65a8, 0x4072556f, 0xb9c2831b, 0x4edf0ff8, 0xd9853dab, 0xd2fcc74a, 0x5fb14a60, 0xf307ef66 }"
+==123==LeakSanitizer has encountered a fatal error.
+==123==HINT: For debugging, try setting environment variable LSAN_OPTIONS=verbosity=1:log_threads=1
+==123==HINT: LeakSanitizer does not work under ptrace (strace, gdb, etc)
+
+      Start 47: research_system_p664_17
+18/19 Test #44: sqisign_p664_17_SELFTEST ............***Failed   10.36 sec
+Random seed: "--seed={ 0x081aaa09, 0x66dd6b41, 0x4dcaba2e, 0xa191932e, 0x5cad703c, 0x4c2a16e8, 0xff765c3d, 0x70773b50, 0x53e62639, 0x27e495fb, 0x7c043861, 0x2fcabbd8 }"
+==117==LeakSanitizer has encountered a fatal error.
+==117==HINT: For debugging, try setting environment variable LSAN_OPTIONS=verbosity=1:log_threads=1
+==117==HINT: LeakSanitizer does not work under ptrace (strace, gdb, etc)
+
+19/19 Test #47: research_system_p664_17 .............***Failed    5.34 sec
+Random seed: "--seed={ 0xc3ab2113, 0x8110d586, 0x887fb7d3, 0xb95aa68a, 0x8443b1f1, 0x28887b95, 0xa92591c5, 0x78cecca0, 0x269dc5bf, 0x10adfce7, 0xae385394, 0x1003e9b4 }"
+==126==LeakSanitizer has encountered a fatal error.
+==126==HINT: For debugging, try setting environment variable LSAN_OPTIONS=verbosity=1:log_threads=1
+==126==HINT: LeakSanitizer does not work under ptrace (strace, gdb, etc)
+
+
+0% tests passed, 19 tests failed out of 19
+
+Total Test time (real) = 113.65 sec
+
+The following tests FAILED:
+	  1 - sqisign_test_shake256 (Failed)
+	  2 - sqisign_test_prng (Failed)
+	  3 - sqisign_test_ctrdrbg_kat (Failed)
+	  5 - sqisign_test_prng_kat (Failed)
+	 31 - sqisign_test_threadsafety_p324_3 (Failed)
+	 33 - sqisign_test_threadsafety_p500_27 (Failed)
+	 35 - sqisign_test_threadsafety_p664_17 (Failed)
+	 36 - sqisign_test_nistapi_p324_3 (Failed)
+	 37 - sqisign_test_nistapi_p500_27 (Failed)
+	 38 - sqisign_test_nistapi_p664_17 (Failed)
+	 39 - sqisign_p324_3_KAT (Failed)
+	 40 - sqisign_p324_3_SELFTEST (Failed)
+	 41 - sqisign_p500_27_KAT (Failed)
+	 42 - sqisign_p500_27_SELFTEST (Failed)
+	 43 - sqisign_p664_17_KAT (Failed)
+	 44 - sqisign_p664_17_SELFTEST (Failed)
+	 45 - research_system_p324_3 (Failed)
+	 46 - research_system_p500_27 (Failed)
+	 47 - research_system_p664_17 (Failed)
+Errors while running CTest
