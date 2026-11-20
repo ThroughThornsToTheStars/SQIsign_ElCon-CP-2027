@@ -1,0 +1,56 @@
+{
+  "build": {
+    "revision": "3b0795caf383a67c96839be346f7bd1c464bc2e9",
+    "build_files": {
+      "BASELINE/CMakeCache.txt": "90c43912ca25501a4390f08b4441d3ead4ee5e6d615b8e265ca954330b2dd55a",
+      "BASELINE/compile_commands.json": "dfc9d062f996133ba03f7ad70ed8af05fb502c62f6d65e4cf149f6b7e220c54e",
+      "STREEBOG_HASH/CMakeCache.txt": "5d43d9d4459e95a189a724a72400b9cf70d765619b56f97ae4e2481e27b59c89",
+      "STREEBOG_HASH/compile_commands.json": "823d3a909b513ef43929e0f138f9703bf2609c6984517a7947a925e35e937d5e",
+      "RUSSIAN_PRNG/CMakeCache.txt": "4a3100ffaa5500298351407b9aeae6c788caaaaad063d52d15924898bd351555",
+      "RUSSIAN_PRNG/compile_commands.json": "184b371207a33312c2493a361955214e7425f05290e3203bd627d8cce458c7f8",
+      "COMBINED/CMakeCache.txt": "48765513105afa8057c600b69d3a30f5603bb15e19938ad961f736054a368d09",
+      "COMBINED/compile_commands.json": "a693c17ad9985b35af2a2f3ca4631a615e62421aa0e13388f7bd166a5795e4c0"
+    },
+    "binaries": {
+      "BASELINE/p324_3": "5fc149906689d9b90fecce7d1245e10465699dc471afb20f000f3d2d1b5a746a",
+      "BASELINE/p500_27": "455fcf9dd658ade0ad6fda42ff9994864635bf5fc3c39a40fa9f6b6c8a977dce",
+      "BASELINE/p664_17": "262690a7fe16da9226f8584336cac8d4e23fad93b89d9fb46908fb4c52c384f0",
+      "STREEBOG_HASH/p324_3": "261ad52c03cfeae2b483d9296c4c2437276b8aa3368cb6a84cf051b35c108f19",
+      "STREEBOG_HASH/p500_27": "ff5c20847483dbc6db5b10ca9b27b847e1fdde80b7f1bcd65890b5a1db41a3a2",
+      "STREEBOG_HASH/p664_17": "dbbbeb3110917ced60be623357abbdae969944759225d2abb8cee99aa01161ea",
+      "RUSSIAN_PRNG/p324_3": "75332ffcb0e1e69e93ea38e224b3eb41c4f61d32be5908bfd383baa0c52f3657",
+      "RUSSIAN_PRNG/p500_27": "711306af0bbb1f9f8f21ed4b774ec7d42f3cd46a109c715715c98b53a022a6bf",
+      "RUSSIAN_PRNG/p664_17": "5c1b83129f3a9444e5de03c059954126129edbdbe15065ee53fc51e286e6c6af",
+      "COMBINED/p324_3": "7ee0a4069cb364b036a2fd6386e02f6220e933f3a43af25928345ca74487ac7c",
+      "COMBINED/p500_27": "045083e3b3cf3e730b5fee97b475c2afa7447b00a1e874b8080f29015aed46fb",
+      "COMBINED/p664_17": "875b96c2119eaa36b675318fe2d4d00b4420ca79f3d407471bd026b066833d27"
+    },
+    "cc": "cc (GCC) 16.2.1 20260810",
+    "nettle": "4.0",
+    "cpu": 2
+  },
+  "sessions": [
+    1,
+    2,
+    3
+  ],
+  "input_sha256": [
+    {
+      "raw.csv": "6d116902e4e63547cc0bc26fa215323cbd1111f99261e6aeca23ba8c1e9031b6",
+      "metadata.json": "52de983de40cf423c850e1c8902c47df965b152ef67084d590eb8d95c2544cd4",
+      "memory.csv": "dd66ac3549bfc146a687491a1a567f1fc6e901c55730abfa04b3a6904be96b52"
+    },
+    {
+      "raw.csv": "66ec067c05adc6cce75a1c10047b0bee9b4d70f67e36692ae92d964bc71bf280",
+      "metadata.json": "2a9bb76aec74489af49a89fef90c5ebb59a1a17e94325f3ca596c16a8834cd90",
+      "memory.csv": "4aab3cada5a6a074de1d4936f358a5931830a8b00314b28919090e1a91851dde"
+    },
+    {
+      "raw.csv": "ceb0eed21023db2c8af3f98a5d569dd58b3ebc735d450a06bf447265683131ef",
+      "metadata.json": "58251c72f04fd6a6140cca8fe58bb5a5f7b0724562c3230f7d5f349b20053a22",
+      "memory.csv": "0727d7d1d1d6e2a34d5686034cf369cbb20dafa23fb5c1242abbd4d2ff80722e"
+    }
+  ],
+  "numpy": "2.5.5",
+  "matplotlib": "3.11.2"
+}

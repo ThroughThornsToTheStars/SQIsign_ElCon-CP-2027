@@ -1,0 +1,10 @@
+Russian research on post-quantum signatures includes the development of hash-based schemes using domestic primitives, exemplified by Hypericum. The
+compact isogeny-based signature SQIsign offers a different trade-off between transmitted data size, computational cost, and cryptographic assumptions. This
+work addresses the design and evaluation of a consistent SQIsign 3.0 profile using Streebog and Russian pseudorandom sequence generation mechanisms. The
+objective is to assess adaptation costs and the conditions under which compact keys and signatures retain practical value. The profile covers Fiat–Shamir
+challenge hashing and internal pseudorandom streams. These components are considered separately because their purposes, secrecy requirements, streaming
+semantics, and effects on compatibility differ. The analysis covers input encodings, output truncation, domain separation, entropy requirements, and the limits of
+applicability of the original scheme’s security arguments. Experimental comparison of the reference implementation, individual substitutions, and their
+combination covers key generation, signing, and verification times, and memory consumption. Comparison with selected Hypericum parameter sets accounts for
+signing limits and differences in security estimates. The contribution comprises a consistent specification of the adaptation of public hashing and secret
+pseudorandom streams, an analysis of its compatibility and security implications, and an assessment of substitution costs.

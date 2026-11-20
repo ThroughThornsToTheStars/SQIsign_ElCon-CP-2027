@@ -1,0 +1,77 @@
+2026-11-20, Linux x86-64. Parameters below abbreviate repeated commands.
+p = BASELINE, STREEBOG_HASH, RUSSIAN_PRNG, COMBINED.
+mode = Release, San. d = temporary evidence directory, separate from the checkouts.
+
+Acquisition
+  git ls-remote https://github.com/handofgod666/SQIsign_ElCon-CP-2027.git refs/heads/v3
+  git clone -b v3 https://github.com/handofgod666/SQIsign_ElCon-CP-2027.git "$d/published-checkout"
+  Both HTTPS shell operations failed at DNS resolution.
+  GitHub API via connector: resolve commits v3 (fork) and nist-v3 (upstream);
+  fetch jobs for published research workflow run 44710158504.
+  git status --porcelain=v1
+  git diff --exit-code 6d017708 HEAD -- KAT src/mp src/gf src/ec src/hd src/id2iso src/quaternion src/signature src/precomp src/nistapi
+  git diff --exit-code baee298 HEAD -- results/run-7392c66 results/controlled results/tests research/vectors
+
+Initial local clean clone at baee298b8c83e7709056354b24f92e340110c6d6
+  git clone --no-local -b ieee/manuscript-v3 . "$d/review"
+  The transient branch was renamed ieee/reviewer-validation when the author clarified the scope.
+  JOBS=4 bash research/build.sh "$p" "$mode"
+  ctest --test-dir "build-$p-$mode" -N
+  ASAN_OPTIONS=detect_leaks=0 UBSAN_OPTIONS=print_stacktrace=1 JOBS=4 bash research/verify.sh "$p" "$mode"
+  python3 research/oracle.py
+  python3 research/check.py
+  python3 research/check.py --create "$d/vectors"
+  diff -r research/vectors "$d/vectors"
+
+Historical data validation
+  python3 research/summarize.py results/run-7392c66/raw.csv > "$d/historical.csv"
+  cmp "$d/historical.csv" results/run-7392c66/summary.csv
+  python3 research/analyze_sessions.py results/controlled "$d/analysis"
+  diff -rq results/controlled/analysis "$d/analysis"
+  cmp paper/results_tables.tex "$d/analysis/results_tables.tex"
+  cmp paper/figures/signing.pdf "$d/analysis/signing.pdf"
+  python3 research/check_exhibits.py results/controlled
+
+Backend and reference checks
+  bash research/inspect-nettle.sh
+  bash research/lsan-probe.sh
+  LeakSanitizer positive control failed locally; its runtime diagnostic is archived.
+  GitHub API: read Nettle release source and QApp parameter/API headers at the revisions in the reports.
+  Ran the header-only C program and parameter loop printed in HYPERICUM_COMPARISON.md.
+  Ran the libgcrypt oracle with valid, empty, duplicate and wrong-digest input under both python3 and python3 -O.
+
+Validation integration revision 028187e12fda9a984e6ad0a66d491cab2bb04b1d
+  git clone --no-local -b ieee/reviewer-validation . "$d/final"
+  Clean Release clone:
+    JOBS=4 bash research/build.sh "$p" Release
+    ctest --test-dir "build-$p-Release" --show-only=json-v1
+    JOBS=3 bash research/verify.sh "$p" Release
+    python3 research/check.py
+    python3 research/check.py --create "$d/final-vectors"
+    diff -r research/vectors "$d/final-vectors"
+    bash research/inspect-nettle.sh
+  Updated local sanitizer builds:
+    JOBS=2 bash research/build.sh "$p" San
+    ctest --test-dir "build-$p-San" --show-only=json-v1
+    ASAN_OPTIONS=detect_leaks=0 UBSAN_OPTIONS=print_stacktrace=1 JOBS=2 bash research/verify.sh "$p" San
+  Separate COMBINED Release all-target build and unfiltered run:
+    JOBS=2 bash research/build.sh COMBINED Release
+    cmake --build build-COMBINED-Release -j 2
+    ctest --test-dir build-COMBINED-Release --output-on-failure -j 2
+
+Timing and independent checks
+  In the clean validation clone above, after the other jobs ended, monitored one-minute load
+  and cpu2/cpu6 busy ticks in 10-second windows before starting. The admitted window had
+  load1 <= 3 and both CPU busy fractions <= 15%. See results/replication-028187e/preflight.txt.
+  For i = 4, 5, 6:
+    python3 research/session.py "$d/new-series/session-$i" --session "$i" --blocks 16 --cpu 2
+  python3 research/analyze_sessions.py "$d/new-series" "$d/new-series/analysis"
+  python3 research/check_exhibits.py "$d/new-series" (checker from the validation delivery)
+  Copied the new series into results/replication-028187e, then independently regenerated:
+    python3 research/analyze_sessions.py results/replication-028187e "$d/recompute-repeat"
+    diff -rq results/replication-028187e/analysis "$d/recompute-repeat"
+    python3 research/check_exhibits.py results/replication-028187e
+  Matched SHA-256 for all 12 timed drivers and all 8 decompressed CMake recipes in each session.
+  For each parameter set and index 0,1,2, compared the first pk_bytes+sk_bytes of the
+  Release trial vector for BASELINE vs STREEBOG_HASH and RUSSIAN_PRNG vs COMBINED.
+  All 18 pairs matched. These inputs are public regression seeds.

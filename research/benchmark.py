@@ -11,7 +11,7 @@ import subprocess
 from check import PROFILES, SIZES, executable
 
 METRICS = ["keygen_ns", "sign_ns", "verify_ns", "rss_kib", "peak_kib",
-           "hash_batch256_ns", "stream_256kib_ns", "pk_bytes", "sk_bytes", "sig_bytes"]
+           "hash_batch256_ns", "stream_256kib_ns", "pk_bytes", "sk_bytes", "sig_bytes", "domain_init_clear_batch256_ns"]
 
 
 def command(*args):

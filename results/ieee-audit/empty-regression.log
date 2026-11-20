@@ -1,0 +1,11 @@
+Random seed: "--seed={ 0x00000058, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000 }"
+/home/z666/sqisign-v3-research/apps/example_nistapi.c:64:19: runtime error: variable length array bound evaluates to non-positive value 0
+old exit=1
+Random seed: "--seed={ 0x00000058, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000 }"
+Example with SQIsign_p324_3
+crypto_sign_keypair -> OK
+msg = 
+crypto_sign -> OK
+crypto_sign_open (with correct signature) -> OK
+crypto_sign_open (with altered signature) -> OK
+fixed exit=0

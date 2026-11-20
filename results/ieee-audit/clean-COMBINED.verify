@@ -1,0 +1,48 @@
+Test project /tmp/sqi-bundle-check.s6z8Uw/review/build-COMBINED-Release
+      Start  1: sqisign_test_shake256
+      Start  2: sqisign_test_prng
+      Start  3: sqisign_test_ctrdrbg_kat
+ 1/19 Test  #1: sqisign_test_shake256 ...............   Passed    0.00 sec
+      Start  5: sqisign_test_prng_kat
+ 2/19 Test  #2: sqisign_test_prng ...................   Passed    0.00 sec
+      Start 31: sqisign_test_threadsafety_p324_3
+ 3/19 Test  #5: sqisign_test_prng_kat ...............   Passed    0.00 sec
+      Start 33: sqisign_test_threadsafety_p500_27
+ 4/19 Test  #3: sqisign_test_ctrdrbg_kat ............   Passed    0.00 sec
+      Start 35: sqisign_test_threadsafety_p664_17
+ 5/19 Test #31: sqisign_test_threadsafety_p324_3 ....   Passed    4.33 sec
+      Start 36: sqisign_test_nistapi_p324_3
+ 6/19 Test #36: sqisign_test_nistapi_p324_3 .........   Passed    0.33 sec
+      Start 37: sqisign_test_nistapi_p500_27
+ 7/19 Test #37: sqisign_test_nistapi_p500_27 ........   Passed    0.78 sec
+      Start 38: sqisign_test_nistapi_p664_17
+ 8/19 Test #38: sqisign_test_nistapi_p664_17 ........   Passed    0.74 sec
+      Start 39: sqisign_p324_3_KAT
+ 9/19 Test #39: sqisign_p324_3_KAT ..................   Passed    0.20 sec
+      Start 40: sqisign_p324_3_SELFTEST
+10/19 Test #40: sqisign_p324_3_SELFTEST .............   Passed    0.71 sec
+      Start 41: sqisign_p500_27_KAT
+11/19 Test #33: sqisign_test_threadsafety_p500_27 ...   Passed    8.50 sec
+      Start 42: sqisign_p500_27_SELFTEST
+12/19 Test #41: sqisign_p500_27_KAT .................   Passed    1.63 sec
+      Start 43: sqisign_p664_17_KAT
+13/19 Test #42: sqisign_p500_27_SELFTEST ............   Passed    1.33 sec
+      Start 44: sqisign_p664_17_SELFTEST
+14/19 Test #43: sqisign_p664_17_KAT .................   Passed    3.21 sec
+      Start 45: research_system_p324_3
+15/19 Test #45: research_system_p324_3 ..............   Passed    0.20 sec
+      Start 46: research_system_p500_27
+16/19 Test #44: sqisign_p664_17_SELFTEST ............   Passed    3.35 sec
+      Start 47: research_system_p664_17
+17/19 Test #46: research_system_p500_27 .............   Passed    1.13 sec
+18/19 Test #47: research_system_p664_17 .............   Passed    0.92 sec
+19/19 Test #35: sqisign_test_threadsafety_p664_17 ...   Passed   15.44 sec
+
+100% tests passed out of 19
+
+Total Test time (real) =  15.45 sec
+RFC 6986 and RFC 7836 anchors passed
+matched 11 emitted records
+Release COMBINED p324_3: 3 round trips, 3 verifier decisions, 9 negatives
+Release COMBINED p500_27: 3 round trips, 3 verifier decisions, 9 negatives
+Release COMBINED p664_17: 3 round trips, 3 verifier decisions, 9 negatives

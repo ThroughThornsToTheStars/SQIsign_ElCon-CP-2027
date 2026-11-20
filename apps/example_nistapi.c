@@ -48,7 +48,8 @@ dump_bytes(char const *name, unsigned char const *bytes, size_t len)
 static int
 example_sqisign(int dump)
 {
-    unsigned long long msglen = rand_u32() % 100;
+    enum { MESSAGE_CAPACITY = 100 };
+    unsigned long long msglen = rand_u32() % MESSAGE_CAPACITY;
     unsigned long long smlen = CRYPTO_BYTES + msglen;
 
     // msglen doubles as an out-parameter of crypto_sign_open below,
@@ -61,7 +62,7 @@ example_sqisign(int dump)
 
     unsigned char *sm = calloc(smlen, 1);
 
-    unsigned char msg[msgbuf_len], msg2[msgbuf_len];
+    unsigned char msg[MESSAGE_CAPACITY], msg2[MESSAGE_CAPACITY];
 
     printf("Example with %s\n", CRYPTO_ALGNAME);
 
@@ -100,8 +101,9 @@ example_sqisign(int dump)
 
     printf("crypto_sign_open (with correct signature) -> ");
     res = crypto_sign_open(msg2, &msglen, sm, smlen, pk);
-    if (res || msglen != sizeof(msg) || memcmp(msg, msg2, msglen) != 0) {
-        printf("FAIL\n"); // signature was not accepted!?
+    if (res || msglen != msgbuf_len || memcmp(msg, msg2, msglen) != 0) {
+        printf("FAIL\n"); // signature or recovered message did not match
+        res = -1;
         goto err;
     } else {
         printf("OK\n");

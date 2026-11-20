@@ -1,259 +1,37 @@
-# SQIsign
+# Adaptation of the symmetric components of SQIsign 3.0 using Russian cryptographic standards and evaluation of its efficiency.
 
-This library is a C implementation of SQIsign.
+**Experimental research implementation, not a certified cryptographic product.**
 
-## Requirements
+The [final validation](FINAL_RESEARCH_VALIDATION.md) identifies the tested commit and the evidence for each series. Use the [claims table](SCIENTIFIC_CLAIMS.md) and [freeze checklist](RESEARCH_FREEZE_CHECKLIST.md) when drafting the manuscript.
 
-- CMake (version 3.13 or later)
-- C11-compatible compiler
+This branch studies how two changes affect signatures made with the reference SQIsign implementation. It tracks the official `nist-v3` submission at `6d017708db403bf83977fa70770fc4f7f9e9ff21`. The published research branch is `v3`. The historical `main` tree uses SQIsign v1. [Official source](https://github.com/SQISign/the-sqisign/tree/6d017708db403bf83977fa70770fc4f7f9e9ff21) · [Official specification](https://sqisign.org/spec/sqisign-20260901.pdf)
 
-### Pre-computation
+| CMake profile | Public Fiat–Shamir challenge | Private operation streams | Compatible verifiers |
+|---|---|---|---|
+| BASELINE | SHAKE256 | upstream SHAKE256 | BASELINE, RUSSIAN_PRNG |
+| STREEBOG_HASH | truncated Streebog-512 | upstream SHAKE256 | STREEBOG_HASH, COMBINED |
+| RUSSIAN_PRNG | SHAKE256 | HMAC initialization and Streebog-512 counter blocks | BASELINE, RUSSIAN_PRNG |
+| COMBINED | truncated Streebog-512 | HMAC initialization and Streebog-512 counter blocks | STREEBOG_HASH, COMBINED |
 
-The constant values in the `src/precomp` directory were generated using the
-pre-computation scripts in the `scripts/precomp` directory. It is not necessary
-to execute these scripts to compile the project. The scripts have the following
-requirements:
-- [two-isogenies](https://github.com/ThetaIsogenies/two-isogenies)
-  (`Theta-SageMath` version).
-- [deuring-2D](https://github.com/Jonathke/deuring-2D)
+The public hash binds a fixed domain label, the requested length, the upstream tag, encoded public key, commitment coefficient and message. The first 16, 24 or 32 digest octets supply the little-endian challenge. The private generator takes a fresh 48-byte operation root, uses HMAC-Streebog-512 to derive 48 bytes per three-byte domain, then hashes consecutive counter inputs with that secret suffix. The field arithmetic, isogenies, rejection sampling, key/signature encodings and OS entropy provider retain the upstream implementation. The validation branch also returns before serializing a key pair when entropy acquisition fails. No profile identifier is carried on the wire. [Architecture](ARCHITECTURE.md) · [Byte-level profile](CRYPTO_PROFILE.md)
 
-## Build
+Streebog and HMAC have independent specifications. The counter step follows the parameterized generator in R 1323565.1.006-2017 §4. Transcript framing, the domain key schedule, a 32-bit counter cap and their composition with SQIsign are research decisions. The application-specific HMAC transcript differs from the KDFs of R 1323565.1.022-2018. [RFC 6986](https://www.rfc-editor.org/rfc/rfc6986) · [Counter recommendation at Rosstandart](https://protect.gost.ru/rst/details/817595f3-d46b-4bb1-b6aa-eaee1a3c9ec9) · [HMAC recommendation](https://protect.gost.ru/rst/details/d4318178-cea5-4e8b-b81b-0e36b8951f5d) · [KDF recommendation](https://protect.gost.ru/rst/details/a47c68a4-7d4e-4385-a210-fa610983b98d)
 
-For a generic build
-```
-$ mkdir -p build
-$ cd build
-$ cmake -DSQISIGN_BUILD_TYPE=ref ..
-$ make
-$ make test
-```
+## Build and check
 
-An optimized executable with debug code and assertions disabled can be built
-replacing the `cmake` command above by
-```
-cmake -DSQISIGN_BUILD_TYPE=<ref/broadwell/arm64> -DCMAKE_BUILD_TYPE=Release ..
+Run from the repository root on Linux x86-64 with GCC, CMake, Ninja, pkg-config, Bash and Python 3. Install Nettle development files and the libgcrypt runtime for the oracle. Measurements use reference arithmetic and radix 64. The optional study analysis needs NumPy and Matplotlib. Each trial binary deliberately uses a public deterministic seed. System smoke tests use OS entropy.
+
+```sh
+for p in BASELINE STREEBOG_HASH RUSSIAN_PRNG COMBINED; do
+  bash research/build.sh "$p" Release && bash research/verify.sh "$p" Release || exit 1
+done
+python3 research/check.py
 ```
 
-## Build options
+The profile switch is `-DSQISIGN_PROFILE=<name>`. The script sets the arithmetic build options and enables the research targets. For sanitizers, clean-checkout instructions, fresh measurements and offline transfer see [REPRODUCIBILITY.md](REPRODUCIBILITY.md).
 
-CMake build options can be specified with `-D<BUILD_OPTION>=<VALUE>`.
+## Read the results
 
-### SQISIGN_BUILD_TYPE
+The [registered abstract](paper/REGISTERED_ABSTRACT.txt) sets the study scope. The [latest replication](results/replication-028187e/) contains 576 new observations at `028187e`. For p500_27 signing the COMBINED change versus BASELINE was −1.48% (paired 95% interval −8.02% to +5.29%). The [historical series](results/run-7392c66/) preserves 288 paired-design observations. The [benchmark report](BENCHMARK_REPORT.md) identifies each measured revision, the raw inputs, memory definition and pointwise confidence intervals. The [test report](TEST_REPORT.md) distinguishes selected CTests, KAT records, cross-profile checks and hosted CI. [Hypericum comparison](HYPERICUM_COMPARISON.md) gives size, signature-budget and cost data from the scheme authors.
 
-Specifies the build type for which SQIsign is built. The currently supported values are:
-- `ref`: builds the plain reference implementation.
-- `opt`: builds the optimized implementation which is the same as the reference
-  implementation.
-- `broadwell`: builds an additional optimized implementation targeting the Intel
-  Broadwell architecture (and later). The optimizations are applied to the
-  finite field arithmetic.
-- `arm64`: builds an additional optimized implementation targeting 64-bit ARM
-  (AArch64) cores. The optimizations are applied to the finite field arithmetic,
-  using only baseline `armv8-a` instructions.
-
-### ENABLE_SIGN
-
-If set to `ON` (default), SQIsign is built with signature and verification functionality.
-If set to `OFF`, SQIsign is built with verification functionality only.
-
-### ENABLE_CT_TESTING
-
-If set to `ON` (default: `OFF`), the library is built with valgrind client-request annotations for constant-time testing
-(see the Constant-time tests section). Requires the valgrind development header
-(`valgrind/memcheck.h`) and `CMAKE_BUILD_TYPE=RelWithDebInfo` — the suppressions need debug info, and assertions must be
-disabled (`NDEBUG`) because asserts on secret-derived values are themselves secret-dependent branches; the configuration
-fails otherwise. Outside valgrind the annotations are no-ops, but production builds should keep this `OFF`.
-
-### CMAKE_BUILD_TYPE
-
-Can be used to specify special build types. The options are:
-
-- `Release`: Builds with optimizations enabled and assertions disabled.
-- `Debug`: Builds with debug symbols.
-- `ASAN`: Builds with AddressSanitizer memory error detector.
-- `MSAN`: Builds with MemorySanitizer detector for uninitialized reads.
-- `LSAN`: Builds with LeakSanitizer for run-time memory leak detection.
-- `UBSAN`: Builds with UndefinedBehaviorSanitizer for undefined behavior detection.
-- `COVERAGE`: Builds instrumented for gcov code coverage, at `-O0` and without LTO.
-  See `scripts/coverage.sh`.
-
-The default build type uses the flags `-O2 -Wstrict-prototypes -Wno-error=strict-prototypes -fvisibility=hidden -Wno-error=implicit-function-declaration -Wno-error=attributes`. (Notice that assertions remain enabled in this configuration, which harms performance.)
-
-## Test
-
-In the build directory, run `make test` or `ctest`.
-
-The test harness consists of the following units:
-
-- KAT test: `SQIsign_<level>_KAT`- tests against the KAT files in the `KAT`
-  directory.
-- Self-tests: `SQIsign_<level>_SELFTEST` - runs random self-tests
-  (key generation, signature and verification).
-- Sub-library specific unit-tests.
-
-Note that, `ctest` has a default timeout of 1500s, which is applied to all tests
-except the KAT tests. To override the default timeout, run
-`ctest --timeout <seconds>`.
-
-### Constant-time tests
-
-Constant-time behavior is tested with valgrind memcheck in the ctgrind style: secrets are poisoned (marked undefined) at
-the RNG, and memcheck reports any secret-dependent branch or memory index. Accepted exemptions (the remaining
-non-constant-time parts of mp, id2iso and the quaternion layer) are filtered by `test/ct-quaternion.supp`. The
-`sqisign_test_ct_<variant>` harnesses run one keypair + sign under this instrumentation. The `<variant>` suffix is the
-parameter-set name (`p324_3`, `p500_27`, `p664_17`), i.e. `SVARIANT_S` in the top-level `CMakeLists.txt`. The modules
-that do promise constant time (except for mp arithmetic and the calls to other modules) and are therefore fully checked 
-are `hd`, `ec` and `gf`. Canonical invocation (mirrored by the
-`ct-test` job in `.github/workflows/ct-test.yml`):
-
-```
-cmake -B build -DENABLE_CT_TESTING=ON -DCMAKE_BUILD_TYPE=RelWithDebInfo -DSQISIGN_TEST_REPS=1 -G Ninja
-cmake --build build
-valgrind --error-exitcode=1 --max-stackframe=4116160 --num-callers=25 -s \
-    --suppressions=test/ct-quaternion.supp ./build/test/sqisign_test_ct_p324_3   # and p500_27, p664_17
-```
-
-Do not deviate from this recipe: some suppression entries only match frames valgrind resolves from debug info (hence
-`RelWithDebInfo`) with sufficient recorded depth (hence `--num-callers=25`); without them the run produces many false
-positives in libm.
-
-#### The CT lattice reduction harness
-
-`test/ct-quaternion.supp` exempts the big-integer (`src/mp`) and quaternion layers leaf-anchored and
-caller-agnostic. That is a deliberate decision for a knowingly non-constant-time module, but it also silences
-`src/quaternion/ref/lvlx/lll` — the *deliberately constant-time* reduction package that runs on top of them. A green
-run of the harness above therefore says nothing about that package.
-
-`sqisign_test_ct_lattice_<variant>` covers it. It drives the reduction entry points with poisoned inputs and runs
-with **none** of those entries — only `test/ct-lattice-known.supp`, a short allowlist of findings that have been
-identified and filed, so a new leak still fails the run. Never pass `ct-quaternion.supp` to it.
-
-```
-valgrind --error-exitcode=1 --max-stackframe=4116160 --num-callers=25 -s \
-    --suppressions=test/ct-lattice-known.supp \
-    ./build/src/quaternion/ref/p324_3/test/sqisign_test_ct_lattice_p324_3   # and p500_27, p664_17
-```
-
-Both harnesses are registered with ctest under the label `ct` when valgrind is found, so `ctest -L ct` runs the
-whole constant-time suite locally. A plain `ctest` is unaffected.
-
-## Known Answer Tests (KAT)
-
-KAT are available in the `KAT` directory. They can be generated by running the
-apps built in the `apps` directory:
-```
-apps/PQCgenKAT_sign_<level>
-```
-
-A successful execution will generate the `.req` and `.rsp` files.
-
-A full KAT test is done as part of the test harness (see the Test section).
-
-## Benchmarks
-
-A benchmarking suite is built and can be executed with the following command:
-```
-apps/benchmark_<level> [--iterations=<iterations>]
-```
-where `<level>` specifies the SQIsign parameter set and `<iterations>` is the
-number of iterations used for benchmarking; if the `--iterations` option is
-omitted, a default of 10 iterations is used.
-
-The benchmarks profile the key generation, signature and verification functions. The results are reported in CPU cycles if available on the host platform, and timing in nanoseconds otherwise.
-
-## Examples
-
-Example code that demonstrates how to use SQIsign with the NIST API is available
-in `apps/example_nistapi.c`.
-
-## Project Structure
-
-The source code consists of a number of sub-libraries used to implement the
-final SQIsign library:
-- `common`: common code for hash function, seed expansion, PRNG, memory handling.
-- `mp`: code for saturated-representation multiprecision arithmetic.
-- `gf`: GF(p^2) and GF(p) arithmetic.
-- `ec`: elliptic curves, isogenies and pairings. Everything that is purely
-   finite-fieldy.
-- `precomp`: constants and precomputed values.
-- `quaternion`: quaternion orders and ideals.
-- `hd`: code to compute (2,2)-isogenies in the theta model.
-- `id2iso`: code for Ideal <-> Iso.
-- `verification`: code for the verification protocol.
-- `signature`: code for the key generation and signature protocols.
-
-The dependencies are depicted below.
-```
- ┌─┬──────────┬─┐        ┌─┬──────────┬─┐      ┌─┬──────────┬─┐
- │ ├──────────┤ │        │ ├──────────┤ │      │ ├──────────┤ │
- │ │  Keygen  │ │        │ │   Sign   │ │      │ │  Verify  │ │
- │ ├──────────┤ │        │ ├──────────┤ │      │ ├──────────┤ │
- └─┴────┬─────┴─┘        └─┴────┬─────┴─┘      └─┴────┬─────┴─┘
-        │                       │                     │
-        └──────────────────┐    │                     │
-                           │    │                     │
-┌─────────────────┐    ┌───▼────▼────────┐            │
-│                 │    │                 │            │
-│   Quaternions   ◄────┤  Ideal <-> Iso  ├────────┐   │
-│                 │    │                 │        │   │
-└────────┬────────┘    └────────┬────────┘        │   │
-         │                      │                 │   │
-         │                      │     ┌───────────────┘
-         │                      │     │           │
-┌────────▼────────┐    ┌────────▼─────▼──┐    ┌───▼────────────┐
-│                 |    |                 |    |                |
-|                 │    │       2D        │    │                │
-│    Integers     │    │    Isogenies    ├────► Precomputation │
-│                 │    │                 │    │                │
-│                 │    │                 │    │                │
-└─────────────────┘    └────────┬────────┘    └───▲────────────┘
-                                │                 │
-                                │                 │
-                                │                 │
-                       ┌────────▼────────┐        │
-                       │                 │        │
-                       │ Elliptic curves ├────────┘
-                       │   & isogenies   │
-                       │                 │
-                       └──┬───────────┬──┘
-                          │           │
-                          │           │
-                          │           │
-              ┌───────────▼───┐   ┌───▼───────────┐
-              │     GF(p)     │   │     Fixed     │
-              │       &       │   │   precision   │
-              │    GF(p^2)    │   │   integers    │
-              └───────────────┘   └───────────────┘
-```
-
-## Cortex-M4 implementation
-
-The full scheme (keypair generation, signing and verification) is supported in 32-bit embedded architectures running on bare metal environments such as the ARM Cortex-M4, but it is not directly supported by the build system of the present repository. The [pqm4 project](https://github.com/mupq/pqm4) is supported for evaluating SQIsign in the ARM Cortex-M4.
-
-The glue code bridging pqm4's API to the library (`api.h`, `rng.h` and `pqm4_api.c`) is emitted by a dedicated generator, found in `apps/PQCgenKAT_sign_pqm4.c`.
-
-A copy of the most recent version of pqm4 as of the round 2 submission deadline, including an implementation of SQIsign generated directly from this repository using the procedure explained next, is made available [here](https://github.com/SQISign/the-sqisign-pqm4), in the `sqisign` branch.
-
-If changes are made to the library, the `scripts/gen_pqm4_sources.sh` shell script can be run, from the root folder of the repository, to generate a pqm4-compatible folder structure in `src/pqm4/sqisign_{p324_3,p500_27,p664_17}`, which can then be copied to the `crypto_sign` folder of pqm4. Note that the glue code generator is automatically run by this script.
-
-The script takes an optional argument selecting the finite field arithmetic: `ref` (the default) packages the portable reference arithmetic (`src/gf/ref`) as the `ref` implementation directory of each scheme, `m4f` packages the optimized Cortex-M4 arithmetic generated by [m4-modarith](https://github.com/Crypto-TII/m4-modarith) (`src/gf/armv7e-m`; see the README there for provenance and regeneration instructions) as the `m4f` implementation directory, and `all` generates both. pqm4's testing and benchmarking tooling automatically exercises every implementation directory of a scheme, so `all` provides a direct ref-vs-m4f comparison.
-
-## Acknowledgements
-
-The reference implementation for finite field arithemtic (i.e., `src/gf/ref`)
-was generated using [modarith](https://github.com/mcarrickscott/modarith) by
-Michael Scott.
-
-The optimized Cortex-M4 finite field arithmetic (i.e., `src/gf/armv7e-m`) was
-generated using [m4-modarith](https://github.com/Crypto-TII/m4-modarith).
-
-## License
-
-SQIsign is licensed under Apache-2.0. See [LICENSE](LICENSE) and [NOTICE](NOTICE).
-
-Third party code is used in some files:
-
-- `src/common/ref/aes_c.c`; MIT: "Copyright (c) 2016 Thomas Pornin <pornin@bolet.org>"
-- `src/common/generic/fips202.c`: CC0: Copyright (c) 2023, the PQClean team
-- `src/common/generic/randombytes_system.c`: MIT: Copyright (c) 2017 Daan Sprenkels <hello@dsprenkels.com>
-- `apps/PQCgenKAT_sign.c`, `apps/PQCgenKAT_sign_pqm4.c`, `src/common/ref/randombytes_ctrdrbg.c`, `test/test_kat.c`: by NIST (Public Domain)
+The installed Nettle 4.0 implementation uses secret-dependent table addresses in the private generator. Exposure of a domain key allows replay of past and future bytes in its stream. Passing the oracle and signature tests establishes functional behavior on the tested platform. Security of the concrete hash/PRNG composition, side-channel exposure and the largest parameter set require separate review. [Security argument](SECURITY_ARGUMENT.md) · [Security limitations](SECURITY_LIMITATIONS.md) · [Final research status](FINAL_RESEARCH_STATUS.md)

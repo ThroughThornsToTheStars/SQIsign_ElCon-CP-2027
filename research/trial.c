@@ -37,7 +37,7 @@ static long memory_kib(const char *field)
     return result;
 }
 
-static void components(const uint8_t *message, size_t length, uint64_t *hash, uint64_t *stream)
+static void components(const uint8_t *message, size_t length, uint64_t *hash, uint64_t *stream, uint64_t *init)
 {
     uint8_t fields[PUBLICKEY_BYTES + FP2_ENCODED_BYTES] = {0}, digest[CHALLENGE_BYTES], buf[4096];
     /* Feed back one public byte to keep the work observable across LTO. */
@@ -68,7 +68,40 @@ static void components(const uint8_t *message, size_t length, uint64_t *hash, ui
     }
     *stream = now() - start;
     (void)sink;
+    start = now();
+    for (unsigned j = 0; j < 256; ++j) {
+        prng_domain_ctx_t domain;
+        if (prng_domain_seed(&domain, DS_KEYGEN_DOMAIN)) exit(2);
+        prng_domain_clear(&domain);
+    }
+    *init = now() - start;
     prng_clear();
+}
+
+/* Separate process from timing trials. Mapping-level RSS and private dirty/clean
+ * pages include code/loader effects; differences are endpoint observations. */
+static void footprint(const char *phase)
+{
+    FILE *fp = fopen("/proc/self/smaps", "r");
+    if (!fp) exit(2);
+    char line[1024];
+    long rss = 0, nettle = 0, private_kib = 0, value;
+    int in_nettle = 0;
+    while (fgets(line, sizeof(line), fp)) {
+        unsigned long lo, hi;
+        if (sscanf(line, "%lx-%lx", &lo, &hi) == 2)
+            in_nettle = strstr(line, "/libnettle.so") != NULL;
+        else if (sscanf(line, "Rss: %ld", &value) == 1) {
+            rss += value;
+            if (in_nettle) nettle += value;
+        } else if (sscanf(line, "Private_Clean: %ld", &value) == 1 ||
+                   sscanf(line, "Private_Dirty: %ld", &value) == 1) {
+            private_kib += value;
+        }
+    }
+    if (ferror(fp)) exit(2);
+    fclose(fp);
+    printf("%s,%ld,%ld,%ld,%ld\n", phase, rss, nettle, private_kib, memory_kib("VmHWM:"));
 }
 
 int main(int argc, char **argv)
@@ -89,13 +122,21 @@ int main(int argc, char **argv)
         return crypto_sign_verify(sig, siglen, msg, mlen, pk) ? 1 : 0;
     }
     randombytes_init(seed, NULL, 256);
+    int memory = !strcmp(argv[1], "memory");
+    if (memory) footprint("before");
     uint64_t start = now();
     if (crypto_sign_keypair(pk, sk)) return 2;
     uint64_t after_key = now();
+    if (memory) footprint("keygen");
     if (crypto_sign_signature(sig, &siglen, msg, mlen, sk) || siglen != sizeof(sig)) return 2;
     uint64_t after_sign = now();
+    if (memory) footprint("sign");
     if (crypto_sign_verify(sig, siglen, msg, mlen, pk)) return 2;
     uint64_t after_verify = now();
+    if (memory) {
+        footprint("verify");
+        return 0;
+    }
     if (!strcmp(argv[1], "smoke")) return 0;
     if (!strcmp(argv[1], "vector")) {
         if (fwrite(pk, 1, sizeof(pk), stdout) != sizeof(pk) ||
@@ -103,11 +144,11 @@ int main(int argc, char **argv)
             fwrite(sig, 1, sizeof(sig), stdout) != sizeof(sig)) return 2;
     } else if (!strcmp(argv[1], "trial")) {
         long rss = memory_kib("VmRSS:"), peak = memory_kib("VmHWM:");
-        uint64_t hash, stream;
-        components(msg, mlen, &hash, &stream);
-        printf("%" PRIu64 ",%" PRIu64 ",%" PRIu64 ",%ld,%ld,%" PRIu64 ",%" PRIu64 ",%zu,%zu,%zu\n",
+        uint64_t hash, stream, init;
+        components(msg, mlen, &hash, &stream, &init);
+        printf("%" PRIu64 ",%" PRIu64 ",%" PRIu64 ",%ld,%ld,%" PRIu64 ",%" PRIu64 ",%zu,%zu,%zu,%" PRIu64 "\n",
                after_key-start, after_sign-after_key, after_verify-after_sign, rss, peak,
-               hash, stream, sizeof(pk), sizeof(sk), sizeof(sig));
+               hash, stream, sizeof(pk), sizeof(sk), sizeof(sig), init);
     } else return 2;
     return 0;
 }

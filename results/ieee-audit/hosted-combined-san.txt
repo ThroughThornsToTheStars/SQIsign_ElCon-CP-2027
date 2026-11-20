@@ -1,0 +1,10 @@
+2026-11-20T09:22:39.6994495Z ##[group]Run sudo apt-get update && sudo apt-get install -y nettle-dev libgcrypt20 ninja-build
+2026-11-20T09:22:39.6995179Z sudo apt-get update && sudo apt-get install -y nettle-dev libgcrypt20 ninja-build
+2026-11-20T09:22:51.7526193Z   nettle-dev ninja-build
+2026-11-20T09:22:51.8949878Z Get:2 http://us-east-2.ec2.archive.ubuntu.com/ubuntu noble-updates/main amd64 nettle-dev amd64 3.9.1-2.2build1.1 [1154 kB]
+2026-11-20T09:23:29.3346321Z ##[group]Run bash research/verify.sh "COMBINED" "San"
+2026-11-20T09:23:46.3588206Z 100% tests passed, 0 tests failed out of 19
+2026-11-20T09:23:46.3588578Z Total Test time (real) =  16.65 sec
+2026-11-20T09:23:47.2392450Z San COMBINED p324_3: 3 round trips, 3 verifier decisions, 9 negatives
+2026-11-20T09:23:49.1588480Z San COMBINED p500_27: 3 round trips, 3 verifier decisions, 9 negatives
+2026-11-20T09:23:52.3101298Z San COMBINED p664_17: 3 round trips, 3 verifier decisions, 9 negatives

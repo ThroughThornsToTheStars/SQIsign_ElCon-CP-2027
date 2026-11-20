@@ -1,0 +1,21 @@
+# Research notes for the registered contribution
+
+**Adaptation of the symmetric components of SQIsign 3.0 using Russian cryptographic standards and evaluation of its efficiency.**
+
+The author deferred manuscript drafting. These materials retain the registered title and user-supplied research scope. The author supplied the [verbatim registered abstract](REGISTERED_ABSTRACT.txt) during independent validation. The conference listing identifies ElCon-CP 2027. Its link to the organizer's author instructions was inaccessible during the review. The 4–5-page target is a working length pending confirmation. [Conference listing](https://isua-mtuci.ru/konferencii-19.02-20-02-2024)
+
+| Intended section | Claim that can be supported | Primary evidence | Boundary |
+|---|---|---|---|
+| I. Introduction | Two independent adaptations of v3 on the published nist-v3 code | [Upstream](https://github.com/SQISign/the-sqisign/tree/6d017708db403bf83977fa70770fc4f7f9e9ff21), [initial file comparison](../results/ieee-audit/initial-changes.tsv) | No priority claim or certification |
+| II. SQIsign 3.0 and Adaptation Requirements | All three sets use the same integration boundaries, existing widths and sampler APIs | [Architecture](../ARCHITECTURE.md), [hash caller](../src/verification/ref/lvlx/common.c), [original spec](https://sqisign.org/spec/sqisign-20260901.pdf) | Reference Linux implementation |
+| III. Design and Implementation | Exact truncation, encoding, counter ordering, domain keys, lifetime and exhaustion | [Profile](../CRYPTO_PROFILE.md), [implementation](../src/common/generic/research_profile.c), [independent oracle](../research/oracle.py) | Application-specific derivation and counter cap |
+| IV. Security and Compatibility | Recorded signatures interoperate within a public-hash family; Nettle's keyed path uses state-derived table addresses | [Matrix](../results/ieee-audit/cross.log), [binary](../results/ieee-audit/nettle-binary.txt), [argument](../SECURITY_ARGUMENT.md) | No quantified leakage, concrete security reduction or adopted category for modified schemes |
+| V. Experimental Evaluation | Paired end-to-end and microbenchmark results for 3 sets × 4 profiles, plus process memory | [Raw new series](../results/controlled/), [analysis](../research/analyze_sessions.py), [historical series](../results/run-7392c66/), [report](../BENCHMARK_REPORT.md) | One CPU model, consecutive sessions; random arithmetic work differs among profiles |
+| V. Hypericum comparison | Sizes, per-key budgets and approximate hash work for selected published profiles | [Comparison with primary sources](../HYPERICUM_COMPARISON.md) | No matched latency comparison or security-level equivalence |
+| VI. Conclusion | The profiles preserve byte lengths and show measurable primitive costs; persistence of the historical p500 signing effect remains unresolved | [Statistical output](../results/controlled/analysis/summary.csv), [constraints](../SECURITY_LIMITATIONS.md) | Avoid zero-overhead, production-readiness or unconditional security claims |
+
+The supplementary TeX tabular contains mean milliseconds for the follow-up series. Every plotted interval is the pointwise paired sign-time change versus BASELINE for the same set. The PDF and table were regenerated from raw CSV. Local reference timings and external Hypericum literature have separate provenance. [Table](results_tables.tex) · [Figure](figures/signing.pdf) · [References](references.bib)
+
+## Independent validation evidence
+
+The [actual challenge caller](../research/check_transcript.py) matches independently formed transcripts in all eight builds. [Public API entropy failure](../research/entropy_failure.c) and [the corrected wrapper](../src/sqisign.c) extend the evidence for sections III–IV. Section V can cite the separate [replication at 028187e](../results/replication-028187e/) and its [generated table and primary interval check](../research/check_exhibits.py). Existing paper/results_tables.tex and figures/signing.pdf continue to represent the earlier three-session series. The repeat has its own exhibits under results/replication-028187e/analysis. The [four Hypericum header measurements](../results/reviewer-validation/hypericum-sizes.csv) concern encoded sizes. Scope and limits of cross-platform latency comparisons appear in the [comparison](../HYPERICUM_COMPARISON.md).

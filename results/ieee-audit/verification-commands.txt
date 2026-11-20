@@ -1,0 +1,17 @@
+Run from a clean v3 reviewer tree. See TEST_REPORT.md for execution counts and the measured revision.
+for p in BASELINE STREEBOG_HASH RUSSIAN_PRNG COMBINED; do
+  bash research/build.sh "$p" Release
+  ctest --test-dir "build-$p-Release" --show-only=json-v1
+  JOBS=2 bash research/verify.sh "$p" Release
+done
+python3 research/oracle.py
+python3 research/check.py
+for p in BASELINE STREEBOG_HASH RUSSIAN_PRNG COMBINED; do
+  bash research/build.sh "$p" San
+  ctest --test-dir "build-$p-San" --show-only=json-v1
+  ASAN_OPTIONS=detect_leaks=0 UBSAN_OPTIONS=print_stacktrace=1 JOBS=2 bash research/verify.sh "$p" San
+done
+bash research/lsan-probe.sh
+bash research/inspect-nettle.sh
+cmake --build build-COMBINED-Release -j 3
+ctest --test-dir build-COMBINED-Release --output-on-failure --timeout 240 -j 3
