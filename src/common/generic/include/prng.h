@@ -6,6 +6,9 @@
 #include <stddef.h>
 #include <stdint.h>
 #include <fips202.h>
+#ifdef SQI_RUSSIAN_PRNG
+#include <research_profile.h>
+#endif
 #include <tutil.h>
 #include <sqisign_namespace.h>
 
@@ -41,7 +44,11 @@
  */
 typedef struct prng_domain_ctx
 {
+#ifdef SQI_RUSSIAN_PRNG
+    sqi_stream ctx;
+#else
     shake256incctx ctx;
+#endif
     uint32_t seeded;
 } prng_domain_ctx_t;
 

@@ -1,4 +1,7 @@
 #include <fips202.h>
+#ifdef SQI_STREEBOG_HASH
+#include <research_profile.h>
+#endif
 #include <tutil.h>
 #include <mp.h>
 #include <encoded_sizes.h>
@@ -29,6 +32,10 @@ hash_to_challenge(scalar_t *scalar,
 
     memset(*scalar, 0, sizeof(*scalar)); // we are usually not writing the full value
 
+#ifdef SQI_STREEBOG_HASH
+    _Static_assert(CHALLENGE_BYTES == 16 || CHALLENGE_BYTES == 24 || CHALLENGE_BYTES == 32, "unsupported challenge");
+    sqi_fs_digest((uint8_t *)*scalar, CHALLENGE_BYTES, buf, sizeof(buf), message, length);
+#else
     shake256incctx ctx;
 
     shake256_inc_init(&ctx);
@@ -38,6 +45,7 @@ hash_to_challenge(scalar_t *scalar,
     shake256_inc_finalize(&ctx);
     shake256_inc_squeeze((void *)(*scalar), CHALLENGE_BYTES, &ctx);
     shake256_inc_ctx_release(&ctx);
+#endif
 
 #ifdef TARGET_BIG_ENDIAN
     for (unsigned i = 0; i < sizeof(*scalar) / sizeof(**scalar); ++i)

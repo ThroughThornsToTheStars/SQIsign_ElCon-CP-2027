@@ -67,10 +67,14 @@ prng_domain_seed(prng_domain_ctx_t *ctx, const char domain[PRNG_DOMAIN_SEP_BYTES
         return -1;
 
     ctx->seeded = 0;
+#ifdef SQI_RUSSIAN_PRNG
+    sqi_stream_init(&ctx->ctx, prng_root.seed, domain);
+#else
     shake256_inc_init(&ctx->ctx);
     shake256_inc_absorb(&ctx->ctx, prng_root.seed, PRNG_SEED_BYTES);
     shake256_inc_absorb(&ctx->ctx, (const unsigned char *)domain, PRNG_DOMAIN_SEP_BYTES);
     shake256_inc_finalize(&ctx->ctx);
+#endif
     ctx->seeded = PRNG_SEEDED_MAGIC;
 
     return 0;
@@ -81,8 +85,10 @@ prng_domain_clear(prng_domain_ctx_t *ctx)
 {
     // The incremental SHAKE API requires pairing every inc_init with a release;
     // implementations are allowed to heap-allocate their state in init.
+#ifndef SQI_RUSSIAN_PRNG
     if (ctx->seeded == PRNG_SEEDED_MAGIC)
         shake256_inc_ctx_release(&ctx->ctx);
+#endif
     // Also resets ctx->seeded to 0
     sqisign_secure_clear(ctx, sizeof(*ctx));
 }
@@ -94,6 +100,10 @@ prng_random_bytes(prng_domain_ctx_t *ctx, unsigned char *out, size_t len)
     assert(ctx->seeded == PRNG_SEEDED_MAGIC);
     if (ctx->seeded != PRNG_SEEDED_MAGIC)
         return -1;
+#ifdef SQI_RUSSIAN_PRNG
+    return sqi_stream_read(&ctx->ctx, out, len);
+#else
     shake256_inc_squeeze(out, len, &ctx->ctx);
     return 0;
+#endif
 }
