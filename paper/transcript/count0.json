@@ -1,0 +1,9 @@
+{
+    "parameter_set":  "p324_3",
+    "upstream":  "6d017708db403bf83977fa70770fc4f7f9e9ff21",
+    "count":  0,
+    "pk_hex":  "aa943594eb7dcb5eeebe30d1d266941b110c034804a958a151f308e8a3dfe05b4fedf8d12fa25da215ca2ea5e7e346810a30d23e62c01536dad9901901d1c72a81e912436cb95c0ed921300a9f1017309b2905",
+    "commitment_A_hex":  "9d60cf8a4bcf0a3a2a8792c52ceeae1256dfb075890a48b949044d1f9d3ec7bc3939f5e8f1b52b921b0df257fd62683a4d15b1e9177624a493a298eacc8564ec9c0f427e1ca04bf8c6b1c2af68d95693ad28",
+    "message_hex":  "d81c4d8d734fcbfbeade3d3f8a039faa2a2c9957e835ad55b22e75bf57bb556ac8",
+    "challenge_hex":  "90e2cee6c6c0cb0ebf82682562d6d7d8"
+}
