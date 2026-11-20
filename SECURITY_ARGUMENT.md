@@ -21,7 +21,7 @@ For ASCII d in {key, com, res, def}, K is the first 48 octets of HMAC-Streebog-5
 | Basis | Property relied on or added |
 |---|---|
 | Primitive | GOST R 34.11-2012 defines the 512-bit hash. HMAC using this hash is described in R 50.1.113-2016 §4.1.2. The chosen 384-bit HMAC key is within its stated range, below the recommended 512 bits. |
-| Recommended generator mechanism | R 1323565.1.006-2017 §4 increments the low counter field of a secret initial filling before hashing. The octet mapping, parameter choices m=h=512, s=384, l=120 and partial-output convention are specified in the profile. |
+| Recommended generator mechanism | R 1323565.1.006-2017 §4 increments the complete state modulo 2^(m−8) before hashing. With the profile cap the addition affects only the four lowest octets. The octet mapping, parameter choices m=h=512, s=384, l=120 and partial-output convention are specified in the profile. |
 | Research integration | HMAC derivation from one operation root, truncation to 384 bits, four labels, 32-bit counter cap within a 120-bit field, cursor and zeroization policy. The root-to-filling step differs from sampling independent random fillings. R 1323565.1.022-2018 is a separate key-derivation recommendation. |
 | Unproved assumptions | For fresh secret roots, the four truncated HMAC outputs must act like distinct independent keys to a bounded observer. Given these keys, blocks under public successive counters and secret suffixes must act as pseudorandom bytes across domains. These are separate assumptions about related inputs to a shared hash primitive, including its public uses in COMBINED. |
 
