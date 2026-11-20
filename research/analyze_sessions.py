@@ -112,6 +112,34 @@ def summarize(samples, sessions, output):
     return results
 
 
+def memory_summary(root, sessions, output):
+    phases = ("before", "keygen", "sign", "verify")
+    metrics = ("rss_kib", "nettle_rss_kib", "private_kib", "hwm_kib")
+    groups = {}
+    for session in sessions:
+        rows = records(root/f"session-{session}"/"memory.csv")
+        seen = set()
+        for row in rows:
+            key = row["variant"], row["profile"], row["phase"]
+            values = [int(row[m]) for m in metrics]
+            if (int(row["session"]) != session or int(row["index"]) != sessions[session][0]
+                    or key in seen or key[0] not in SIZES or key[1] not in PROFILES
+                    or key[2] not in phases or min(values) < 0 or values[0] == 0
+                    or max(values[1:3]) > values[0] or values[3] <= 0):
+                raise ValueError(f"invalid memory snapshot {row}")
+            seen.add(key)
+            groups.setdefault(key, []).append(values)
+        if len(seen) != len(phases) * len(PROFILES) * len(SIZES):
+            raise ValueError(f"incomplete memory snapshots in session {session}")
+    with (output/"memory_summary.csv").open("x") as f:
+        writer = csv.writer(f)
+        writer.writerow(["variant","profile","phase","metric","n","mean","median","min","max"])
+        for key, rows in sorted(groups.items()):
+            for name, values in zip(metrics, zip(*rows)):
+                writer.writerow([*key, name, len(values), np.mean(values), np.median(values),
+                                 min(values), max(values)])
+
+
 def exhibits(results, output):
     rows = [r"\begin{tabular}{llrrr}", r"Set & Profile & KeyGen & Sign & Verify \\",
             r"\hline"]
@@ -149,6 +177,7 @@ if __name__ == "__main__":
     data, sessions, build, hashes = read_sessions(args.root)
     args.output.mkdir(parents=True, exist_ok=False)
     results = summarize(data, sessions, args.output)
+    memory_summary(args.root, sessions, args.output)
     exhibits(results, args.output)
     (args.output/"inputs.json").write_text(json.dumps({"build":build, "sessions":list(sessions),
         "input_sha256":hashes, "numpy": np.__version__, "matplotlib": matplotlib.__version__}, indent=2)+"\n")
