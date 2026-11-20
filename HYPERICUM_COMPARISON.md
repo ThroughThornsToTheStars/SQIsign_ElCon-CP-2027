@@ -26,3 +26,26 @@ For a concrete bandwidth example, storing a detached signature and one public ke
 ## Published latency measurements
 
 The authors' 2023 unoptimized prototype reported 15.98 ms KeyGen, 463 ms Sign and 20.57 ms Verify for **Hypericum-128f** on an i7-7500U at 2.7 GHz under real-time Linux 4.18 with Google Benchmark, Turbo Boost and Hyper-Threading disabled. That prototype's own 128f signature occupies 17,088 bytes, distinguishable from the later Б_128_20 profile above. These numbers have different parameter definitions, implementation and host from the SQIsign trials. There are no local Hypericum timings or cross-scheme speed ratios in this study. A public C reference tree is available for an eventual same-host comparison. [Authors' slides 9 and 12](https://ruscrypto.ru/resource/archive/rc2023/files/02_grebnev.pdf) · [Reference implementation](https://github.com/QAPP-tech/hypericum_tc26/tree/f3f254038e5539132d112e8f97332a2a351131fe)
+
+## Rechecking the size declarations
+
+We compiled a C99 program against the QApp public API headers at `f3f254038e5539132d112e8f97332a2a351131fe`. Each of the four independent parameter selections reproduced the PK, SK and signature widths above. This check exercises the size expressions exported by the reference headers. The per-key budgets and estimates of hash work come from the specification. From a checkout of that revision, repeat the header-only check with the following commands. [Parameter expressions](https://github.com/QAPP-tech/hypericum_tc26/blob/f3f254038e5539132d112e8f97332a2a351131fe/include/params.h) · [Parameter headers](https://github.com/QAPP-tech/hypericum_tc26/tree/f3f254038e5539132d112e8f97332a2a351131fe/include/paramsets)
+
+```sh
+set -eu
+d=$(mktemp -d)
+cat > "$d/sizes.c" <<'C'
+#include <stdio.h>
+#include "api.h"
+int main(void) {
+    printf("%u,%u,%u\n", (unsigned)CRYPTO_PUBLICKEYBYTES,
+           (unsigned)CRYPTO_SECRETKEYBYTES, (unsigned)CRYPTO_BYTES);
+}
+C
+for p in b_128_20 m_128_20 b_256_64 m_256_64; do
+  sed "s/@PARAMSET@/$p/g" current-paramset.h.in > "$d/current-paramset.h"
+  cc -std=c99 -I"$d" -Iinclude "$d/sizes.c" -o "$d/sizes"
+  printf '%s,' "$p"
+  "$d/sizes"
+done
+```

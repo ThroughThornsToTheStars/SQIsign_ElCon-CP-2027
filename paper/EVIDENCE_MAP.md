@@ -2,7 +2,7 @@
 
 **Adaptation of the symmetric components of SQIsign 3.0 using Russian cryptographic standards and evaluation of its efficiency.**
 
-The author deferred manuscript drafting. These materials retain the registered title and user-supplied research scope. No verbatim registered abstract was supplied. The conference listing identifies ElCon-CP 2027. Its link to the organizer's author instructions was inaccessible during the review. The 4–5-page target is a working length pending confirmation. [Conference listing](https://isua-mtuci.ru/konferencii-19.02-20-02-2024)
+The author deferred manuscript drafting. These materials retain the registered title and user-supplied research scope. The author supplied the [verbatim registered abstract](REGISTERED_ABSTRACT.txt) during independent validation. The conference listing identifies ElCon-CP 2027. Its link to the organizer's author instructions was inaccessible during the review. The 4–5-page target is a working length pending confirmation. [Conference listing](https://isua-mtuci.ru/konferencii-19.02-20-02-2024)
 
 | Intended section | Claim that can be supported | Primary evidence | Boundary |
 |---|---|---|---|

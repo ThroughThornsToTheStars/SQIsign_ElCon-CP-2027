@@ -2,7 +2,7 @@
 
 **Adaptation of the symmetric components of SQIsign 3.0 using Russian cryptographic standards and evaluation of its efficiency.**
 
-Review date 2026-11-20. Delivery branch `ieee/v3`. The research implementation and experimental exhibits are available for independent review. Concrete security of the keyed construction and side-channel safety remain open.
+Review date 2026-11-20. First review branch `ieee/v3`. The delivery containing the independent replication is `ieee/reviewer-validation`. The research implementation and experimental exhibits are available for independent review. Concrete security of the keyed construction and side-channel safety remain open.
 
 ## Source chain
 
@@ -51,7 +51,7 @@ The new experiment contains 576 timings from 48 complete blocks, 144 untimed ope
 2. Review the concrete oracle instantiation and key/commitment encodings against the assumptions and query bounds of SQIsign theorem 8.1.7, including any separate quantum-model claim. Runtime tests cover representative transcripts and signed messages.
 3. Independently assess the keyed backend on the intended deployment CPU. Machine code establishes secret-indexed loads. Leakage magnitude and practical exploitability have no measurement here. Exposure of a domain key allows replay, and artificial exhaustion can leave higher-level retry loops live. A candidate Botan accelerated implementation requires CPU features absent on this system.
 4. Obtain hosted LSan evidence with the positive control in the new workflow. Other architectures, liboqs/MCU, and quantitative leakage assessment remain outside the tested platform. An external host replication would establish how far the timing estimates generalize. Process RSS snapshots cannot identify transient per-routine allocation peaks.
-5. The registered abstract remains with the author. Manuscript drafting and its IEEEtran build were deferred at the author's request. The organizer's 2027 page-limit instructions require confirmation before submission.
+5. The [registered abstract](paper/REGISTERED_ABSTRACT.txt) is archived verbatim. Manuscript drafting and its IEEEtran build were deferred at the author's request. The organizer's 2027 page-limit instructions require confirmation before submission.
 
 ## Readiness by planned manuscript section
 

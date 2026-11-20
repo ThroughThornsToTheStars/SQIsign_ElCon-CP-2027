@@ -8,16 +8,16 @@ cd SQIsign_ElCon-CP-2027
 git rev-parse HEAD
 ```
 
-The published tree reviewed here is `d190b204b3650355c029f2bf2ac6e6191f8526cc`. The new work is delivered on branch `ieee/v3` in the review bundle. To acquire it offline, from the directory containing the supplied bundle, use a fresh destination:
+The published tree reviewed here is `d190b204b3650355c029f2bf2ac6e6191f8526cc`. The new work is delivered on branch `ieee/reviewer-validation` in the validation bundle. To acquire it offline, from the directory containing the supplied bundle, use a fresh destination:
 
 ```sh
-git clone -b ieee/v3 sqisign-ieee-review.bundle review
+git clone -b ieee/reviewer-validation sqisign-reviewer-validation.bundle review
 cd review
 git rev-parse HEAD
 git diff --exit-code 6d017708db403bf83977fa70770fc4f7f9e9ff21 HEAD -- KAT src/mp src/gf src/ec src/hd src/id2iso src/quaternion src/signature src/precomp src/nistapi
 ```
 
-Alternatively fetch the named review branch into the published clone and switch to it. All commands below assume the repository root. The source tag is also available from the [official repository](https://github.com/SQISign/the-sqisign/tree/6d017708db403bf83977fa70770fc4f7f9e9ff21). The executed DNS-limited checkout and clean-clone checks are recorded in [final status](FINAL_RESEARCH_STATUS.md).
+To add the supplied bundle to the published clone, run `git fetch ../sqisign-reviewer-validation.bundle refs/heads/ieee/reviewer-validation:refs/heads/ieee/reviewer-validation` there and then `git switch ieee/reviewer-validation`. The published v3 alone contains the historical drivers. All commands below assume the repository root. The source tag is also available from the [official repository](https://github.com/SQISign/the-sqisign/tree/6d017708db403bf83977fa70770fc4f7f9e9ff21). The executed DNS-limited checkout and clean-clone checks are recorded in [final status](FINAL_RESEARCH_STATUS.md).
 
 ## Toolchain and tests
 
