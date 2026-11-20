@@ -2,7 +2,26 @@
 
 Upstream revision 6d017708db403bf83977fa70770fc4f7f9e9ff21. The historical local runs used 7392c66e3e77acd36ee9531e8f965ef0d7bd0c0e on x86-64 Linux, ref, 64-bit radix, GCC 16.2.1. Commands in REPRODUCIBILITY.md. The measured reference code, release fixtures and CI script are in the same revision.
 
-## Results
+## API and transcript validation, 028187e
+
+The clean Release clone and the updated ASan+UBSan builds used the same integration source at `028187e12fda9a984e6ad0a66d491cab2bb04b1d`. Against the prior inventory, three added CTest cases inject entropy-provider failure through the public API, one per parameter set. Each case checks that failed KeyGen leaves both output buffers intact, that a subsequent KeyGen can succeed, and that a failed detached Sign on that valid key returns an error and zero length. These cases passed in every profile and mode. The NIST API and the algebraic protocols retain their upstream sources. The early return belongs to the public wrapper in src/sqisign.c.
+
+| Profile | Release registered / selected / passed | San registered / selected / passed | Complete scheme KAT records, Release / San |
+|---|---:|---:|---|
+| BASELINE | 50 / 22 / 22 | 50 / 19 / 19 | 300 original / 3 original, directly invoked |
+| STREEBOG_HASH | 50 / 22 / 22 | 50 / 22 / 22 | 6 custom / 6 custom |
+| RUSSIAN_PRNG | 50 / 22 / 22 | 50 / 22 / 22 | 6 custom / 6 custom |
+| COMBINED | 50 / 22 / 22 | 50 / 22 / 22 | 6 custom / 6 custom |
+
+The selected matrix passed 173/173 cases from 400 registrations across eight directories. It left 227 registrations unselected. Local sanitizer runs used `ASAN_OPTIONS=detect_leaks=0`; the positive LSan control failed under the local runtime restriction. Rechecking the published research workflow returned nine successful jobs at d190b204. The changed reviewer branch has local evidence only. [Individual test inventory](results/reviewer-validation/ctest-inventory.csv) · [Commands and build evidence](results/reviewer-validation/) · [Hosted job results](results/reviewer-validation/published-actions.json)
+
+The separate unfiltered COMBINED Release run passed **50/50** in 272.05 s. It covers all 28 tests unselected for that build in the targeted matrix. The other seven configurations retain their selected coverage. [Full CTest log](results/reviewer-validation/full-combined-release.txt)
+
+Alongside CTest, the actual typed challenge caller was exercised at all three widths with two ordered pairs of normalized curves drawn from official keys. Empty inputs, embedded zero octets, and lengths immediately before, at, and after the hash-block boundary were included. The independently computed full scalar matched in 288 cases (36 per build). Regression fixtures agreed byte-for-byte after regeneration. The Release matrix made the expected 144 signer/verifier decisions (72 accepted, 72 rejected) and passed all 108 additional negatives. Each modified build also compared respectively 6, 8 or 11 emitted primitive records against libgcrypt. These counts describe separate checks. [Typed adapter](research/transcript_test.c) · [Independent wire encoder](research/check_transcript.py) · [Cross-profile output](results/reviewer-validation/cross-profile.txt)
+
+The former oracle printed success on empty COMBINED output under optimized Python. The corrected oracle accepted all 11 valid records and rejected an empty file, a duplicate label, and a changed digest under both ordinary Python and `python3 -O`. The historical comparisons had been run under ordinary Python. [Oracle regression evidence](results/reviewer-validation/oracle-regression.txt)
+
+## Historical results at 7392c66
 
 | Profile | Release CTest | Combined ASan+UBSan CTest | Independent primitive records checked per build |
 |---|---:|---:|---:|

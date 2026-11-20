@@ -1,0 +1,6 @@
+p324_3 BASELINE STREEBOG_HASH identical public and secret key encodings at indices 0,1,2
+p324_3 RUSSIAN_PRNG COMBINED identical public and secret key encodings at indices 0,1,2
+p500_27 BASELINE STREEBOG_HASH identical public and secret key encodings at indices 0,1,2
+p500_27 RUSSIAN_PRNG COMBINED identical public and secret key encodings at indices 0,1,2
+p664_17 BASELINE STREEBOG_HASH identical public and secret key encodings at indices 0,1,2
+p664_17 RUSSIAN_PRNG COMBINED identical public and secret key encodings at indices 0,1,2

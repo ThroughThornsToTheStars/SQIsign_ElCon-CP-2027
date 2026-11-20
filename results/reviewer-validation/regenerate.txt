@@ -1,0 +1,12 @@
+Release BASELINE p324_3: 3 round trips, 12 verifier decisions, 9 negatives
+Release STREEBOG_HASH p324_3: 3 round trips, 12 verifier decisions, 9 negatives
+Release RUSSIAN_PRNG p324_3: 3 round trips, 12 verifier decisions, 9 negatives
+Release COMBINED p324_3: 3 round trips, 12 verifier decisions, 9 negatives
+Release BASELINE p500_27: 3 round trips, 12 verifier decisions, 9 negatives
+Release STREEBOG_HASH p500_27: 3 round trips, 12 verifier decisions, 9 negatives
+Release RUSSIAN_PRNG p500_27: 3 round trips, 12 verifier decisions, 9 negatives
+Release COMBINED p500_27: 3 round trips, 12 verifier decisions, 9 negatives
+Release BASELINE p664_17: 3 round trips, 12 verifier decisions, 9 negatives
+Release STREEBOG_HASH p664_17: 3 round trips, 12 verifier decisions, 9 negatives
+Release RUSSIAN_PRNG p664_17: 3 round trips, 12 verifier decisions, 9 negatives
+Release COMBINED p664_17: 3 round trips, 12 verifier decisions, 9 negatives

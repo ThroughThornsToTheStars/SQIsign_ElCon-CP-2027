@@ -1,0 +1,16 @@
+optimized=False case=valid status=0
+matched 11 emitted records
+optimized=False case=empty status=1
+ValueError: missing records: ['com', 'def', 'final', 'fs16', 'fs24', 'fs32', 'key', 'res', 'rfc6986', 'rfc6986_m2', 'rfc7836'], unexpected records: []
+optimized=False case=duplicate status=1
+ValueError: duplicate primitive record: rfc6986
+optimized=False case=wrong digest status=1
+ValueError: rfc6986: known-answer mismatch
+optimized=True case=valid status=0
+matched 11 emitted records
+optimized=True case=empty status=1
+ValueError: missing records: ['com', 'def', 'final', 'fs16', 'fs24', 'fs32', 'key', 'res', 'rfc6986', 'rfc6986_m2', 'rfc7836'], unexpected records: []
+optimized=True case=duplicate status=1
+ValueError: duplicate primitive record: rfc6986
+optimized=True case=wrong digest status=1
+ValueError: rfc6986: known-answer mismatch

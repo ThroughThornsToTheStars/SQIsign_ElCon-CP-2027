@@ -1,0 +1,55 @@
+Test project /tmp/sqi-manuscript.oSUBkSlK/final/build-BASELINE-Release
+      Start  1: sqisign_test_shake256
+      Start  2: sqisign_test_prng
+      Start  3: sqisign_test_ctrdrbg_kat
+ 1/22 Test  #1: sqisign_test_shake256 ...............   Passed    0.00 sec
+      Start  5: sqisign_test_prng_kat
+ 2/22 Test  #2: sqisign_test_prng ...................   Passed    0.00 sec
+      Start 31: sqisign_test_threadsafety_p324_3
+ 3/22 Test  #5: sqisign_test_prng_kat ...............   Passed    0.00 sec
+      Start 33: sqisign_test_threadsafety_p500_27
+ 4/22 Test  #3: sqisign_test_ctrdrbg_kat ............   Passed    0.01 sec
+      Start 35: sqisign_test_threadsafety_p664_17
+ 5/22 Test #31: sqisign_test_threadsafety_p324_3 ....   Passed    5.28 sec
+      Start 36: sqisign_test_nistapi_p324_3
+ 6/22 Test #36: sqisign_test_nistapi_p324_3 .........   Passed    0.30 sec
+      Start 37: sqisign_test_nistapi_p500_27
+ 7/22 Test #37: sqisign_test_nistapi_p500_27 ........   Passed    1.57 sec
+      Start 38: sqisign_test_nistapi_p664_17
+ 8/22 Test #38: sqisign_test_nistapi_p664_17 ........   Passed    1.81 sec
+      Start 39: sqisign_p324_3_KAT
+ 9/22 Test #33: sqisign_test_threadsafety_p500_27 ...   Passed   13.57 sec
+      Start 40: sqisign_p324_3_SELFTEST
+10/22 Test #40: sqisign_p324_3_SELFTEST .............   Passed    0.67 sec
+      Start 41: sqisign_p500_27_KAT
+11/22 Test #35: sqisign_test_threadsafety_p664_17 ...   Passed   20.07 sec
+      Start 42: sqisign_p500_27_SELFTEST
+12/22 Test #42: sqisign_p500_27_SELFTEST ............   Passed    2.63 sec
+      Start 43: sqisign_p664_17_KAT
+13/22 Test #39: sqisign_p324_3_KAT ..................   Passed   26.61 sec
+      Start 44: sqisign_p664_17_SELFTEST
+14/22 Test #44: sqisign_p664_17_SELFTEST ............   Passed    4.61 sec
+      Start 45: research_entropy_p324_3
+15/22 Test #45: research_entropy_p324_3 .............   Passed    0.05 sec
+      Start 46: research_system_p324_3
+16/22 Test #46: research_system_p324_3 ..............   Passed    0.38 sec
+      Start 47: research_entropy_p500_27
+17/22 Test #47: research_entropy_p500_27 ............   Passed    0.26 sec
+      Start 48: research_system_p500_27
+18/22 Test #48: research_system_p500_27 .............   Passed    0.40 sec
+      Start 49: research_entropy_p664_17
+19/22 Test #49: research_entropy_p664_17 ............   Passed    0.13 sec
+      Start 50: research_system_p664_17
+20/22 Test #50: research_system_p664_17 .............   Passed    0.60 sec
+21/22 Test #41: sqisign_p500_27_KAT .................   Passed   75.50 sec
+22/22 Test #43: sqisign_p664_17_KAT .................   Passed  131.76 sec
+
+100% tests passed out of 22
+
+Total Test time (real) = 154.48 sec
+Release BASELINE p324_3: 12 typed transcript comparisons passed
+Release BASELINE p500_27: 12 typed transcript comparisons passed
+Release BASELINE p664_17: 12 typed transcript comparisons passed
+Release BASELINE p324_3: 3 round trips, 3 verifier decisions, 9 negatives
+Release BASELINE p500_27: 3 round trips, 3 verifier decisions, 9 negatives
+Release BASELINE p664_17: 3 round trips, 3 verifier decisions, 9 negatives

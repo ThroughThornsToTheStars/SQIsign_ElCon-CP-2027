@@ -29,7 +29,7 @@ The authors' 2023 unoptimized prototype reported 15.98 ms KeyGen, 463 ms Sign an
 
 ## Rechecking the size declarations
 
-We compiled a C99 program against the QApp public API headers at `f3f254038e5539132d112e8f97332a2a351131fe`. Each of the four independent parameter selections reproduced the PK, SK and signature widths above. This check exercises the size expressions exported by the reference headers. The per-key budgets and estimates of hash work come from the specification. From a checkout of that revision, repeat the header-only check with the following commands. [Parameter expressions](https://github.com/QAPP-tech/hypericum_tc26/blob/f3f254038e5539132d112e8f97332a2a351131fe/include/params.h) · [Parameter headers](https://github.com/QAPP-tech/hypericum_tc26/tree/f3f254038e5539132d112e8f97332a2a351131fe/include/paramsets)
+We compiled a C99 program against the QApp public API headers at `f3f254038e5539132d112e8f97332a2a351131fe`. Each of the four independent parameter selections reproduced the PK, SK and signature widths above. [Observed C output](results/reviewer-validation/hypericum-sizes.csv) This check exercises the size expressions exported by the reference headers. The per-key budgets and estimates of hash work come from the specification. From a checkout of that revision, repeat the header-only check with the following commands. [Parameter expressions](https://github.com/QAPP-tech/hypericum_tc26/blob/f3f254038e5539132d112e8f97332a2a351131fe/include/params.h) · [Parameter headers](https://github.com/QAPP-tech/hypericum_tc26/tree/f3f254038e5539132d112e8f97332a2a351131fe/include/paramsets)
 
 ```sh
 set -eu

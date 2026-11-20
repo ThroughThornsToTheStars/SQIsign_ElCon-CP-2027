@@ -1,0 +1,17 @@
+2026-11-20T23:09:18+03:00
+Linux 7.3.4-arch1-2 x86_64 GNU/Linux
+Architecture:                            x86_64
+Model name:                              Intel(R) Core(TM) i7-4770HQ CPU @ 2.20GHz
+Thread(s) per core:                      2
+Core(s) per socket:                      4
+Socket(s):                               1
+cc (GCC) 16.2.1 20260810
+cmake version 4.5.0
+1.13.2
+Python 3.14.10
+4.0
+nettle 4.0-1
+libgcrypt 1.12.4-1
+NumPy 2.5.5 Matplotlib 3.11.2
+5cfa2daa591d62161d2f26aa4b8347e3704da1b830e9aba0a312ed1b5f0c7a38  /usr/lib/libnettle.so.9
+3b6d1189d37c612da66e5b2552c90188a50df6218dbe2525638a95ab51af1473  /usr/lib/libgcrypt.so
