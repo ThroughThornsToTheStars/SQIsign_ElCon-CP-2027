@@ -2,6 +2,8 @@
 
 **Experimental research implementation, not a certified cryptographic product.**
 
+The [final validation](FINAL_RESEARCH_VALIDATION.md) identifies the tested commit and the evidence for each series. Use the [claims table](SCIENTIFIC_CLAIMS.md) and [freeze checklist](RESEARCH_FREEZE_CHECKLIST.md) when drafting the manuscript.
+
 This branch studies how two changes affect signatures made with the reference SQIsign implementation. It tracks the official `nist-v3` submission at `6d017708db403bf83977fa70770fc4f7f9e9ff21`. The published research branch is `v3`. The historical `main` tree uses SQIsign v1. [Official source](https://github.com/SQISign/the-sqisign/tree/6d017708db403bf83977fa70770fc4f7f9e9ff21) · [Official specification](https://sqisign.org/spec/sqisign-20260901.pdf)
 
 | CMake profile | Public Fiat–Shamir challenge | Private operation streams | Compatible verifiers |
