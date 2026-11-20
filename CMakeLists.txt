@@ -110,3 +110,8 @@ include(.cmake/bm.cmake)
 #    enable_testing()
 #    add_subdirectory(test)
 #endif()
+
+option(SQISIGN_RESEARCH_TOOLS "Build Linux experiment drivers" OFF)
+if(SQISIGN_RESEARCH_TOOLS)
+    add_subdirectory(research)
+endif()

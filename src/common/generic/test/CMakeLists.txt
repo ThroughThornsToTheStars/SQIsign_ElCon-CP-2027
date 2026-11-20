@@ -30,3 +30,8 @@ add_executable(sqisign_test_prng_kat
 target_include_directories(sqisign_test_prng_kat PRIVATE ../include ${INC_COMMON} ${INC_PUBLIC})
 target_compile_definitions(sqisign_test_prng_kat PRIVATE RANDOMBYTES_SYSTEM)
 add_test(sqisign_test_prng_kat sqisign_test_prng_kat)
+
+if(SQISIGN_PROFILE MATCHES "^(RUSSIAN_PRNG|COMBINED)$")
+    target_sources(sqisign_test_prng_kat PRIVATE ../research_profile.c)
+    target_link_libraries(sqisign_test_prng_kat PRIVATE PkgConfig::NETTLE)
+endif()

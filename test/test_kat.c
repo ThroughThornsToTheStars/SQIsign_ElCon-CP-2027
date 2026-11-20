@@ -51,10 +51,10 @@ static int test_sig_kat(int cnt) {
     int                 done;
     int                 ret_val;
 
-    char                fn_rsp[64];
+    char                fn_rsp[sizeof(SQI_KAT_DIR) + 64];
     FILE                *fp_rsp;
 
-    sprintf(fn_rsp, "../../KAT/PQCsignKAT_%d_%s.rsp", CRYPTO_SECRETKEYBYTES, CRYPTO_ALGNAME);
+    sprintf(fn_rsp, SQI_KAT_DIR "/PQCsignKAT_%d_%s.rsp", CRYPTO_SECRETKEYBYTES, CRYPTO_ALGNAME);
     if ( (fp_rsp = fopen(fn_rsp, "r")) == NULL ) {
         printf("Couldn't open <%s> for read\n", fn_rsp);
         return KAT_FILE_OPEN_ERROR;
