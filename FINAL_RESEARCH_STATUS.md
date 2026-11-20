@@ -23,13 +23,13 @@ Review date 2026-11-20. First review branch `ieee/v3`. The delivery containing t
 
 The earlier empty working commit `9fa984d83661dcf8f9f5d321f2920ca76c2f9b18` contains no evidence. The next commit added the evidence files. Final status and any subsequent validation commits can be identified with `git rev-parse HEAD` and `git log d190b20..HEAD`. [Initial published diff against nist-v3](results/ieee-audit/initial-changes.tsv) · [Reviewer-branch file list](results/ieee-audit/changed-files.tsv)
 
-## Inherited and new work
+## Work inherited at the start of the validation pass
 
-The published v3 already had four build profiles, local operation-root handling and domain separation, fixed-width Streebog challenges, 18 changed-profile scheme records, a libgcrypt oracle, a targeted CI matrix and a 24-block experiment. The original official KAT files and arithmetic are present. The reviewer work retained those implementations, historical raw numbers, checksums, test logs and pinned sources. Direct Git comparison against nist-v3 covered KAT, mp, gf, ec, hd, id2iso, quaternion, signature, precomp and nistapi. There is no reviewer change under src/. The only change under apps/ fixes the example used in testing.
+The published v3 already had four build profiles, local operation-root handling and domain separation, fixed-width Streebog challenges, 18 changed-profile scheme records, a libgcrypt oracle, a targeted CI matrix and a 24-block experiment. The original official KAT files and arithmetic are present. The reviewer work retained those implementations, historical raw numbers, checksums, test logs and pinned sources. Direct Git comparison against nist-v3 covered KAT, mp, gf, ec, hd, id2iso, quaternion, signature, precomp and nistapi. Through baee298 the reviewer work changed no file under src/. The subsequent API correction at 028187e changes only src/sqisign.c within that directory. The change under apps/ fixes the example used in testing.
 
 The inherited README and obsolete checkout path were replaced, test selection was counted explicitly, the published workflow was verified through the GitHub API, and memory and timing measurements now have separate process modes. UBSan reproduced the zero-length VLA in the original example with seed 88. Fixed storage and a check against the original message length also close a false-success path for a recovered-message mismatch. The independent security review identified a concrete table-address dependency on secret state, and distinguishes the counter mechanism from the application-specific HMAC initialization. [Test report](TEST_REPORT.md) · [Security argument](SECURITY_ARGUMENT.md)
 
-## Executed commands and measurement provenance
+## Earlier commands and measurement provenance
 
 The remote branch and workflow were read through the public GitHub connector after the literal HTTPS clone failed DNS resolution. The local `origin/v3` object matched the published SHA and tree. A fresh linked worktree started from that object. The comparison commands and portable build commands appear in [REPRODUCIBILITY.md](REPRODUCIBILITY.md).
 
@@ -39,7 +39,7 @@ The remote branch and workflow were read through the public GitHub connector aft
 - In a detached worktree at the measurement SHA, four Release build directories pointed to the tested binaries of that revision. For i = 1,2,3 executed `python3 research/session.py OUTPUT/session-$i --session "$i" --blocks 16 --cpu 2`. Each session fingerprinted all 12 drivers and its configuration files. [New raw sessions](results/controlled/)
 - Executed `python3 research/analyze_sessions.py results/controlled FRESH_OUTPUT` and checked the derived files and paper exhibits. An independent standard-library calculation matched all 132 metric cells for means, medians, sample SDs, paired mean differences and ratios and all 12 rounded TeX rows. The executable and configuration hashes in all three sessions matched the actual builds and archived decompressed build files. Re-running `python3 research/summarize.py results/run-7392c66/raw.csv` reproduced the historical summary byte-for-byte.
 
-## Results suitable for citation
+## Results archived before the validation pass
 
 All four profiles built in both modes. The selected first-pass matrix passed 149 CTests across eight configurations with 47 registrations each. BASELINE Release passed 300 original records. BASELINE/San ran three original records directly. Each changed profile ran six committed custom records per mode. The independent implementation checked the primitive outputs and the Release cross-profile matrix made 144 verifier decisions plus 108 negative tests. The historical public workflow succeeded in nine jobs at the published SHA. The amended workflow has only local validation until it runs on a hosted runner. [Tests and exclusions](TEST_REPORT.md)
 
@@ -53,7 +53,7 @@ The new experiment contains 576 timings from 48 complete blocks, 144 untimed ope
 4. Obtain hosted LSan evidence with the positive control in the new workflow. Other architectures, liboqs/MCU, and quantitative leakage assessment remain outside the tested platform. An external host replication would establish how far the timing estimates generalize. Process RSS snapshots cannot identify transient per-routine allocation peaks.
 5. The [registered abstract](paper/REGISTERED_ABSTRACT.txt) is archived verbatim. Manuscript drafting and its IEEEtran build were deferred at the author's request. The organizer's 2027 page-limit instructions require confirmation before submission.
 
-## Readiness by planned manuscript section
+## Evidence available by planned section (manuscript deferred)
 
 | Section | Material available |
 |---|---|
