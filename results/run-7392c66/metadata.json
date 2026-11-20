@@ -1,0 +1,39 @@
+{
+  "revision": "7392c66e3e77acd36ee9531e8f965ef0d7bd0c0e",
+  "upstream": "6d017708db403bf83977fa70770fc4f7f9e9ff21",
+  "cpu": 2,
+  "kernel": "7.3.4-arch1-2",
+  "python": "3.14.10",
+  "cpu_model": "Intel(R) Core(TM) i7-4770HQ CPU @ 2.20GHz",
+  "compiler": "cc (GCC) 16.2.1 20260810",
+  "cmake": "cmake version 4.5.0",
+  "nettle": "4.0",
+  "order_seed": 240319,
+  "blocks": 24,
+  "warmup_index": 9999,
+  "configuration": "Release ref RADIX=64",
+  "executables": {
+    "BASELINE/p324_3": "bf59eb758e1687cb45f706e559700528e96deea7cad1c4282b1eea68065720f1",
+    "BASELINE/p500_27": "095d463ea349cc8884a8220899f1d88a076b0dd8f2aa163911de0c5cd9a7cddb",
+    "BASELINE/p664_17": "99968c7014aa152dceecd947802a753e3172c9d9f0ba8725b5a0cdcfa44ba3b2",
+    "STREEBOG_HASH/p324_3": "015de89e0c8973805846ea71bcc12efe75bd5fdfb4841fa6b18609b9ed344e3c",
+    "STREEBOG_HASH/p500_27": "7b260b7ad8b11a9751dcae55412d2dfb70c42aab61ed2c954dcb2d3375985cab",
+    "STREEBOG_HASH/p664_17": "530589b36227ff0c90242f5e33f18cb52d6bb2a38b5109815092f5665f396544",
+    "RUSSIAN_PRNG/p324_3": "fa7724a19ca74e8ca650c7c324f83870a891b9727fd4ece563c37c2eb20735e8",
+    "RUSSIAN_PRNG/p500_27": "320664be7814ff1ed62a2e9a7d957c002163d7f507d0dbdf90c6312cb6848a7b",
+    "RUSSIAN_PRNG/p664_17": "3c109799f58f51adade425ea81a80b26faf7233b1cc541e4c1e0f7ec340159c9",
+    "COMBINED/p324_3": "3cb7357cd249891f42f9faa12fd999758cf858edd42c41132b808e3084f957eb",
+    "COMBINED/p500_27": "5e00ad6d88e791723393f345d4d4c5afe42b01f4181b5089431713da1ede4eb6",
+    "COMBINED/p664_17": "80269d2a6276869ccfb36994db9d2d42f91028a4106c1621fb6f8ae79c3be1d6"
+  },
+  "loadavg_before": [
+    5.9248046875,
+    14.25830078125,
+    11.20263671875
+  ],
+  "loadavg_after": [
+    2.759765625,
+    10.7919921875,
+    10.26806640625
+  ]
+}
