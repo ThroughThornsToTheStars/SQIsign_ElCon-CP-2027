@@ -23,20 +23,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Set up Python 3.10
-      uses: actions/setup-python@v3
-      with:
-        python-version: "3.10"
-    
-    - name: Install dependencies Valgrind, GMP, Doxygen, TeX
+    - name: Install build and PDF documentation dependencies
       run: |
-          sudo apt --fix-missing install valgrind libgmp-dev doxygen texlive-xetex
-          echo "Valgrind installed"
-          
-    - name: Install Valgrind dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install ValgrindCI
+        sudo apt-get -o Acquire::Retries=3 update --error-on=any
+        sudo apt-get -o Acquire::Retries=3 install -y --no-install-recommends libgmp-dev doxygen texlive-xetex texlive-fonts-recommended
 
     - name: Configure CMake
       # Configure CMake in a 'build' subdirectory. `CMAKE_BUILD_TYPE` is only required if you are using a single-configuration generator such as make.
