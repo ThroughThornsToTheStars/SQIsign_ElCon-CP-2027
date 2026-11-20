@@ -3,7 +3,16 @@ set -euo pipefail
 profile=${1:?profile}
 mode=${2:-Release}
 dir="build-$profile-$mode"
-ctest --test-dir "$dir" --output-on-failure -j "${JOBS:-2}" \
+# The complete official corpus is exercised in Release. Pin one official record
+# per set for the instrumented baseline, alongside the full negative tests.
+extra=()
+if [[ "$mode" = San && "$profile" = BASELINE ]]; then
+    extra=(-E '_KAT$')
+    for variant in p324_3 p500_27 p664_17; do
+        "$dir/test/sqisign_test_kat_$variant" 0
+    done
+fi
+ctest "${extra[@]}" --test-dir "$dir" --output-on-failure -j "${JOBS:-2}" \
     -R '(research_system_|_KAT$|_SELFTEST$|test_nistapi_|test_threadsafety_|test_prng$|test_prng_kat$|test_ctrdrbg_kat$|test_shake256$)'
 if [[ "$profile" != BASELINE ]]; then
     tmp=$(mktemp)
