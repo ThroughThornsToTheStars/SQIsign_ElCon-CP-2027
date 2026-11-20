@@ -11,16 +11,16 @@ SQISIGN_API
 int
 sqisign_keypair(unsigned char *pk, unsigned char *sk)
 {
-    int ret = 0;
     secret_key_t skt;
     public_key_t pkt = { 0 };
     secret_key_init(&skt);
 
-    ret = -!protocols_keygen(&pkt, &skt);
+    if (!protocols_keygen(&pkt, &skt))
+        return -1;
 
     secret_key_to_bytes(sk, &skt, &pkt);
     public_key_to_bytes(pk, &pkt);
-    return ret;
+    return 0;
 }
 
 SQISIGN_API

@@ -13,7 +13,7 @@ if [[ "$mode" = San && "$profile" = BASELINE ]]; then
     done
 fi
 ctest "${extra[@]}" --test-dir "$dir" --output-on-failure -j "${JOBS:-2}" \
-    -R '(research_system_|_KAT$|_SELFTEST$|test_nistapi_|test_threadsafety_|test_prng$|test_prng_kat$|test_ctrdrbg_kat$|test_shake256$)'
+    -R '(research_entropy_|research_system_|_KAT$|_SELFTEST$|test_nistapi_|test_threadsafety_|test_prng$|test_prng_kat$|test_ctrdrbg_kat$|test_shake256$)'
 if [[ "$profile" != BASELINE ]]; then
     tmp=$(mktemp)
     trap 'rm -f "$tmp"' EXIT

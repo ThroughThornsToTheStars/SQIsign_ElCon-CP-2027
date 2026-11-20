@@ -12,7 +12,7 @@ cmake -S . -B "$dir" -G Ninja -DSQISIGN_BUILD_TYPE=ref -DGF_RADIX=64 \
     -DSQISIGN_RESEARCH_TOOLS=ON -DCMAKE_EXPORT_COMPILE_COMMANDS=ON "${flags[@]}"
 targets=(sqisign_test_prng sqisign_test_prng_kat sqisign_test_ctrdrbg_kat sqisign_test_shake256)
 for variant in p324_3 p500_27 p664_17; do
-    targets+=("transcript_$variant" "trial_$variant" "sqisign_test_kat_$variant" "sqisign_test_scheme_$variant" "sqisign_test_threadsafety_$variant" "example_nistapi_$variant" "system_smoke_$variant")
+    targets+=("entropy_failure_$variant" "transcript_$variant" "trial_$variant" "sqisign_test_kat_$variant" "sqisign_test_scheme_$variant" "sqisign_test_threadsafety_$variant" "example_nistapi_$variant" "system_smoke_$variant")
 done
 if [[ "$profile" != BASELINE ]]; then targets+=(primitive_test); fi
 cmake --build "$dir" -j "${JOBS:-4}" --target "${targets[@]}"
