@@ -1,0 +1,12 @@
+sources:
+  - manuscript_draft.md
+# In publication order. Supply the five fields for each author before submission.
+authors: []
+keywords: []
+template: template/conference-template-a4.docx
+bibliography: references.bib
+csl: template/ieee.csl
+# Read-only PDFs in left-to-right order.
+panels:
+  - figures/signing.pdf
+  - ../results/replication-028187e/analysis/signing.pdf
