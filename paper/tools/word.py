@@ -113,6 +113,13 @@ def apply(reference, generated, output, config):
                 if E.QName(child).localname in {"headerReference", "footerReference", "printerSettings", "titlePg"}:
                     section.remove(child)
             cols = section.find(W+"cols")
+            if cols is None:
+                cols = node("cols")
+                after = next((e for e in section if E.QName(e).localname in {"formProt", "vAlign", "noEndnote", "titlePg", "textDirection", "bidi", "rtlGutter", "docGrid", "sectPrChange"}), None)
+                if after is None:
+                    section.append(cols)
+                else:
+                    after.addprevious(cols)
             for child in list(cols):
                 cols.remove(child)
             cols.set(W+"num", str(columns))
