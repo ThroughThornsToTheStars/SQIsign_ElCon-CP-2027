@@ -28,13 +28,13 @@ Secret pseudorandom streams. Key generation and signing also use SHAKE256 to sup
 
 ### Octet specification of the experimental profile
 
-Let H denote Streebog-512 in the byte order returned by its application programming interface (API), prefixₖ the first k octets, and ∥ concatenation. All literal strings are ASCII without a terminating zero. For n = 16, 24 or 32, respectively, let T = “SQI” ∥ encoded_pk ∥ encoded_commitment_A ∥ message. Write F and P for the ASCII strings “SQIsign3-FS-Streebog512-v1” and “SQIsign3-PRNG-v1”, respectively. The adapted challenge is
+Let H denote Streebog-512 in the byte order returned by its application programming interface (API), prefixₖ the first k octets, and the two vertical bars (||) denote octet-string concatenation. All literal strings are ASCII without a terminating zero. For n = 16, 24 or 32, respectively, let T = “SQI” || encoded_pk || encoded_commitment_A || message. Write F and P for the ASCII strings “SQIsign3-FS-Streebog512-v1” and “SQIsign3-PRNG-v1”, respectively. The adapted challenge is
 
 ::::: {.wide}
 
 :::: {#eq:challenge .equation}
 
-c = int~LE~(prefix~n~(H(F ∥ octet(n) ∥ T))).
+c = int~LE~(prefix~n~(H(F || octet(n) || T))).
 
 ::::
 
@@ -48,25 +48,25 @@ The profile retains the reference seed interface: each KeyGen or Sign operation 
 
 :::: {#eq:domain .equation}
 
-K~d~ = prefix~48~(HMAC-Streebog-512(S, P ∥ ASCII(d))).
+K~d~ = prefix~48~(HMAC-Streebog-512(S, P || ASCII(d))).
 
 ::::
 
 :::: {#eq:block .equation}
 
-B~i~ = H(LE32(i) ∥ Z ∥ K~d~),   1 ≤ i ≤ 2^32^ − 1.
+B~i~ = H(LE32(i) || Z || K~d~),   1 ≤ i ≤ 2^32^ − 1.
 
 ::::
 
 :::::
 
-It serves consecutive octets of B₁ ∥ B₂ ∥ …, retaining unused octets between reads. A zero-length read preserves the cursor. A request exceeding the remaining capacity of 64(2³² − 1) bytes per domain fails before output. The counter mechanism instantiates §4 of R 1323565.1.006-2017 with m = h = 512, s = 384 and l = 120 [@tc26stream]. Incrementing the 504-bit state before hashing affects only its low four octets over the admitted range. This supplies a reproducible stream from a fixed-output primitive while retaining the original four domain interfaces. The cap, labels and derivation from a shared root are profile choices. The 384-bit HMAC key falls within the range of R 50.1.113-2016 §4.1.2, which recommends 512 bits [@tc26hmac]. Deriving four domain keys from this root is our design choice.
+It serves consecutive octets of B₁ || B₂ || …, retaining unused octets between reads. A zero-length read preserves the cursor. A request exceeding the remaining capacity of 64(2³² − 1) bytes per domain fails before output. The counter mechanism instantiates §4 of R 1323565.1.006-2017 with m = h = 512, s = 384 and l = 120 [@tc26stream]. Incrementing the 504-bit state before hashing affects only its low four octets over the admitted range. This supplies a reproducible stream from a fixed-output primitive while retaining the original four domain interfaces. The cap, labels and derivation from a shared root are profile choices. The 384-bit HMAC key falls within the range of R 50.1.113-2016 §4.1.2, which recommends 512 bits [@tc26hmac]. Deriving four domain keys from this root is our design choice.
 
 BASELINE retains both SHAKE256 interfaces. STREEBOG_HASH changes only the public challenge, RUSSIAN_PRNG changes only the secret generator, and COMBINED applies both substitutions.
 
 ## IV. Experimental Methodology
 
-The integration uses the Linux x86-64 reference backend, radix 64, for p324_3, p500_27 and p664_17. The upstream reference is the nist-v3 tag (6d017708). The frozen implementation (6d55a8f) and the replication build (028187e) have identical src trees. Functional evidence includes official baseline known-answer tests, independent reconstruction of challenge bytes and cross-profile verification. For the published p324_3 count-0 vector, upstream arithmetic recovered the commitment coefficient. A separate Python calculation assembled the 201-byte transcript and reproduced the embedded challenge. Modified scheme vectors serve as regression tests. Independent SHAKE and libgcrypt calculations check the corresponding primitive and transcript outputs.
+The integration uses the Linux x86-64 reference backend, radix 64, for p324_3, p500_27 and p664_17. The upstream reference is the nist-v3 tag (6d017708). The frozen archive contains the source, raw observations and analysis scripts [@artifact]. Its implementation (6d55a8f) and the replication build (028187e) have identical src trees. Functional evidence includes official baseline known-answer tests, independent reconstruction of challenge bytes and cross-profile verification. For the published p324_3 count-0 vector, upstream arithmetic recovered the commitment coefficient. A separate Python calculation assembled the 201-byte transcript and reproduced the embedded challenge. Modified scheme vectors serve as regression tests. Independent SHAKE and libgcrypt calculations check the corresponding primitive and transcript outputs.
 
 Timing used an Intel Core i7-4770HQ, logical CPU 2, the GNU Compiler Collection (GCC) 16.2.1 and GNU Nettle 4.0. A fresh process timed KeyGen, detached Sign and Verify in sequence with a monotonic clock. Each trial index fixed the 64-byte message and the input to the deterministic test entropy provider. Matching indices across profiles controls the input conditions while allowing random sampling paths to diverge. Discarded warm-ups preceded timing. Separate batches measured 256 challenge hashes with synthetic fields of the encoded widths (encoding time excluded), 256 KiB of stream output after initialization, and, in the controlled series, 256 key-domain initializations with clearing. Process resident set size (RSS) after verification includes resident library pages. We also record its high-water mark (HWM). Separate untimed phase snapshots describe memory composition.
 
