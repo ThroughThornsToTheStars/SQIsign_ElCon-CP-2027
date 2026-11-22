@@ -1,12 +1,22 @@
 sources:
   - manuscript_draft.md
 # In publication order. Supply the five fields for each author before submission.
-authors: []
-keywords: []
+authors:
+  - name: Andrey P. Kretov
+    department: Department of Information Security
+    organization: Saint-Petersburg State University of Aerospace Instrumentation
+    location: Saint Petersburg, Russia
+    contact: kretovandrey18@gmail.com
+  - name: Igor A. Palnov
+    department: Department of Information Security
+    organization: Saint-Petersburg State University of Aerospace Instrumentation
+    location: Saint Petersburg, Russia
+    contact: lagzedelovoy@gmail.com
+keywords: [post-quantum signatures, isogenies, SQIsign, Streebog, pseudorandom generation]
 template: template/conference-template-a4.docx
 bibliography: references.bib
 csl: template/ieee.csl
-# Read-only PDFs in left-to-right order.
-panels:
-  - figures/signing.pdf
-  - ../results/replication-028187e/analysis/signing.pdf
+# Precomputed Sign contrasts, controlled series followed by replication.
+sign_contrasts:
+  - ../results/controlled/analysis/summary.csv
+  - ../results/replication-028187e/analysis/summary.csv
