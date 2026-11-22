@@ -44,7 +44,7 @@ $$
 
 The prefix binds the use and the length byte identifies the width. For each set, the key and commitment have fixed widths, so the remaining bytes unambiguously encode the message, including an empty message. The signer and verifier use the same interpretation of the digest.
 
-Each KeyGen or Sign operation obtains a fresh 48-byte secret root S. For d in {key, com, res, def}, the adapted generator computes
+The profile retains the reference seed interface: each KeyGen or Sign operation requests a fresh 48-byte secret root S. For d in {key, com, res, def}, the adapted generator computes
 
 ::::: {.wide}
 
@@ -66,7 +66,7 @@ $$
 
 :::::
 
-It serves consecutive octets of B₁ ∥ B₂ ∥ …, retaining unused octets between reads. A zero-length read preserves the cursor. A request exceeding the remaining capacity of 64(2³² − 1) bytes per domain fails before output. The counter mechanism instantiates §4 of R 1323565.1.006-2017 with m = h = 512, s = 384 and l = 120 [@tc26stream]. Incrementing the 504-bit state before hashing affects only its low four octets over the admitted range. This supplies a reproducible stream from a fixed-output primitive while retaining the original four domain interfaces. The cap, labels and derivation from a shared root are profile choices. The 384-bit HMAC key falls within the range of R 50.1.113-2016 §4.1.2, which recommends 512 bits [@tc26hmac]. The profile has its own key schedule.
+It serves consecutive octets of B₁ ∥ B₂ ∥ …, retaining unused octets between reads. A zero-length read preserves the cursor. A request exceeding the remaining capacity of 64(2³² − 1) bytes per domain fails before output. The counter mechanism instantiates §4 of R 1323565.1.006-2017 with m = h = 512, s = 384 and l = 120 [@tc26stream]. Incrementing the 504-bit state before hashing affects only its low four octets over the admitted range. This supplies a reproducible stream from a fixed-output primitive while retaining the original four domain interfaces. The cap, labels and derivation from a shared root are profile choices. The 384-bit HMAC key falls within the range of R 50.1.113-2016 §4.1.2, which recommends 512 bits [@tc26hmac]. Deriving four domain keys from this root is our design choice.
 
 ::: {.wide}
 
@@ -150,7 +150,7 @@ The four profiles used public keys of 83, 129 and 169 bytes and detached signatu
 
 The classical SQIsign theorem uses a programmable random oracle, hint-assisted OneEnd hardness, hint indistinguishability and assumptions on sampler distributions [@sqisign3, Thm. 8.1.7]. Its discussion of quantum queries introduces further algebraic-model restrictions [@sqisign3, Rem. 8.1.8]. Truncation gives the adapted scalar the required width. Applying the original argument would also require suitable challenge behavior on adversarial transcripts. Collision resistance alone supplies no oracle-programming argument, and a birthday estimate for arbitrary digest collisions is insufficient to price a forgery.
 
-For the secret streams, one would first need to justify treating the truncated HMAC outputs under a fresh root as independent domain keys, then treating their bounded counter outputs as pseudorandom to the sampler. COMBINED also requires that these assumptions hold alongside public queries to the same hash. Labels distinguish inputs but provide no quantitative joint bound. The OS entropy source must supply fresh, secret roots. A request for 48 bytes gives no measurement of their min-entropy. Reusing a root and label repeats the stream. Disclosure of a domain key exposes past and subsequent blocks in that domain. The profile has no within-operation recovery. The tested public API propagates initial entropy failure for KeyGen and detached Sign. Termination of high-level rejection sampling under artificial stream exhaustion remains open.
+Kiryukhin gives single-key PRF and MAC bounds for HMAC-Streebog under assumptions on related-key attacks against its compression function [@kiryukhin2023; @kiryukhin2024]. Extending those results to our generator would require a composition argument. For the secret streams, one would first need to justify treating the truncated HMAC outputs under a fresh root as independent domain keys, then treating their bounded counter outputs as pseudorandom to the sampler. COMBINED also requires that these assumptions hold alongside public queries to the same hash. Labels distinguish inputs but provide no quantitative joint bound. The OS entropy source must supply fresh, secret roots. A request for 48 bytes gives no measurement of their min-entropy. Reusing a root and label repeats the stream. Disclosure of a domain key exposes past and subsequent blocks in that domain. The profile has no within-operation recovery. The tested public API propagates initial entropy failure for KeyGen and detached Sign. Termination of high-level rejection sampling under artificial stream exhaustion remains open.
 
 The measured GNU Nettle 4.0 keyed path uses secret-dependent table addresses, and upstream arithmetic can take variable time. A black-box pseudorandomness argument would omit these observations by a local adversary. Functional tests give no bound on leakage or forgery probability. The upstream security categories describe the original sets. Security levels and certification of the adapted profiles remain unestablished.
 
