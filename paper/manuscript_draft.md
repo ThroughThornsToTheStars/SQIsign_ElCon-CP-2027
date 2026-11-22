@@ -80,9 +80,19 @@ BASELINE passed all 300 official Release records across the three sets. In Relea
 
 ### Latency across series
 
-The three series yield different estimates of the p500_27 signing contrast (Table I).
+The three series yield different estimates of the p500_27 signing contrast (Table I). The historical positive estimate weakened in the first controlled series and changed sign in replication. Within replication, session estimates were +1.58%, +3.54% and −9.15%. Resampling four consecutive blocks together gave a sensitivity interval of [−7.54%, +4.52%]. Both analyses admit an increase or a decrease. The trials resolve neither a stable speed advantage nor equivalence. Differences in revision, sampled inputs and host conditions preclude attributing the shift to any one cause.
 
-::: {#tbl:latency .wide}
+The replication covers both whole operations and symmetric primitives (Table II).
+
+The two controlled series provide separate estimates of the signing contrast for each profile and parameter set (Fig. 1). In the replication, changing only the public hash changed mean signing time at p500_27 by +3.11% [−3.50%, +10.83%]. Changing only the generator gave −2.66% [−9.26%, +4.19%]. These intervals illustrate the limited precision of either individual whole-signature contrast.
+
+The isolated measurements distinguish the two substitutions. At p500_27, changing only the challenge moved the mean per-hash time from 1.935 to 4.907 µs. Changing only the generator moved its mean byte cost from 4.401 to 28.443 ns. In COMBINED, batch durations increased by 150.98% for challenge hashing, 555.43% for stream generation and 5410.16% for domain initialization and clearing. At this set the last percentage corresponds to about 5.55 µs per initialization against 0.10 µs at baseline. These batch counts measure different units of work. Whole-operation times also include arithmetic on the sampled key, commitment and response. Adding the three percentages would have no interpretation as signing overhead.
+
+For p500_27 COMBINED, the replication estimated a +0.33% change in mean KeyGen time [−10.38%, +12.18%] and −0.50% in Verify [−2.16%, +1.29%]. In COMBINED, KeyGen uses the adapted secret generator and Verify uses the adapted public challenge. Neither operation directly uses both substitutions. Both intervals include zero. Mean process RSS on the same comparison increased by 13.34% [12.77%, 13.91%]. Separate post-Verify snapshots attributed 340–368 KiB to Nettle mappings across adapted profiles, against zero in BASELINE. Resident process memory includes shared code and runtime state. The experiment cannot resolve the peak live allocation of a single signing operation.
+
+:::: {.wide}
+
+::: {#tbl:latency}
 
 | Series | Triples | Baseline | Combined | Change | Interval |
 |---|---:|---:|---:|---:|---:|
@@ -94,11 +104,7 @@ The three series yield different estimates of the p500_27 signing contrast (Tabl
 
 :::
 
-The historical positive estimate weakened in the first controlled series and changed sign in replication. Within replication, session estimates were +1.58%, +3.54% and −9.15%. Resampling four consecutive blocks together gave a sensitivity interval of [−7.54%, +4.52%]. Both analyses admit an increase or a decrease. The trials resolve neither a stable speed advantage nor equivalence. Differences in revision, sampled inputs and host conditions preclude attributing the shift to any one cause.
-
-The replication covers both whole operations and symmetric primitives (Table II). The two controlled series provide separate estimates of the signing contrast for each profile and parameter set (Fig. 1).
-
-::: {#tbl:replication .wide}
+::: {#tbl:replication}
 
 | Set | Profile | KeyGen ms | Sign ms | Verify ms | RSS / HWM KiB | FS µs | Stream ns/B | Init µs |
 |---|---|---:|---:|---:|---:|---:|---:|---:|
@@ -119,17 +125,13 @@ The replication covers both whole operations and symmetric primitives (Table II)
 
 :::
 
-::: {.wide}
+::: {.newpage}
 
-![Change in mean signing time relative to the corresponding baseline, with pointwise paired 95% intervals for each substitution and set. Left, first controlled series (sessions 1–3). Right, replication (sessions 4–6).](build/signing-panels.png){#fig:signing width=6.8in}
+![Change in mean signing time relative to the corresponding baseline, with pointwise paired 95% intervals for each substitution and set. Circles represent the first controlled series and squares the replication.](build/signing-panels.png){#fig:signing width=6.8in}
 
 :::
 
-In the replication, changing only the public hash changed mean signing time at p500_27 by +3.11% [−3.50%, +10.83%]. Changing only the generator gave −2.66% [−9.26%, +4.19%]. These intervals illustrate the limited precision of either individual whole-signature contrast.
-
-The isolated measurements distinguish the two substitutions. At p500_27, changing only the challenge moved the mean per-hash time from 1.935 to 4.907 µs. Changing only the generator moved its mean byte cost from 4.401 to 28.443 ns. In COMBINED, batch durations increased by 150.98% for challenge hashing, 555.43% for stream generation and 5410.16% for domain initialization and clearing. At this set the last percentage corresponds to about 5.55 µs per initialization against 0.10 µs at baseline. These batch counts measure different units of work. Whole-operation times also include arithmetic on the sampled key, commitment and response. Adding the three percentages would have no interpretation as signing overhead.
-
-For p500_27 COMBINED, the replication estimated a +0.33% change in mean KeyGen time [−10.38%, +12.18%] and −0.50% in Verify [−2.16%, +1.29%]. In COMBINED, KeyGen uses the adapted secret generator and Verify uses the adapted public challenge. Neither operation directly uses both substitutions. Both intervals include zero. Mean process RSS on the same comparison increased by 13.34% [12.77%, 13.91%]. Separate post-Verify snapshots attributed 340–368 KiB to Nettle mappings across adapted profiles, against zero in BASELINE. Resident process memory includes shared code and runtime state. The experiment cannot resolve the peak live allocation of a single signing operation.
+::::
 
 ### Transmission context
 

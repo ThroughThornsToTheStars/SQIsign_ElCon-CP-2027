@@ -55,6 +55,9 @@ function Pandoc(doc)
         d.content[1] = p
         d.attributes["custom-style"] = "equation"
       end
+      if d.classes:includes("newpage") and FORMAT == "docx" then
+        d.content:insert(1,marker("PAGE"))
+      end
       if d.classes:includes("wide") and FORMAT == "docx" then
         d.content:insert(1,marker("WIDE"))
         d.content:insert(marker("END"))

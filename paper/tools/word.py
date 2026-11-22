@@ -79,6 +79,19 @@ def fit_table(table, width):
     cells = [r.findall(W+"tc") for r in rows]
     if not cols or any(len(row) != len(cols) for row in cells):
         return  # retain Pandoc's grid for spanned cells
+    # Space the numeric rows and identify the header at the printed size.
+    for i, row in enumerate(cells):
+        for cell in row:
+            for paragraph in cell.findall(W+"p"):
+                props(paragraph).append(node("spacing", before=18, after=18))
+            if i in (0, len(cells)-1):
+                cell_props = cell.find(W+"tcPr")
+                if cell_props is None:
+                    cell_props = node("tcPr")
+                    cell.insert(0, cell_props)
+                borders = node("tcBorders")
+                borders.append(node("bottom", val="single", sz=4, color="555555"))
+                cell_props.append(borders)
     weights = [max(4, max(len(token) for cell in col for token in (text(cell).split() or [""]))) + 2
                for col in zip(*cells)]
     for i, column in enumerate(zip(*cells)):
@@ -153,6 +166,7 @@ def apply(reference, generated, output, config):
         mar = body_section.find(W+"pgMar")
         full_width = int(size.get(W+"w")) - int(mar.get(W+"left")) - int(mar.get(W+"right"))
         column_width = (full_width - int(body_section.find(W+"cols").get(W+"space", "360"))) // 2
+        next_page = False
         titled = False
         subsection = 0
         for p in list(body):
@@ -161,6 +175,13 @@ def apply(reference, generated, output, config):
             if p.tag != W+"p":
                 continue
             val = text(p)
+            if val == "SQI-LAYOUT-PAGE":
+                body.remove(p)
+                next_page = True
+                continue
+            if next_page:
+                props(p).append(node("pageBreakBefore"))
+                next_page = False
             style = p.find(W+"pPr/"+W+"pStyle")
             current = style.get(W+"val", "") if style is not None else ""
             if not titled and val:
@@ -170,7 +191,7 @@ def apply(reference, generated, output, config):
                 row.addnext(boundary(geometry(sections[0], 1)))
                 titled = True
             elif val in ("SQI-LAYOUT-WIDE", "SQI-LAYOUT-END"):
-                target = 1 if val.endswith("WIDE") else 2
+                target = 2 if val.endswith("END") else 1
                 if columns == target:
                     raise ValueError("Unbalanced wide section")
                 body.replace(p, boundary(geometry(body_section, columns)))
@@ -210,6 +231,9 @@ def apply(reference, generated, output, config):
                     if text(run).strip().startswith("("):
                         run.insert(1 if run.find(W+"rPr") is not None else 0, node("tab"))
                         break
+            elif p.find(".//"+W+"drawing") is not None:
+                props(p).append(node("spacing", before=120, after=80))
+                props(p).append(node("keepNext"))
             elif val == "References":
                 set_style(p, ids["heading 5"])
             elif current == ids.get("heading 2") or current == "Heading2":
@@ -222,6 +246,8 @@ def apply(reference, generated, output, config):
                 subsection += 1
             elif current in ("Caption", "ImageCaption", "TableCaption") or val.startswith(("Fig. ", "Table ")):
                 set_style(p, ids["figure caption" if val.startswith("Fig.") else "table head"])
+                if val.startswith("Table "):
+                    props(p).append(node("spacing", before=180, after=65))
             elif current == "Bibliography":
                 set_style(p, ids["references"])
             elif current in ("", "BodyText", "FirstParagraph") and val:

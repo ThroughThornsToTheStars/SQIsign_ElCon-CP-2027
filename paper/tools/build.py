@@ -13,6 +13,7 @@ import yaml
 from lxml import etree as ET
 from PIL import Image
 from word import apply
+from signing_figure import render
 
 BUILD = Path("build").resolve()
 PDF = "CP2_Kretov_Adaptation.pdf"
@@ -33,23 +34,6 @@ def file(path):
 
 def digest(p):
     return hashlib.sha256(p.read_bytes()).digest()
-
-
-def panels(paths, stage):
-    images = []
-    for i, path in enumerate(paths):
-        prefix = stage / f"panel-{i}"
-        if not re.search(r"^Pages:\s+1$", run("pdfinfo", file(path), capture=True), re.M):
-            raise ValueError(f"Expected a one-page panel: {path}")
-        run("pdftoppm", "-r", "300", "-png", "-singlefile", path, prefix)
-        with Image.open(prefix.with_suffix(".png")) as img:
-            images.append(img.convert("RGB"))
-    joined = Image.new("RGB", (sum(i.width for i in images), max(i.height for i in images)), "white")
-    offset = 0
-    for img in images:
-        joined.paste(img, (offset, 0))
-        offset += img.width
-    joined.save(stage / "signing-panels.png")
 
 
 def walk(o):
@@ -107,7 +91,7 @@ def build():
     sources = cfg["sources"]
     if not isinstance(sources, list) or not sources or len(set(sources)) != len(sources):
         raise ValueError("sources must be an ordered, nonempty list with unique paths")
-    files = list(map(file, [*sources, cfg["template"], cfg["bibliography"], cfg["csl"], *cfg["panels"]]))
+    files = list(map(file, [*sources, cfg["template"], cfg["bibliography"], cfg["csl"], *cfg["sign_contrasts"]]))
     watched = {p: digest(p) for p in set(files) | {p for p in Path(".").rglob("*")
                if p.is_file() and "build" not in p.parts and "__pycache__" not in p.parts}}
     md = "\n\n".join(p.read_text() for p in map(Path, sources))
@@ -127,7 +111,7 @@ def build():
         run("soffice", "--version")
         if "times new roman" not in run("fc-match", "-f", "%{family}", "Times New Roman", capture=True).lower():
             print("PRELIMINARY: Times New Roman unavailable; font substitution changes pagination.")
-        panels(cfg["panels"], stage)
+        render(cfg["sign_contrasts"], stage / "signing-panels.png")
         image_assets = {}
         reader = "markdown-smart"  # preserve quotes, minus signs, and literal dots
         ast = json.loads(run("pandoc", "-f", reader, "-t", "json", capture=True, input=md))
