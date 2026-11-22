@@ -43,11 +43,15 @@ function Pandoc(doc)
         d.content[1] = t
       elseif d.classes:includes("equation") then
         local p = d.content[1]
-        if #d.content ~= 1 or p.t ~= "Para" or #p.content ~= 1 or p.content[1].t ~= "Math" then
+        if #d.content ~= 1 or p.t ~= "Para" or #p.content == 0 then
           error("Expected one display formula in " .. d.identifier)
         end
         p.content:insert(pandoc.Space())
-        p.content:insert(pandoc.Str(label(d.identifier,"eq")))
+        local number = pandoc.Str(label(d.identifier,"eq"))
+        if FORMAT == "docx" then
+          number = pandoc.Span({number}, {["custom-style"]="Equation Number"})
+        end
+        p.content:insert(number)
         d.content[1] = p
         d.attributes["custom-style"] = "equation"
       end

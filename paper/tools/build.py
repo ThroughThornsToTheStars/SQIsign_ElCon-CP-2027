@@ -113,9 +113,9 @@ def build():
     md = "\n\n".join(p.read_text() for p in map(Path, sources))
     if cfg["authors"] and (len(cfg["authors"]) != 2 or any(
             not isinstance(a, dict) or not all(isinstance(a.get(k), str) and a[k].strip()
-            for k in ("name", "department", "organization", "location", "contact")) for a in cfg["authors"])):
-        raise ValueError("Supply five nonempty author fields per record, or leave authors: [] for a proof.")
-    if not cfg["authors"] or not cfg["keywords"]:
+            for k in ("name", "organization", "location", "contact")) for a in cfg["authors"])):
+        raise ValueError("Supply names, organizations, locations and contacts for both authors, or leave authors empty for a proof.")
+    if not cfg["authors"] or any(not a.get("department") for a in cfg["authors"]) or not cfg["keywords"]:
         print("PRELIMINARY: author metadata or keywords pending.")
     tools = ["pandoc", "soffice", "pdfinfo", "pdftoppm", "pdftotext", "fc-match"]
     missing = [tool for tool in tools if not shutil.which(tool)]

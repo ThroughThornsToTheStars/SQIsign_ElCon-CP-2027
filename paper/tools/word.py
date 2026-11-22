@@ -51,6 +51,8 @@ def author_row(authors):
         cell.append(p)
         props(p).append(node("jc", val="center"))
         for field in ("name", "department", "organization", "location", "contact"):
+            if not author.get(field):
+                continue
             r = node("r")
             fmt = node("rPr")
             fmt.append(node("rFonts", ascii="Times New Roman", hAnsi="Times New Roman"))
@@ -79,6 +81,9 @@ def fit_table(table, width):
         return  # retain Pandoc's grid for spanned cells
     weights = [max(4, max(len(token) for cell in col for token in (text(cell).split() or [""]))) + 2
                for col in zip(*cells)]
+    for i, column in enumerate(zip(*cells)):
+        if text(column[0]).startswith("RSS / HWM"):
+            weights[i] = max(weights[i], len("3192 / 3212") + 2)
     widths = [round(width*w/sum(weights)) for w in weights]
     widths[-1] += width - sum(widths)
     for col, value in zip(cols, widths):
@@ -149,6 +154,7 @@ def apply(reference, generated, output, config):
         full_width = int(size.get(W+"w")) - int(mar.get(W+"left")) - int(mar.get(W+"right"))
         column_width = (full_width - int(body_section.find(W+"cols").get(W+"space", "360"))) // 2
         titled = False
+        subsection = 0
         for p in list(body):
             if p.tag == W+"tbl":
                 fit_table(p, full_width if columns == 1 else column_width)
@@ -179,10 +185,26 @@ def apply(reference, generated, output, config):
                     r[0].text = "Keywords—" + ", ".join(config["keywords"])
                     keywords.append(r)
                     p.addnext(keywords)
-            elif current == ids.get("equation") and p.find(".//{http://schemas.openxmlformats.org/officeDocument/2006/math}oMath") is not None:
+            elif current == ids.get("equation"):
                 width = full_width if columns == 1 else column_width
+                pr = props(p)
+                jc = pr.find(W+"jc")
+                if jc is None:
+                    jc = node("jc")
+                    pr.append(jc)
+                jc.set(W+"val", "left")
                 tabs = node("tabs")
+                eq_style = next(st for st in styles.findall(W+"style") if st.get(W+"styleId") == current)
+                for tab in eq_style.findall(W+"pPr/"+W+"tabs/"+W+"tab"):
+                    if tab.get(W+"pos") != str(width):
+                        tabs.append(node("tab", val="clear", pos=tab.get(W+"pos")))
                 tabs.append(node("tab", val="right", pos=width))
+                for run in p.iter(W+"r"):
+                    fmt = run.find(W+"rPr")
+                    if fmt is None:
+                        fmt = node("rPr")
+                        run.insert(0, fmt)
+                    fmt.append(node("rFonts", ascii="Times New Roman", hAnsi="Times New Roman", cs="Times New Roman"))
                 props(p).append(tabs)
                 for run in reversed(p.findall(W+"r")):
                     if text(run).strip().startswith("("):
@@ -192,8 +214,12 @@ def apply(reference, generated, output, config):
                 set_style(p, ids["heading 5"])
             elif current == ids.get("heading 2") or current == "Heading2":
                 set_style(p, ids["heading 1"])
+                subsection = 0
             elif current == ids.get("heading 3") or current == "Heading3":
                 set_style(p, ids["heading 2"])
+                first_text = next(p.iter(W+"t"))
+                first_text.text = chr(ord("A") + subsection) + ".  " + (first_text.text or "")
+                subsection += 1
             elif current in ("Caption", "ImageCaption", "TableCaption") or val.startswith(("Fig. ", "Table ")):
                 set_style(p, ids["figure caption" if val.startswith("Fig.") else "table head"])
             elif current == "Bibliography":
@@ -202,7 +228,7 @@ def apply(reference, generated, output, config):
                 set_style(p, ids["body text"])
             # Template headings, captions and references have their own list
             # numbering. The source/CSL already supplies the visible numbers.
-            if (val.startswith(("Fig. ", "Table ", "[")) or
+            if (current in ("Heading3", ids.get("heading 3")) or val.startswith(("Fig. ", "Table ", "[")) or
                 (current in ("Heading2", ids.get("heading 2")) and val.split(". ")[0] in
                  ("I","II","III","IV","V","VI","VII","VIII","IX","X"))):
                 pr = props(p)
